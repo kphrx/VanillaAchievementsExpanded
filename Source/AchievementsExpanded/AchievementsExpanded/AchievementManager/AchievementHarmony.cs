@@ -87,10 +87,10 @@ namespace AchievementsExpanded
 					nameof(SingleLongTickTracker)));
 
 				/* Debug Actions register in menu */
-				harmony.Patch(original: AccessTools.Method(typeof(Dialog_DebugActionsMenu), "GenerateCacheForMethod"),
+				harmony.Patch(original: AccessTools.Method(typeof(DebugTabMenu_Output), "GenerateCacheForMethod"),
 					prefix: new HarmonyMethod(typeof(DebugActionsSetup), 
 					nameof(DebugActionsSetup.GenerateCacheForVAEDebugActions)));
-				harmony.Patch(original: AccessTools.Constructor(typeof(Dialog_DebugActionsMenu)),
+				harmony.Patch(original: AccessTools.Constructor(typeof(DebugTabMenu_Output)),
 					prefix: new HarmonyMethod(typeof(DebugActionsSetup),
 					nameof(DebugActionsSetup.ClearCachedActions)));
 
