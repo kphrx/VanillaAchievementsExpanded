@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>AchievementsExpanded</id>
-    <version>1.3.7862</version>
+    <version>1.4.8315</version>
     <title>Vanilla Achievements Expanded</title>
     <authors>Smash Phil, Oskar Potocki</authors>
 	<owners />
@@ -11,7 +11,7 @@
     <projectUrl>https://github.com/AndroidQuazar/VanillaAchievementsExpanded</projectUrl>
     <icon>vaeIcon.png</icon>
     <description>Vanilla Achievements Expanded modding tool</description>
-    <releaseNotes>Additional load order check. Bugfix for non Achievements users.</releaseNotes>
+    <releaseNotes>Update for changes made in RimWorld v1.4.3509 rev470</releaseNotes>
     <copyright>Copyright 2020</copyright>
     <tags>rimworld vanilla achievements expanded</tags>
   </metadata>
