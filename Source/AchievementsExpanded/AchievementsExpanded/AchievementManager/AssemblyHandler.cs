@@ -28,12 +28,12 @@ namespace AchievementsExpanded
 		{
 			if (UtilityMethods.BaseModActive)
 			{
-				CheckAchievementVersions();
+				//CheckAchievementVersions();
 			}
-			achievementDefTypes = new HashSet<Type>();
-			harmony.Patch(original: AccessTools.Method(typeof(GenDefDatabase), nameof(GenDefDatabase.AllDefTypesWithDatabases)),
-				postfix: new HarmonyMethod(typeof(AssemblyHandler),
-				nameof(DuplicateDefTypesPassthrough)));
+			//achievementDefTypes = new HashSet<Type>();
+			//harmony.Patch(original: AccessTools.Method(typeof(GenDefDatabase), nameof(GenDefDatabase.AllDefTypesWithDatabases)),
+			//	postfix: new HarmonyMethod(typeof(AssemblyHandler),
+			//	nameof(DuplicateDefTypesPassthrough)));
 		}
 
 		private static IEnumerable<Type> DuplicateDefTypesPassthrough(IEnumerable<Type> __result)

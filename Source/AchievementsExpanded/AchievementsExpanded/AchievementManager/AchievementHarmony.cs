@@ -26,8 +26,8 @@ namespace AchievementsExpanded
 
 		static AchievementHarmony()
 		{
-			AchievementsMMD = ModLister.GetActiveModWithIdentifier(modIdentifier);
-
+			AchievementsMMD = ModLister.GetActiveModWithIdentifier(modIdentifier, ignorePostfix: true);
+			
 			Version version = Assembly.GetExecutingAssembly().GetName().Version;
 			CurrentVersion = $"{version.Major}.{version.Minor}.{version.Build}";
 			Log.Message($"{AchievementPointManager.AchievementTag} version {CurrentVersion}");
