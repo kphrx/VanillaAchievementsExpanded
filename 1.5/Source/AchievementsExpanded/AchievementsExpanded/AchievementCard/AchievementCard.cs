@@ -91,7 +91,7 @@ namespace AchievementsExpanded
 				unlocked = true;
 
 				var vector = Find.WorldGrid.LongLatOf(Find.CurrentMap.Tile);
-				dateUnlocked = (Prefs.DevMode || debugTools) ? "UnlockedDevMode".Translate().ToString() : GenDate.DateReadoutStringAt(Find.TickManager.TicksAbs, vector);
+				dateUnlocked = GenDate.DateReadoutStringAt(Find.TickManager.TicksAbs, vector);
 
 				Current.Game.GetComponent<AchievementPointManager>().AddPoints(def.points);
 				DefDatabase<SoundDef>.GetNamed("LetterArrive_Good").PlayOneShotOnCamera();

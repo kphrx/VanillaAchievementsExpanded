@@ -1,0 +1,611 @@
+Vanilla Achievements Expanded
+This log is for logging Tracker information and Event triggers only.
+
+Generating Achievement Links...
+
+Trigger Event called for PawnJoinedTracker_8116
+Tracker Type: AchievementsExpanded.RaceDefTracker
+Param 1: null
+Race: Human Count: 7
+Require all in list: True
+Card: iWillSurvive
+
+Trigger Event called for PawnJoinedTracker_8117
+Tracker Type: AchievementsExpanded.RaceDefTracker
+Param 1: null
+Race: Human Count: 12
+Require all in list: True
+Card: imStillStanding
+
+Trigger Event called for PawnJoinedTracker_8118
+Tracker Type: AchievementsExpanded.RaceDefTracker
+Param 1: null
+Race: Human Count: 18
+Require all in list: True
+Card: imASurvivor
+
+Trigger Event called for PawnJoinedTracker_8119
+Tracker Type: AchievementsExpanded.RaceDefTracker
+Param 1: null
+Race: Human Count: 33
+Require all in list: True
+Card: aintNoStoppingUsNow
+
+Trigger Event called for ItemTracker_8130
+Tracker Type: AchievementsExpanded.ItemTracker
+Def: AIPersonaCore
+Count: 1
+Card: oneStepCloser
+
+Trigger Event called for ItemTracker_8132
+Tracker Type: AchievementsExpanded.ItemTracker
+Def: Gold
+Count: 5000
+Card: midas
+
+Trigger Event called for ItemTracker_8133
+Tracker Type: AchievementsExpanded.ItemTracker
+Def: SmokeleafLeaves
+Count: 420
+Card: fourtwentyblazeIt
+
+Trigger Event called for ItemTracker_8134
+Tracker Type: AchievementsExpanded.ItemTracker
+Def: Meat_Human
+Count: 100
+Card: silenceOfTheLambs
+
+Trigger Event called for PawnJoinedTracker_8144
+Tracker Type: AchievementsExpanded.KindDefTracker
+Param 1: null
+Kind: Pig Count: 3
+Kind: Wolf_Timber Count: 1
+Require all in list: True
+Card: threeLittlePigs
+
+Trigger Event called for PawnJoinedTracker_8145
+Tracker Type: AchievementsExpanded.KindDefTracker
+Param 1: null
+Kind: Goose Count: 20
+Require all in list: True
+Card: lookAtAllThoseChickens
+
+Trigger Event called for PawnJoinedTracker_8146
+Tracker Type: AchievementsExpanded.KindDefTracker
+Param 1: null
+Kind: Boomalope Count: 8
+Require all in list: True
+Card: sustainableFuelSource
+
+Trigger Event called for PawnJoinedTracker_8147
+Tracker Type: AchievementsExpanded.KindDefTracker
+Param 1: null
+Kind: Muffalo Count: 12
+Require all in list: True
+Card: muffaloRancher
+
+Trigger Event called for PawnJoinedTracker_8148
+Tracker Type: AchievementsExpanded.KindDefTracker
+Param 1: null
+Kind: Muffalo Count: 1
+Kind: Gazelle Count: 1
+Kind: Iguana Count: 1
+Kind: Dromedary Count: 1
+Kind: Bear_Grizzly Count: 1
+Kind: Bear_Polar Count: 1
+Kind: Cougar Count: 1
+Kind: Panther Count: 1
+Kind: Lynx Count: 1
+Kind: Cassowary Count: 1
+Kind: Emu Count: 1
+Kind: Ostrich Count: 1
+Kind: Turkey Count: 1
+Kind: Chicken Count: 1
+Kind: Pig Count: 1
+Kind: Cow Count: 1
+Kind: Alpaca Count: 1
+Kind: Duck Count: 1
+Kind: Bison Count: 1
+Kind: Goat Count: 1
+Kind: Goose Count: 1
+Kind: Sheep Count: 1
+Kind: Horse Count: 1
+Kind: Yak Count: 1
+Kind: GuineaPig Count: 1
+Kind: Donkey Count: 1
+Kind: Rhinoceros Count: 1
+Kind: Elephant Count: 1
+Kind: Megasloth Count: 1
+Kind: Thrumbo Count: 1
+Kind: Hare Count: 1
+Kind: Snowhare Count: 1
+Kind: YorkshireTerrier Count: 1
+Kind: Husky Count: 1
+Kind: LabradorRetriever Count: 1
+Kind: Cat Count: 1
+Kind: Squirrel Count: 1
+Kind: Alphabeaver Count: 1
+Kind: Capybara Count: 1
+Kind: Chinchilla Count: 1
+Kind: Boomrat Count: 1
+Kind: Raccoon Count: 1
+Kind: Rat Count: 1
+Kind: Deer Count: 1
+Kind: Ibex Count: 1
+Kind: Elk Count: 1
+Kind: Caribou Count: 1
+Kind: WildBoar Count: 1
+Kind: Tortoise Count: 1
+Kind: Cobra Count: 1
+Kind: Monkey Count: 1
+Kind: Boomalope Count: 1
+Kind: Warg Count: 1
+Kind: Wolf_Timber Count: 1
+Kind: Wolf_Arctic Count: 1
+Kind: Fox_Fennec Count: 1
+Kind: Fox_Red Count: 1
+Kind: Fox_Arctic Count: 1
+Require all in list: True
+Card: arkHalfFull
+
+Trigger Event called for PawnJoinedTracker_8149
+Tracker Type: AchievementsExpanded.KindDefTracker
+Param 1: null
+Kind: Thrumbo Count: 1
+Require all in list: True
+Card: gentleGiant
+
+Trigger Event called for RecordEventTracker_8158
+Tracker Type: AchievementsExpanded.RecordEventTracker
+Param 1: Headshots Param 2: Mie
+Def: Headshots
+Count: 100
+Card: OneShotOneKill
+
+Trigger Event called for RecordEventTracker_8158
+Tracker Type: AchievementsExpanded.RecordEventTracker
+Param 1: Headshots Param 2: Mila
+Def: Headshots
+Count: 100
+Card: OneShotOneKill
+
+Trigger Event called for RecordEventTracker_8158
+Tracker Type: AchievementsExpanded.RecordEventTracker
+Param 1: Headshots Param 2: Queen
+Def: Headshots
+Count: 100
+Card: OneShotOneKill
+
+Trigger Event called for RecordEventTracker_8158
+Tracker Type: AchievementsExpanded.RecordEventTracker
+Param 1: Headshots Param 2: Husky3351
+Def: Headshots
+Count: 100
+Card: OneShotOneKill
+
+Trigger Event called for RecordEventTracker_8159
+Tracker Type: AchievementsExpanded.RecordEventTracker
+Param 1: ShotsFired Param 2: Mie
+Def: ShotsFired
+Count: 2000
+Card: TriggerHappy
+
+Trigger Event called for RecordEventTracker_8159
+Tracker Type: AchievementsExpanded.RecordEventTracker
+Param 1: ShotsFired Param 2: Mila
+Def: ShotsFired
+Count: 2000
+Card: TriggerHappy
+
+Trigger Event called for RecordEventTracker_8159
+Tracker Type: AchievementsExpanded.RecordEventTracker
+Param 1: ShotsFired Param 2: Queen
+Def: ShotsFired
+Count: 2000
+Card: TriggerHappy
+
+Trigger Event called for RecordEventTracker_8159
+Tracker Type: AchievementsExpanded.RecordEventTracker
+Param 1: ShotsFired Param 2: Husky3351
+Def: ShotsFired
+Count: 2000
+Card: TriggerHappy
+
+Trigger Event called for RecordEventTracker_8160
+Tracker Type: AchievementsExpanded.RecordEventTracker
+Param 1: PlantsSown Param 2: Mie
+Def: PlantsSown
+Count: 10000
+Card: OneSolidGardner
+
+Trigger Event called for RecordEventTracker_8160
+Tracker Type: AchievementsExpanded.RecordEventTracker
+Param 1: PlantsSown Param 2: Mila
+Def: PlantsSown
+Count: 10000
+Card: OneSolidGardner
+
+Trigger Event called for RecordEventTracker_8160
+Tracker Type: AchievementsExpanded.RecordEventTracker
+Param 1: PlantsSown Param 2: Queen
+Def: PlantsSown
+Count: 10000
+Card: OneSolidGardner
+
+Trigger Event called for RecordEventTracker_8160
+Tracker Type: AchievementsExpanded.RecordEventTracker
+Param 1: PlantsSown Param 2: Husky3351
+Def: PlantsSown
+Count: 10000
+Card: OneSolidGardner
+
+Trigger Event called for RecordTimeTracker_8161
+Tracker Type: AchievementsExpanded.RecordTimeTracker
+Param 1: TimeAsPrisoner Param 2: Mie Param 3: 0
+Def: TimeAsPrisoner
+Count: 7200000
+Total: False
+Card: LifeSentence
+
+Trigger Event called for RecordTimeTracker_8161
+Tracker Type: AchievementsExpanded.RecordTimeTracker
+Param 1: TimeAsPrisoner Param 2: Mila Param 3: 0
+Def: TimeAsPrisoner
+Count: 7200000
+Total: False
+Card: LifeSentence
+
+Trigger Event called for RecordTimeTracker_8161
+Tracker Type: AchievementsExpanded.RecordTimeTracker
+Param 1: TimeAsPrisoner Param 2: Queen Param 3: 0
+Def: TimeAsPrisoner
+Count: 7200000
+Total: False
+Card: LifeSentence
+
+Trigger Event called for RecordTimeTracker_8161
+Tracker Type: AchievementsExpanded.RecordTimeTracker
+Param 1: TimeAsPrisoner Param 2: Husky3351 Param 3: 0
+Def: TimeAsPrisoner
+Count: 7200000
+Total: False
+Card: LifeSentence
+
+Trigger Event called for RecordTimeTracker_8162
+Tracker Type: AchievementsExpanded.RecordTimeTracker
+Param 1: TimeInMentalState Param 2: Mie Param 3: 0
+Def: TimeInMentalState
+Count: 60000
+Total: False
+Card: IMightNeedAShrink
+
+Trigger Event called for RecordTimeTracker_8162
+Tracker Type: AchievementsExpanded.RecordTimeTracker
+Param 1: TimeInMentalState Param 2: Mila Param 3: 0
+Def: TimeInMentalState
+Count: 60000
+Total: False
+Card: IMightNeedAShrink
+
+Trigger Event called for RecordTimeTracker_8162
+Tracker Type: AchievementsExpanded.RecordTimeTracker
+Param 1: TimeInMentalState Param 2: Queen Param 3: 0
+Def: TimeInMentalState
+Count: 60000
+Total: False
+Card: IMightNeedAShrink
+
+Trigger Event called for RecordTimeTracker_8162
+Tracker Type: AchievementsExpanded.RecordTimeTracker
+Param 1: TimeInMentalState Param 2: Husky3351 Param 3: 0
+Def: TimeInMentalState
+Count: 60000
+Total: False
+Card: IMightNeedAShrink
+
+Trigger Event called for RecordEventTracker_8163
+Tracker Type: AchievementsExpanded.RecordEventTracker
+Param 1: AnimalsTamed Param 2: Mie
+Def: AnimalsTamed
+Count: 50
+Card: DrDolittle
+
+Trigger Event called for RecordEventTracker_8163
+Tracker Type: AchievementsExpanded.RecordEventTracker
+Param 1: AnimalsTamed Param 2: Mila
+Def: AnimalsTamed
+Count: 50
+Card: DrDolittle
+
+Trigger Event called for RecordEventTracker_8163
+Tracker Type: AchievementsExpanded.RecordEventTracker
+Param 1: AnimalsTamed Param 2: Queen
+Def: AnimalsTamed
+Count: 50
+Card: DrDolittle
+
+Trigger Event called for RecordEventTracker_8163
+Tracker Type: AchievementsExpanded.RecordEventTracker
+Param 1: AnimalsTamed Param 2: Husky3351
+Def: AnimalsTamed
+Count: 50
+Card: DrDolittle
+
+Trigger Event called for RecordEventTracker_8164
+Tracker Type: AchievementsExpanded.RecordEventTracker
+Param 1: BodiesStripped Param 2: Mie
+Def: BodiesStripped
+Count: 100
+Card: ProfessionalStripper
+
+Trigger Event called for RecordEventTracker_8164
+Tracker Type: AchievementsExpanded.RecordEventTracker
+Param 1: BodiesStripped Param 2: Mila
+Def: BodiesStripped
+Count: 100
+Card: ProfessionalStripper
+
+Trigger Event called for RecordEventTracker_8164
+Tracker Type: AchievementsExpanded.RecordEventTracker
+Param 1: BodiesStripped Param 2: Queen
+Def: BodiesStripped
+Count: 100
+Card: ProfessionalStripper
+
+Trigger Event called for RecordEventTracker_8164
+Tracker Type: AchievementsExpanded.RecordEventTracker
+Param 1: BodiesStripped Param 2: Husky3351
+Def: BodiesStripped
+Count: 100
+Card: ProfessionalStripper
+
+Trigger Event called for RecordEventTracker_8165
+Tracker Type: AchievementsExpanded.RecordEventTracker
+Param 1: KillsMechanoids Param 2: Mie
+Def: KillsMechanoids
+Count: 50
+Card: BladeRunner
+
+Trigger Event called for RecordEventTracker_8165
+Tracker Type: AchievementsExpanded.RecordEventTracker
+Param 1: KillsMechanoids Param 2: Mila
+Def: KillsMechanoids
+Count: 50
+Card: BladeRunner
+
+Trigger Event called for RecordEventTracker_8165
+Tracker Type: AchievementsExpanded.RecordEventTracker
+Param 1: KillsMechanoids Param 2: Queen
+Def: KillsMechanoids
+Count: 50
+Card: BladeRunner
+
+Trigger Event called for RecordEventTracker_8165
+Tracker Type: AchievementsExpanded.RecordEventTracker
+Param 1: KillsMechanoids Param 2: Husky3351
+Def: KillsMechanoids
+Count: 50
+Card: BladeRunner
+
+Trigger Event called for RecordEventTracker_8166
+Tracker Type: AchievementsExpanded.RecordEventTracker
+Param 1: MealsCooked Param 2: null
+Def: MealsCooked
+Count: 10000
+Card: ThreeStarMichelin
+
+Trigger Event called for RecordEventTracker_8167
+Tracker Type: AchievementsExpanded.RecordEventTracker
+Param 1: OperationsPerformed Param 2: null
+Def: OperationsPerformed
+Count: 50
+Card: ScrubUp
+
+Trigger Event called for RecordTimeTracker_8168
+Tracker Type: AchievementsExpanded.RecordTimeTracker
+Param 1: TimeResearching Param 2: null Param 3: 0
+Def: TimeResearching
+Count: 7200000
+Total: True
+Card: TheRimsBrightest
+
+Trigger Event called for RecordTimeTracker_8170
+Tracker Type: AchievementsExpanded.RecordTimeTracker
+Param 1: TimeOnFire Param 2: Mie Param 3: 0
+Def: TimeOnFire
+Count: 180000
+Total: False
+Card: ImOnFire
+
+Trigger Event called for RecordTimeTracker_8170
+Tracker Type: AchievementsExpanded.RecordTimeTracker
+Param 1: TimeOnFire Param 2: Mila Param 3: 0
+Def: TimeOnFire
+Count: 180000
+Total: False
+Card: ImOnFire
+
+Trigger Event called for RecordTimeTracker_8170
+Tracker Type: AchievementsExpanded.RecordTimeTracker
+Param 1: TimeOnFire Param 2: Queen Param 3: 0
+Def: TimeOnFire
+Count: 180000
+Total: False
+Card: ImOnFire
+
+Trigger Event called for RecordTimeTracker_8170
+Tracker Type: AchievementsExpanded.RecordTimeTracker
+Param 1: TimeOnFire Param 2: Husky3351 Param 3: 0
+Def: TimeOnFire
+Count: 180000
+Total: False
+Card: ImOnFire
+
+Trigger Event called for SkillTracker_8175
+Tracker Type: AchievementsExpanded.SkillTracker
+Param 1: Shooting Param 2: 8
+Skill: Shooting
+Level: 20
+Count: 1
+Current: 0
+Card: sharpshooter
+
+Trigger Event called for SkillTracker_8175
+Tracker Type: AchievementsExpanded.SkillTracker
+Param 1: Shooting Param 2: 0
+Skill: Shooting
+Level: 20
+Count: 1
+Current: 0
+Card: sharpshooter
+
+Trigger Event called for SkillTracker_8175
+Tracker Type: AchievementsExpanded.SkillTracker
+Param 1: Shooting Param 2: 8
+Skill: Shooting
+Level: 20
+Count: 1
+Current: 0
+Card: sharpshooter
+
+Trigger Event called for SkillTracker_8176
+Tracker Type: AchievementsExpanded.SkillTracker
+Param 1: Social Param 2: 5
+Skill: Social
+Level: 20
+Count: 1
+Current: 0
+Card: mrPresident
+
+Trigger Event called for SkillTracker_8176
+Tracker Type: AchievementsExpanded.SkillTracker
+Param 1: Social Param 2: 4
+Skill: Social
+Level: 20
+Count: 1
+Current: 0
+Card: mrPresident
+
+Trigger Event called for SkillTracker_8176
+Tracker Type: AchievementsExpanded.SkillTracker
+Param 1: Social Param 2: 0
+Skill: Social
+Level: 20
+Count: 1
+Current: 0
+Card: mrPresident
+
+Trigger Event called for SkillTracker_8177
+Tracker Type: AchievementsExpanded.SkillTracker
+Param 1: Melee Param 2: 4
+Skill: Melee
+Level: 20
+Count: 1
+Current: 0
+Card: conanTheBarbarian
+
+Trigger Event called for SkillTracker_8177
+Tracker Type: AchievementsExpanded.SkillTracker
+Param 1: Melee Param 2: 0
+Skill: Melee
+Level: 20
+Count: 1
+Current: 0
+Card: conanTheBarbarian
+
+Trigger Event called for SkillTracker_8177
+Tracker Type: AchievementsExpanded.SkillTracker
+Param 1: Melee Param 2: 0
+Skill: Melee
+Level: 20
+Count: 1
+Current: 0
+Card: conanTheBarbarian
+
+Trigger Event called for TimeTracker_8178
+Tracker Type: AchievementsExpanded.TimeTracker
+Ticks: 900000
+Require unpaused to Tick: True
+Current Abs: 0 Current Game: 0
+Card: couldBeWorse
+
+Trigger Event called for TimeTracker_8179
+Tracker Type: AchievementsExpanded.TimeTracker
+Ticks: 3600000
+Require unpaused to Tick: True
+Current Abs: 0 Current Game: 0
+Card: itsAllDownhillFromHere
+
+Trigger Event called for TimeTracker_8180
+Tracker Type: AchievementsExpanded.TimeTracker
+Ticks: 2160000
+Require unpaused to Tick: False
+Current Abs: 0 Current Game: 0
+Card: tenHoursWoah
+
+Trigger Event called for TimeTracker_8181
+Tracker Type: AchievementsExpanded.TimeTracker
+Ticks: 21600000
+Require unpaused to Tick: False
+Current Abs: 0 Current Game: 0
+Card: waitAMinute
+
+Trigger Event called for WealthTracker_8185
+Tracker Type: AchievementsExpanded.WealthTracker
+Wealth: 100000
+Card: inForAPenny
+
+Trigger Event called for WealthTracker_8186
+Tracker Type: AchievementsExpanded.WealthTracker
+Wealth: 1000000
+Card: inForAPound
+
+Trigger Event called for ItemTracker_8192
+Tracker Type: AchievementsExpanded.ItemTracker
+Def: VCE_Cheese
+Count: 1
+Card: VCE_AchievementBonFromage
+
+Trigger Event called for ItemTracker_8194
+Tracker Type: AchievementsExpanded.ItemTracker
+Def: VCE_RuinedSimpleGrill
+Count: 30
+Card: VCE_AchievementRefrigerationFailure
+
+Trigger Event called for PlantTracker_8200
+Tracker Type: AchievementsExpanded.PlantTracker
+Def: VCE_Wheat
+Count: 100
+Card: VCE_AchievementHarvestWheat
+
+Trigger Event called for PlantTracker_8201
+Tracker Type: AchievementsExpanded.PlantTracker
+Def: VCE_Sugarcane
+Count: 100
+Card: VCE_AchievementSugarDaddy
+
+Trigger Event called for ItemTracker_8203
+Tracker Type: AchievementsExpanded.ItemTracker
+Def: VCE_InsectJellyPreserves
+Count: 100
+Card: VCE_AchievementInsectGourmet
+
+Trigger Event called for ItemTracker_8204
+Tracker Type: AchievementsExpanded.ItemTracker
+Def: VCE_Cheese
+Count: 200
+Card: VCE_AchievementTheCheesemaker
+
+Trigger Event called for MoodTracker_8154
+Tracker Type: AchievementsExpanded.MoodTracker
+Param 1: 50
+Requires mood to be: Above
+Average: 0.9
+Card: aHappyEnding
+
+Trigger Event called for MoodTracker_8155
+Tracker Type: AchievementsExpanded.MoodTracker
+Param 1: 50
+Requires mood to be: Below
+Average: 0.05
+Card: areYouNotEntertained
