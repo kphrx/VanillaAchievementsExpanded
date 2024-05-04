@@ -100,8 +100,10 @@
     <Compile Include="Rewards\Reward_RandomQuest.cs" />
     <Compile Include="Rewards\Reward_RandomEvent.cs" />
     <Compile Include="Rewards\Reward_RandomQuestItem.cs" />
+    <Compile Include="Tracker\Building\MultipleBuildingTracker.cs" />
     <Compile Include="Tracker\Kill\BondedAnimalOnFireKillTracker.cs" />
     <Compile Include="Tracker\Kill\KillTrackerWithOr.cs" />
+    <Compile Include="Tracker\Misc\PlantTracker.cs" />
     <Compile Include="Tracker\PawnJoined\PawnJoinedTracker.cs" />
     <Compile Include="Tracker\PawnJoined\KindDefTracker.cs" />
     <Compile Include="Tracker\StatsAndRecords\RecordEventTracker.cs" />

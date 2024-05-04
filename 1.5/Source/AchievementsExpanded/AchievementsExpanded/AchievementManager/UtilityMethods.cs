@@ -154,7 +154,7 @@ namespace AchievementsExpanded
 		/// <param name="thingDef"></param>
 		/// <param name="count"></param>
 		/// <returns></returns>
-		public static bool PlayerHas(ThingDef thingDef, out int total, int count = 1)
+		public static bool PlayerHas(ThingDef thingDef, bool withQuality,QualityCategory quality,out int total, int count = 1)
 		{
 			if (count <= 0)
 			{
@@ -165,7 +165,23 @@ namespace AchievementsExpanded
 			List<Map> maps = Find.Maps;
 			for (int i = 0; i < maps.Count; i++)
 			{
-				num += maps[i].listerThings.ThingsOfDef(thingDef).Sum(t => t.stackCount);
+				if (withQuality)
+				{
+                    List<Thing> thingsList = maps[i].listerThings.ThingsOfDef(thingDef);
+                    foreach (Thing thing in thingsList)
+                    {                      
+                        if (thing.TryGetComp<CompQuality>() is CompQuality qualityComp &&
+                            qualityComp.Quality == quality)
+                        {
+                            num += thing.stackCount;
+                        }
+                    }
+                }
+				else
+				{
+                    num += maps[i].listerThings.ThingsOfDef(thingDef).Sum(t => t.stackCount);
+                }
+				
 				if (num >= count)
 				{
 					total = num;
@@ -183,8 +199,17 @@ namespace AchievementsExpanded
 					{
 						if (list[k].def == thingDef)
 						{
-							num += list[k].stackCount;
-							total += num;
+
+							if (!withQuality || (withQuality && list[k].TryGetComp<CompQuality>() is CompQuality qualityComp &&
+                            qualityComp.Quality == quality))
+							{
+                               
+                                num += list[k].stackCount;
+                                total += num;
+                            }
+                            
+
+
 							if (num >= count)
 							{
 								return true;

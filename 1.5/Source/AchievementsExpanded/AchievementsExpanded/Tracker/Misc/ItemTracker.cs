@@ -14,6 +14,8 @@ namespace AchievementsExpanded
 		public int count = 1;
         Dictionary<ThingDef, int> thingList = new Dictionary<ThingDef, int>();
 		public bool mustHaveAll = false;
+		public bool considerQuality = false;
+		public QualityCategory quality = QualityCategory.Normal;
 
         [Unsaved]
 		protected int triggeredCount; //Only for display
@@ -33,6 +35,8 @@ namespace AchievementsExpanded
 			count = reference.count;
             thingList = reference.thingList;
 			mustHaveAll = reference.mustHaveAll;
+			considerQuality = reference.considerQuality;
+            quality =reference.quality;
         }
 
 		public override bool UnlockOnStartup => Trigger();
@@ -43,6 +47,8 @@ namespace AchievementsExpanded
 			Scribe_Defs.Look(ref def, "def");
 			Scribe_Values.Look(ref count, "count", 1);
             Scribe_Values.Look(ref mustHaveAll, "mustHaveAll", false);
+            Scribe_Values.Look(ref considerQuality, "considerQuality", false);
+            Scribe_Values.Look(ref quality, "quality", QualityCategory.Normal);
             Scribe_Collections.Look(ref thingList, "thingList", LookMode.Def, LookMode.Value);
         }
 
@@ -55,7 +61,9 @@ namespace AchievementsExpanded
                 bool playerHasIt = false;
                 foreach (KeyValuePair<ThingDef, int> set in thingList)
                 {
-                    playerHasIt = UtilityMethods.PlayerHas(set.Key, out int total, count);
+					
+                    playerHasIt = UtilityMethods.PlayerHas(set.Key, considerQuality, quality, out int total, count);
+                                     
 					if (mustHaveAll)
 					{
                         if (!playerHasIt) { break; }
@@ -66,7 +74,7 @@ namespace AchievementsExpanded
                 return playerHasIt;
 
             } else { 
-				return UtilityMethods.PlayerHas(def, out triggeredCount, count);
+				return UtilityMethods.PlayerHas(def, considerQuality, quality, out triggeredCount, count);
 			}
 
 			

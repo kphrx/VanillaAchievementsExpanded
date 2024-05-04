@@ -410,8 +410,8 @@ namespace AchievementsExpanded
 		/// <param name="rot"></param>
 		/// <param name="wipeMode"></param>
 		/// <param name="respawningAfterLoad"></param>
-		public static void ThingBuildingSpawned(Thing newThing, IntVec3 loc, Map map, Rot4 rot, WipeMode wipeMode = WipeMode.Vanish, bool respawningAfterLoad = false)
-		{
+		public static void ThingBuildingSpawned(Thing newThing, IntVec3 loc, Map map, Rot4 rot, WipeMode wipeMode = WipeMode.Vanish, bool respawningAfterLoad = false, bool forbidLeavings = false)
+        {
 			if (newThing is Building building && building.Faction == Faction.OfPlayer && Current.ProgramState == ProgramState.Playing)
 			{
 				foreach(var card in AchievementPointManager.GetCards<BuildingTracker>())
@@ -513,14 +513,49 @@ namespace AchievementsExpanded
 			}
 		}
 
-		/// <summary>
-		/// SettlementDefeated Event
-		/// </summary>
-		/// <param name="map"></param>
-		/// <param name="faction"></param>
-		/// <param name="__result"></param>
-		/// <remarks>Only trigger on success</remarks>
-		public static void SettlementDefeatedEvent(Map map, Faction faction, ref bool __result)
+
+        /// <summary>
+        /// Plant Harvested Event
+        /// </summary>
+        /// <param name="__instance"></param>
+       
+        public static void CheckPlantHarvested(Plant __instance)
+        {
+
+			if (__instance is Plant plant && Current.ProgramState == ProgramState.Playing)
+			{
+				foreach (var card in AchievementPointManager.GetCards<PlantTracker>())
+				{
+					try
+					{
+
+						if ((card.tracker as PlantTracker).Trigger(plant))
+						{
+							card.UnlockCard();
+						}
+					}
+
+					catch (Exception ex)
+					{
+						Log.Error($"Unable to trigger event for card validation. To avoid further errors {card.def.LabelCap} has been automatically unlocked.\n\nException={ex.Message}");
+						card.UnlockCard();
+					}
+
+
+				}
+			}
+
+           
+        }
+
+        /// <summary>
+        /// SettlementDefeated Event
+        /// </summary>
+        /// <param name="map"></param>
+        /// <param name="faction"></param>
+        /// <param name="__result"></param>
+        /// <remarks>Only trigger on success</remarks>
+        public static void SettlementDefeatedEvent(Map map, Faction faction, ref bool __result)
 		{
 			if(__result)
 			{

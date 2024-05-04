@@ -18,7 +18,7 @@ namespace AchievementsExpanded
 
 		public override string Key => "BuildingTracker";
 
-		public override MethodInfo MethodHook => AccessTools.Method(typeof(GenSpawn), nameof(GenSpawn.Spawn), new Type[] { typeof(Thing), typeof(IntVec3), typeof(Map), typeof(Rot4), typeof(WipeMode), typeof(bool) });
+		public override MethodInfo MethodHook => AccessTools.Method(typeof(GenSpawn), nameof(GenSpawn.Spawn), new Type[] { typeof(Thing), typeof(IntVec3), typeof(Map), typeof(Rot4), typeof(WipeMode), typeof(bool), typeof(bool) });
 		public override MethodInfo PatchMethod => AccessTools.Method(typeof(AchievementHarmony), nameof(AchievementHarmony.ThingBuildingSpawned));
 		protected override string[] DebugText => new string[] { $"Def: {def?.defName ?? "None"}", $"MadeFrom: {madeFrom?.defName ?? "Any"}", $"Count: {count}", $"Current: {triggeredCount}" };
 		public BuildingTracker()
