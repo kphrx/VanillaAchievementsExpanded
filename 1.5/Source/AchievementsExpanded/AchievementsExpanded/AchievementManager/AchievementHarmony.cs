@@ -261,7 +261,7 @@ namespace AchievementsExpanded
 		/// <param name="exactCulprit"></param>
 		public static bool KillThing(DamageInfo? dinfo, Thing __instance, Hediff exactCulprit = null)
 		{
-			if (__instance is Pawn pawn)
+			if (__instance is Pawn pawn && !pawn.Dead)
 			{
 				pawn.Kill(dinfo, exactCulprit);
 				return false;
