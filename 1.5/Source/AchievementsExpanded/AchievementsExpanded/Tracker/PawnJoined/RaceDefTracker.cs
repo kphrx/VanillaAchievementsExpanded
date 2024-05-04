@@ -11,6 +11,7 @@ namespace AchievementsExpanded
 	public class RaceDefTracker : PawnJoinedTracker
 	{
 		Dictionary<ThingDef, int> raceDefs = new Dictionary<ThingDef, int>();
+		public bool countTemporary = true;
 
 		protected override string[] DebugText
 		{
@@ -36,7 +37,8 @@ namespace AchievementsExpanded
 			raceDefs = reference.raceDefs;
 			if (raceDefs.EnumerableNullOrEmpty())
 				Log.Error($"raceDefs list for RaceDefTracker cannot be Null or Empty");
-		}
+            countTemporary = reference.countTemporary;
+        }
 
 		public override bool UnlockOnStartup => Trigger(null);
 
@@ -44,20 +46,31 @@ namespace AchievementsExpanded
 		{
 			base.ExposeData();
 			Scribe_Collections.Look(ref raceDefs, "raceDefs", LookMode.Def, LookMode.Value);
-		}
+            Scribe_Values.Look(ref countTemporary, "countTemporary", true);
+        }
 
 		public override bool Trigger(Pawn param)
 		{
 			base.Trigger(param);
 			bool trigger = true;
 			ThingDef raceDef = param?.def;
-			var factionPawns = PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_OfPlayerFaction;
+			List<Pawn> factionPawns;
+            if (!countTemporary)
+			{
+                 factionPawns = PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_FreeColonists_NoLodgers;
+            }
+			else {
+                 factionPawns = PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_OfPlayerFaction;
+            }
+
+                
 			if (factionPawns is null)
 				return false;
 			foreach (KeyValuePair<ThingDef, int> set in raceDefs)
 			{
 				var count = 0;
 				if (set.Key == raceDef)
+					
 					count += 1;
 				if (requireAll)
 				{

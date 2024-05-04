@@ -12,6 +12,7 @@
 					<value>7</value>
 				</li>
 			</raceDefs>
+			<countTemporary>false</countTemporary>
 		</tracker>
 		
 		<texPath>Achievements/IWillSurvive</texPath>
@@ -30,6 +31,7 @@
 					<value>12</value>
 				</li>
 			</raceDefs>
+			<countTemporary>false</countTemporary>
 		</tracker>
 		
 		<texPath>Achievements/ImStillStanding</texPath>
@@ -48,6 +50,7 @@
 					<value>18</value>
 				</li>
 			</raceDefs>
+			<countTemporary>false</countTemporary>
 		</tracker>
 		
 		<texPath>Achievements/ImASurvivor</texPath>
@@ -66,6 +69,7 @@
 					<value>33</value>
 				</li>
 			</raceDefs>
+			<countTemporary>false</countTemporary>
 		</tracker>
 		
 		<texPath>Achievements/AintNoStoppingUsNow</texPath>
