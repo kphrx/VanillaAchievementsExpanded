@@ -103,12 +103,12 @@
     <Compile Include="Tracker\Building\MultipleBuildingTracker.cs" />
     <Compile Include="Tracker\Kill\BondedAnimalOnFireKillTracker.cs" />
     <Compile Include="Tracker\Kill\KillTrackerWithOr.cs" />
-    <Compile Include="Tracker\Misc\EntitiesInHoldTracker.cs" />
-    <Compile Include="Tracker\Misc\GeneAddedTracker.cs" />
-    <Compile Include="Tracker\Misc\PlantTracker.cs" />
+    <Compile Include="Tracker\Anomaly\EntitiesInHoldTracker.cs" />
+    <Compile Include="Tracker\Biotech\GeneAddedTracker.cs" />
+    <Compile Include="Tracker\Plants\PlantTracker.cs" />
     <Compile Include="Tracker\PawnJoined\PawnJoinedTracker.cs" />
     <Compile Include="Tracker\PawnJoined\KindDefTracker.cs" />
-    <Compile Include="Tracker\PawnJoined\XenotypeDefTracker.cs" />
+    <Compile Include="Tracker\Biotech\XenotypeDefTracker.cs" />
     <Compile Include="Tracker\StatsAndRecords\RecordEventTracker.cs" />
     <Compile Include="Tracker\StatsAndRecords\RecordTimeTracker.cs" />
     <Compile Include="Tracker\StatsAndRecords\MultiRecordEventTracker.cs" />
