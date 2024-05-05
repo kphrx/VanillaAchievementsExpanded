@@ -12,13 +12,10 @@
 					<value>1</value>
 				</li>
 			</kindDefs>
-		
 		</tracker>
-		
 		<texPath>Achievements/IWillSurvive</texPath>
 		<points>5</points>
 	</AchievementsExpanded.AchievementDef>
-	
 	<AchievementsExpanded.AchievementDef>
 		<defName>VAE_ContainARevenant</defName>
 		<label>A revenant</label>
@@ -31,13 +28,10 @@
 					<value>1</value>
 				</li>
 			</entitiesList>
-		
 		</tracker>
-		
 		<texPath>Achievements/IWillSurvive</texPath>
 		<points>5</points>
 	</AchievementsExpanded.AchievementDef>
-	
 	<AchievementsExpanded.AchievementDef>
 		<defName>VAE_ContainTwoEntities</defName>
 		<label>Two entities</label>
@@ -45,12 +39,42 @@
 		<order>1</order>
 		<tracker Class="AchievementsExpanded.EntitiesInHoldTracker">
 			<totalEntities>2</totalEntities>
-		
 		</tracker>
-		
 		<texPath>Achievements/IWillSurvive</texPath>
 		<points>5</points>
 	</AchievementsExpanded.AchievementDef>
-	
-	
+	<AchievementsExpanded.AchievementDef>
+		<defName>VAE_FiveSlaves</defName>
+		<label>Five slaves</label>
+		<description>Get five slaves</description>
+		<order>1</order>
+		<tracker Class="AchievementsExpanded.RaceDefTracker">
+			<raceDefs>
+				<li>
+					<key>Human</key>
+					<value>5</value>
+				</li>
+			</raceDefs>
+			<countOnlySlaves>true</countOnlySlaves>
+		</tracker>
+		<texPath>Achievements/IWillSurvive</texPath>
+		<points>5</points>
+	</AchievementsExpanded.AchievementDef>
+	<AchievementsExpanded.AchievementDef>
+		<defName>VAE_FivePrisoners</defName>
+		<label>Five prisoners</label>
+		<description>Get five prisoners</description>
+		<order>1</order>
+		<tracker Class="AchievementsExpanded.RaceDefTracker">
+			<raceDefs>
+				<li>
+					<key>Human</key>
+					<value>5</value>
+				</li>
+			</raceDefs>
+			<countOnlyPrisoners>true</countOnlyPrisoners>
+		</tracker>
+		<texPath>Achievements/IWillSurvive</texPath>
+		<points>5</points>
+	</AchievementsExpanded.AchievementDef>
 </Defs>
