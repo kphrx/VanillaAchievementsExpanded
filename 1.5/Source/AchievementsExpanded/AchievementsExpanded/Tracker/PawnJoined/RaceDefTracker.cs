@@ -13,7 +13,7 @@ namespace AchievementsExpanded
 		Dictionary<ThingDef, int> raceDefs = new Dictionary<ThingDef, int>();
 		public bool countTemporary = true;
         public bool countOnlySlaves = false;
-        public bool countOnlyPrisoners = false;
+     
 
         protected override string[] DebugText
 		{
@@ -41,7 +41,7 @@ namespace AchievementsExpanded
 				Log.Error($"raceDefs list for RaceDefTracker cannot be Null or Empty");
             countTemporary = reference.countTemporary;
             countOnlySlaves = reference.countOnlySlaves;
-			countOnlyPrisoners = reference.countOnlyPrisoners;
+			
         }
 
 		public override bool UnlockOnStartup => Trigger(null);
@@ -52,7 +52,7 @@ namespace AchievementsExpanded
 			Scribe_Collections.Look(ref raceDefs, "raceDefs", LookMode.Def, LookMode.Value);
             Scribe_Values.Look(ref countTemporary, "countTemporary", true);
             Scribe_Values.Look(ref countOnlySlaves, "countOnlySlaves", false);
-            Scribe_Values.Look(ref countOnlyPrisoners, "countOnlyPrisoners", false);
+           
         }
 
 		public override bool Trigger(Pawn param)
@@ -65,10 +65,7 @@ namespace AchievementsExpanded
 			{
                 factionPawns = PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_SlavesOfColony;
             }
-			else if (countOnlyPrisoners)
-            {
-                factionPawns = PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_PrisonersOfColony;
-            }
+			
             else
             if (!countTemporary)
 			{
