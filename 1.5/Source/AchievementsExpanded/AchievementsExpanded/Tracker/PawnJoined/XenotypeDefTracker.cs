@@ -8,20 +8,19 @@ using HarmonyLib;
 
 namespace AchievementsExpanded
 {
-	public class RaceDefTracker : PawnJoinedTracker
+	public class XenotypeDefTracker : PawnJoinedTracker
 	{
-		Dictionary<ThingDef, int> raceDefs = new Dictionary<ThingDef, int>();
+		Dictionary<XenotypeDef, int> xenotypeDefs = new Dictionary<XenotypeDef, int>();
 		public bool countTemporary = true;
-		
 
 		protected override string[] DebugText
 		{
 			get
 			{
 				List<string> text = new List<string>();
-				foreach (var race in raceDefs)
+				foreach (var xenotype in xenotypeDefs)
 				{
-					string entry = $"Race: {race.Key?.defName ?? "None"} Count: {race.Value}";
+					string entry = $"Xenotype: {xenotype.Key?.defName ?? "None"} Count: {xenotype.Value}";
 					text.Add(entry);
 				}
 				text.Add($"Require all in list: {requireAll}");
@@ -29,15 +28,15 @@ namespace AchievementsExpanded
 			}
 		}
 
-		public RaceDefTracker()
+		public XenotypeDefTracker()
 		{
 		}
 
-		public RaceDefTracker(RaceDefTracker reference) : base(reference)
+		public XenotypeDefTracker(XenotypeDefTracker reference) : base(reference)
 		{
-			raceDefs = reference.raceDefs;
-			if (raceDefs.EnumerableNullOrEmpty())
-				Log.Error($"raceDefs list for RaceDefTracker cannot be Null or Empty");
+            xenotypeDefs = reference.xenotypeDefs;
+			if (xenotypeDefs.EnumerableNullOrEmpty())
+				Log.Error($"xenotypeDefs list for XenotypeDefTracker cannot be Null or Empty");
             countTemporary = reference.countTemporary;
         }
 
@@ -46,7 +45,7 @@ namespace AchievementsExpanded
 		public override void ExposeData()
 		{
 			base.ExposeData();
-			Scribe_Collections.Look(ref raceDefs, "raceDefs", LookMode.Def, LookMode.Value);
+			Scribe_Collections.Look(ref xenotypeDefs, "xenotypeDefs", LookMode.Def, LookMode.Value);
             Scribe_Values.Look(ref countTemporary, "countTemporary", true);
         }
 
@@ -54,7 +53,7 @@ namespace AchievementsExpanded
 		{
 			base.Trigger(param);
 			bool trigger = true;
-			ThingDef raceDef = param?.def;
+			XenotypeDef xenotypeDef = param?.genes?.Xenotype;
 			List<Pawn> factionPawns;
             if (!countTemporary)
 			{
@@ -67,15 +66,15 @@ namespace AchievementsExpanded
                 
 			if (factionPawns is null)
 				return false;
-			foreach (KeyValuePair<ThingDef, int> set in raceDefs)
+			foreach (KeyValuePair<XenotypeDef, int> set in xenotypeDefs)
 			{
 				var count = 0;
-				if (set.Key == raceDef)
+				if (set.Key == xenotypeDef)
 					
 					count += 1;
 				if (requireAll)
 				{
-					if (factionPawns.Where(f => f.def.defName == set.Key.defName).Count() + count < set.Value)
+					if (factionPawns.Where(f => f.genes?.Xenotype?.defName == set.Key.defName).Count() + count < set.Value)
 					{
 						trigger = false;
 					}
@@ -83,7 +82,7 @@ namespace AchievementsExpanded
 				else
 				{
 					trigger = false;
-					if (factionPawns.Where(f => f.def.defName == set.Key.defName).Count() + count >= set.Value)
+					if (factionPawns.Where(f => f.genes?.Xenotype?.defName == set.Key.defName).Count() + count >= set.Value)
 					{
 						return true;
 					}

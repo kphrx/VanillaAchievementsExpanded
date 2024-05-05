@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<AchievementsExpanded.AchievementDef>
+		<defName>VAE_GetAGhoul</defName>
+		<label>I Will Survive</label>
+		<description>Get a ghoul</description>
+		<order>1</order>
+		<tracker Class="AchievementsExpanded.KindDefTracker">
+			<kindDefs>
+				<li>
+					<key>Ghoul</key>
+					<value>1</value>
+				</li>
+			</kindDefs>
+		
+		</tracker>
+		
+		<texPath>Achievements/IWillSurvive</texPath>
+		<points>5</points>
+	</AchievementsExpanded.AchievementDef>
+	
+	<AchievementsExpanded.AchievementDef>
+		<defName>VAE_ContainARevenant</defName>
+		<label>A revenant</label>
+		<description>Contain a revenant</description>
+		<order>1</order>
+		<tracker Class="AchievementsExpanded.EntitiesInHoldTracker">
+			<entitiesList>
+				<li>
+					<key>Revenant</key>
+					<value>1</value>
+				</li>
+			</entitiesList>
+		
+		</tracker>
+		
+		<texPath>Achievements/IWillSurvive</texPath>
+		<points>5</points>
+	</AchievementsExpanded.AchievementDef>
+	
+	<AchievementsExpanded.AchievementDef>
+		<defName>VAE_ContainTwoEntities</defName>
+		<label>Two entities</label>
+		<description>Contain two entities</description>
+		<order>1</order>
+		<tracker Class="AchievementsExpanded.EntitiesInHoldTracker">
+			<totalEntities>2</totalEntities>
+		
+		</tracker>
+		
+		<texPath>Achievements/IWillSurvive</texPath>
+		<points>5</points>
+	</AchievementsExpanded.AchievementDef>
+	
+	
+</Defs>

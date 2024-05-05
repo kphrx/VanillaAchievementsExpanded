@@ -549,6 +549,75 @@ namespace AchievementsExpanded
         }
 
         /// <summary>
+        /// Gene Added Event
+        /// </summary>
+        /// <param name="__instance"></param>
+		/// <param name="geneDef"></param>
+
+        public static void GeneAdded(Pawn_GeneTracker __instance, GeneDef geneDef)
+        {
+			
+            if (Current.ProgramState == ProgramState.Playing && __instance.pawn?.IsColonistPlayerControlled==true)
+            {
+                foreach (var card in AchievementPointManager.GetCards<GeneAddedTracker>())
+                {
+                    try
+                    {
+
+                        if ((card.tracker as GeneAddedTracker).Trigger())
+                        {
+                            card.UnlockCard();
+                        }
+                    }
+
+                    catch (Exception ex)
+                    {
+                        Log.Error($"Unable to trigger event for card validation. To avoid further errors {card.def.LabelCap} has been automatically unlocked.\n\nException={ex.Message}");
+                        card.UnlockCard();
+                    }
+
+
+                }
+            }
+
+
+        }
+
+        /// <summary>
+        /// Entity added to holding platform Event
+        /// </summary>
+        /// <param name="__instance"></param>
+       
+        public static void AddedEntityToPlatform(CompHoldingPlatformTarget __instance)
+        {
+			
+            if (Current.ProgramState == ProgramState.Playing && __instance.HeldPlatform?.Map!=null)
+            {
+                foreach (var card in AchievementPointManager.GetCards<EntitiesInHoldTracker>())
+                {
+                    try
+                    {
+
+                        if ((card.tracker as EntitiesInHoldTracker).Trigger(__instance.HeldPlatform.Map))
+                        {
+                            card.UnlockCard();
+                        }
+                    }
+
+                    catch (Exception ex)
+                    {
+                        Log.Error($"Unable to trigger event for card validation. To avoid further errors {card.def.LabelCap} has been automatically unlocked.\n\nException={ex.Message}");
+                        card.UnlockCard();
+                    }
+
+
+                }
+            }
+
+
+        }
+
+        /// <summary>
         /// SettlementDefeated Event
         /// </summary>
         /// <param name="map"></param>

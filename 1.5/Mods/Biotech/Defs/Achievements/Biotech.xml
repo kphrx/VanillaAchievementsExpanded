@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<AchievementsExpanded.AchievementDef>
+		<defName>VAE_GetAnImpid</defName>
+		<label>I Will Survive</label>
+		<description>Get an impid</description>
+		<order>1</order>
+		<tracker Class="AchievementsExpanded.XenotypeDefTracker">
+			<xenotypeDefs>
+				<li>
+					<key>Impid</key>
+					<value>1</value>
+				</li>
+			</xenotypeDefs>
+			<countTemporary>false</countTemporary>
+		
+		</tracker>
+		
+		<texPath>Achievements/IWillSurvive</texPath>
+		<points>5</points>
+	</AchievementsExpanded.AchievementDef>
+	
+	
+	<AchievementsExpanded.AchievementDef>
+		<defName>VAE_GetTwoHemogenicPawns</defName>
+		<label>I Will Survive</label>
+		<description>Get two hemogenic pawns</description>
+		<order>1</order>
+		<tracker Class="AchievementsExpanded.GeneAddedTracker">
+			<genesList>
+				<li>
+					<key>Hemogenic</key>
+					<value>2</value>
+				</li>
+			</genesList>
+			
+		</tracker>
+		
+		<texPath>Achievements/IWillSurvive</texPath>
+		<points>5</points>
+	</AchievementsExpanded.AchievementDef>
+	
+</Defs>
