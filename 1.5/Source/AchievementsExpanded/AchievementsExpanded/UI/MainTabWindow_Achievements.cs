@@ -144,21 +144,32 @@ namespace AchievementsExpanded
 		{
 			var font = Text.Font;
 			Text.Font = GameFont.Small;
-
-			Widgets.Label(rect, "SideBarInfo".Translate());
+            if (VAEMod.settings.usePointsSystem) {
+                Widgets.Label(rect, "SideBarInfo".Translate());
+            } else
+			{
+                Widgets.Label(rect, "VAE_SideBarInfoNoRedeem".Translate());
+            }
+                
 
 			rect.y += 40;
 
 			Text.Font = GameFont.Medium;
 			Widgets.Label(rect, "StorytellerPoints".Translate());
 
-			rect.y += 40;
+            
+           
+            rect.y += 40;
 
 			Text.Font = GameFont.Small;
 			Rect iconRect = new Rect(rect.x, rect.y, 30, 30);
 			Rect labelRect = new Rect(rect.x + 40, rect.y + 5f, rect.width, rect.height);
-			Widgets.DrawTextureFitted(iconRect, AchievementTex.PointsIcon, 1f);
-			Widgets.Label(labelRect, "PointsAvailable".Translate(APM.availablePoints));
+            if (VAEMod.settings.usePointsSystem)
+            {
+                Widgets.DrawTextureFitted(iconRect, AchievementTex.PointsIcon, 1f);
+                Widgets.Label(labelRect, "PointsAvailable".Translate(APM.availablePoints));
+            }
+            
 
 			rect.y += 35;
 			iconRect.y += 35;
@@ -171,54 +182,61 @@ namespace AchievementsExpanded
 			var unlockCountTotal = $"{APM.achievementList.Where(a => a.unlocked).Count()} / {APM.achievementList.Count}";
 			Widgets.Label(rect, "AchievementsTotalUnlocked".Translate(unlockCountTotal));
 
-			rect.y += 60;
-			Text.Font = GameFont.Medium;
-			Widgets.Label(rect, "PointsRedeem".Translate());
-
-			rect.y += 35;
-			iconRect.width = rect.width * 0.1f;
-			labelRect.width = rect.width * 0.2f;
-			var color = GUI.color;
-
-			Rect buttonContainerRect = new Rect(iconRect.x, rect.y, rect.width - 10, rect.height);
-			var height = rect.y + Mathf.CeilToInt(Rewards.Count) * 35;
-			Rect buttonViewRect = new Rect(buttonContainerRect.x, buttonContainerRect.y, buttonContainerRect.width, height);
-
-			Widgets.BeginScrollView(buttonContainerRect, ref sidebarScrollPosition, buttonViewRect);
-			foreach (AchievementReward reward in Rewards.OrderBy(r => r.cost))
+			if (VAEMod.settings.usePointsSystem)
 			{
-				iconRect.y = rect.y;
-				labelRect.y = rect.y;
-				bool disabled = !string.IsNullOrEmpty(reward.Disabled);
-				Rect buttonRect = new Rect(iconRect.x + 90, rect.y, rect.width - (iconRect.width + labelRect.width) - 20, 30);
-				Text.Font = GameFont.Medium;
-				Widgets.DrawTextureFitted(iconRect, AchievementTex.PointsIcon, 1f);
-				Widgets.Label(labelRect, reward.cost.ToString());
-				Text.Font = GameFont.Small;
-				if (disabled)
-				{
-					GUI.color = Color.gray;
-					TooltipHandler.TipRegion(buttonRect, reward.Disabled);
-				}
-				if (Widgets.ButtonText(buttonRect, reward.label) && !disabled)
-				{
-					if (reward.PurchaseReward())
-					{
-						if (!reward.TryExecuteEvent())
-						{
-							reward.RefundPoints();
-						}
-						else
-						{
-							Close(false);
-						}
-					}
-				}
-				rect.y += 35f;
-				GUI.color = color;
-			}
-			Widgets.EndScrollView();
-			Text.Font = font;
+                rect.y += 60;
+                Text.Font = GameFont.Medium;
+                Widgets.Label(rect, "PointsRedeem".Translate());
+
+                rect.y += 35;
+                iconRect.width = rect.width * 0.1f;
+                labelRect.width = rect.width * 0.2f;
+                var color = GUI.color;
+
+                Rect buttonContainerRect = new Rect(iconRect.x, rect.y, rect.width - 10, rect.height);
+                var height = rect.y + Mathf.CeilToInt(Rewards.Count) * 35;
+                Rect buttonViewRect = new Rect(buttonContainerRect.x, buttonContainerRect.y, buttonContainerRect.width, height);
+
+                Widgets.BeginScrollView(buttonContainerRect, ref sidebarScrollPosition, buttonViewRect);
+                foreach (AchievementReward reward in Rewards.OrderBy(r => r.cost))
+                {
+                    iconRect.y = rect.y;
+                    labelRect.y = rect.y;
+                    bool disabled = !string.IsNullOrEmpty(reward.Disabled);
+                    Rect buttonRect = new Rect(iconRect.x + 90, rect.y, rect.width - (iconRect.width + labelRect.width) - 20, 30);
+                    Text.Font = GameFont.Medium;
+                    Widgets.DrawTextureFitted(iconRect, AchievementTex.PointsIcon, 1f);
+                    Widgets.Label(labelRect, reward.cost.ToString());
+                    Text.Font = GameFont.Small;
+                    if (disabled)
+                    {
+                        GUI.color = Color.gray;
+                        TooltipHandler.TipRegion(buttonRect, reward.Disabled);
+                    }
+                    if (Widgets.ButtonText(buttonRect, reward.label) && !disabled)
+                    {
+                        if (reward.PurchaseReward())
+                        {
+                            if (!reward.TryExecuteEvent())
+                            {
+                                reward.RefundPoints();
+                            }
+                            else
+                            {
+                                Close(false);
+                            }
+                        }
+                    }
+                    rect.y += 35f;
+                    GUI.color = color;
+                }
+                Widgets.EndScrollView();
+                Text.Font = font;
+
+
+            }
+
+			
 		}
 
 		private void DrawCardWindow(Rect rect)

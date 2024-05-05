@@ -10,6 +10,7 @@
 	<SuccessfulWriteToFile>Successfully pushed achievement logs to AchievementLog.txt</SuccessfulWriteToFile>
 	
 	<SideBarInfo>Unlock achievements and earn Storyteller points which you can redeem for various events.</SideBarInfo>
+	<VAE_SideBarInfoNoRedeem>Unlock achievements and earn Storyteller points to gauge your performance.</VAE_SideBarInfoNoRedeem>
 	
 	<StorytellerPoints>Storyteller Points</StorytellerPoints>
 	
@@ -32,4 +33,7 @@
 	
 	<RandomQuestRewardItemLetter>Quest Item</RandomQuestRewardItemLetter>
 	<RandomQuestRewardItem>Random quest item dropped!</RandomQuestRewardItem>
+	
+	<VAE_UsePointsSystem>Use achievement points reward system</VAE_UsePointsSystem>
+	<VAE_UsePointsSystemDesc>By default, getting achievements rewards the player with points, which can be exchanged for trader caravans, events, raids, etc. Toggling this disables that system, with the points being there just as a tally count.</VAE_UsePointsSystemDesc>
 </LanguageData>
