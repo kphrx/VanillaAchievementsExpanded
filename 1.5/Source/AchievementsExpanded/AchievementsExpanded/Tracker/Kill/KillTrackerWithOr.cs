@@ -9,6 +9,8 @@ namespace AchievementsExpanded
 {
     public class KillTrackerWithOr : KillTracker
     {
+        Dictionary<PawnKindDef, int> kindDefList = new Dictionary<PawnKindDef, int>();
+
         public KillTrackerWithOr()
         {
         }
@@ -46,12 +48,12 @@ namespace AchievementsExpanded
             }
             else kind = true;
 
-            bool race = raceDef is null || pawn.def == raceDef;
+           
             bool faction = factionDefs.NullOrEmpty() || (pawn.Faction != null && factionDefs.Contains(pawn.Faction.def));
-            return kind && race && faction && instigator && (count <= 1 || ++triggeredCount >= count);
+            return kind &&  faction && instigator && (count <= 1 || ++triggeredCount >= count);
         }
 
-        Dictionary<PawnKindDef, int> kindDefList = new Dictionary<PawnKindDef, int>();
+
        
     }
 }

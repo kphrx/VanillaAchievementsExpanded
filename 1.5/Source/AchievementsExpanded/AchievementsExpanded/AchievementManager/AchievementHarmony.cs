@@ -618,6 +618,94 @@ namespace AchievementsExpanded
         }
 
         /// <summary>
+        /// Nociosphere activated Event
+        /// </summary>
+     
+
+        public static void NociosphereActivated()
+        {
+
+            if (Current.ProgramState == ProgramState.Playing)
+            {
+                foreach (var card in AchievementPointManager.GetCards<NociosphereTracker>())
+                {
+                    try
+                    {
+
+                        if ((card.tracker as NociosphereTracker).Trigger())
+                        {
+                            card.UnlockCard();
+                        }
+                    }
+
+                    catch (Exception ex)
+                    {
+                        Log.Error($"Unable to trigger event for card validation. To avoid further errors {card.def.LabelCap} has been automatically unlocked.\n\nException={ex.Message}");
+                        card.UnlockCard();
+                    }
+
+
+                }
+            }
+
+
+        }
+
+        /// <summary>
+        /// Prisoner Joined Event
+        /// </summary>
+        /// <param name="guestStatus"></param>
+       
+        public static void PrisonerJoined(GuestStatus guestStatus)
+        {
+            if (Current.ProgramState == ProgramState.Playing && guestStatus == GuestStatus.Prisoner)
+            {
+                foreach (var card in AchievementPointManager.GetCards<PrisonerJoinedTracker>())
+                {
+                    try
+                    {
+                        if ((card.tracker as PrisonerJoinedTracker).Trigger())
+                        {
+                            card.UnlockCard();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Log.Error($"Unable to trigger event for card validation. To avoid further errors {card.def.LabelCap} has been automatically unlocked.\n\nException={ex.Message}");
+                        card.UnlockCard();
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Royalty Title Set Event
+        /// </summary>
+        /// <param name="__instance"></param>
+
+        public static void TitleSet(Pawn_RoyaltyTracker __instance)
+        {
+            if (Current.ProgramState == ProgramState.Playing && __instance.pawn.IsPlayerControlled)
+            {
+                foreach (var card in AchievementPointManager.GetCards<RoyalTitleTracker>())
+                {
+                    try
+                    {
+                        if ((card.tracker as RoyalTitleTracker).Trigger())
+                        {
+                            card.UnlockCard();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Log.Error($"Unable to trigger event for card validation. To avoid further errors {card.def.LabelCap} has been automatically unlocked.\n\nException={ex.Message}");
+                        card.UnlockCard();
+                    }
+                }
+            }
+        }
+
+        /// <summary>
         /// SettlementDefeated Event
         /// </summary>
         /// <param name="map"></param>

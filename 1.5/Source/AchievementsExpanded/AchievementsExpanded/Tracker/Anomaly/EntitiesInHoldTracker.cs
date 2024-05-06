@@ -57,7 +57,7 @@ namespace AchievementsExpanded
         public override bool Trigger(Map map)
         {
             base.Trigger(map);
-            Log.Message("triggering");
+           
             if (totalEntities > 0) {
 
                 int count = 0;

@@ -10,6 +10,13 @@ namespace AchievementsExpanded
 {
     public class PlantTracker : Tracker<Plant>
     {
+
+        public ThingDef def;
+        public int count;
+        protected int triggeredCount;
+
+        protected HashSet<string> registeredPlants;
+
         public override string Key => "PlantTracker";
 
         public override MethodInfo MethodHook => AccessTools.Method(typeof(Plant), nameof(Plant.PlantCollected));
@@ -62,11 +69,7 @@ namespace AchievementsExpanded
 
         public override bool UnlockOnStartup => Trigger();
 
-        public ThingDef def;
-        public int count;
-        protected int triggeredCount;
 
-        protected HashSet<string> registeredPlants;
 
     }
 }

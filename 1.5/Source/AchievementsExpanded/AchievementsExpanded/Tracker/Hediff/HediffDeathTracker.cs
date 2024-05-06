@@ -10,6 +10,7 @@ namespace AchievementsExpanded
 	{
 		public HediffDef def;
 		public int count = 1;
+		public bool onlyCountPlayerPawns = true;
 
 		protected int triggeredCount;
 
@@ -28,22 +29,26 @@ namespace AchievementsExpanded
 			def = reference.def;
 			count = reference.count;
 			triggeredCount = reference.triggeredCount;
-		}
+            onlyCountPlayerPawns = reference.onlyCountPlayerPawns;
 
-		public override void ExposeData()
+        }
+
+        public override void ExposeData()
 		{
 			base.ExposeData();
 			Scribe_Defs.Look(ref def, "def");
 			Scribe_Values.Look(ref count, "count");
-
-			Scribe_Values.Look(ref triggeredCount, "triggeredCount");
+            Scribe_Values.Look(ref onlyCountPlayerPawns, "onlyCountPlayerPawns");
+            Scribe_Values.Look(ref triggeredCount, "triggeredCount");
 		}
 
 		public override (float percent, string text) PercentComplete => count > 1 ? ((float)triggeredCount / count, $"{triggeredCount} / {count}") : base.PercentComplete;
 
 		public override bool Trigger(Hediff hediff)
 		{
-			if (hediff.pawn != null && (hediff.pawn.Faction == Faction.OfPlayer || hediff.pawn.IsPrisonerOfColony) && (def is null || hediff.def == def))
+			
+
+            if (hediff.pawn != null && (!onlyCountPlayerPawns || onlyCountPlayerPawns && (hediff.pawn.Faction == Faction.OfPlayer || hediff.pawn.IsPrisonerOfColony)) && (def is null || hediff.def == def))
 			{
 				triggeredCount++;
 			}

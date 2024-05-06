@@ -11,8 +11,11 @@ namespace AchievementsExpanded
 	public class KindDefTracker : PawnJoinedTracker
 	{
 		Dictionary<PawnKindDef, int> kindDefs = new Dictionary<PawnKindDef, int>();
+        public bool countTemporary = true;
+        public bool countOnlySlaves = false;
 
-		protected override string[] DebugText
+
+        protected override string[] DebugText
 		{
 			get
 			{
@@ -36,7 +39,9 @@ namespace AchievementsExpanded
 			kindDefs = reference.kindDefs;
 			if (kindDefs.EnumerableNullOrEmpty())
 				Log.Error($"kindDefs list for KindDefTracker cannot be Null or Empty");
-		}
+            countTemporary = reference.countTemporary;
+            countOnlySlaves = reference.countOnlySlaves;
+        }
 
 		public override bool UnlockOnStartup => Trigger(null);
 
@@ -44,15 +49,31 @@ namespace AchievementsExpanded
 		{
 			base.ExposeData();
 			Scribe_Collections.Look(ref kindDefs, "kindDefs", LookMode.Def, LookMode.Value);
-		}
+            Scribe_Values.Look(ref countTemporary, "countTemporary", true);
+            Scribe_Values.Look(ref countOnlySlaves, "countOnlySlaves", false);
+        }
 
 		public override bool Trigger(Pawn param)
 		{
 			base.Trigger(param);
 			bool trigger = true;
 			PawnKindDef kindDef = param?.kindDef;
-			var factionPawns = PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_OfPlayerFaction;
-			if (factionPawns is null)
+            List<Pawn> factionPawns;
+            if (countOnlySlaves)
+            {
+                factionPawns = PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_SlavesOfColony;
+            }
+
+            else
+            if (!countTemporary)
+            {
+                factionPawns = PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_FreeColonists_NoLodgers;
+            }
+            else
+            {
+                factionPawns = PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_OfPlayerFaction;
+            }
+            if (factionPawns is null)
 				return false;
 			foreach (KeyValuePair<PawnKindDef, int> set in kindDefs)
 			{

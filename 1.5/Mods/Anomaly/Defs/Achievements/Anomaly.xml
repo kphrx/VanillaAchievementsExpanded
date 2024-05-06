@@ -61,18 +61,58 @@
 		<points>5</points>
 	</AchievementsExpanded.AchievementDef>
 	<AchievementsExpanded.AchievementDef>
+		<defName>VAE_ActivateNociosphere</defName>
+		<label>Activate Nociosphere</label>
+		<description>Activate Nociosphere</description>
+		<order>1</order>
+		<tracker Class="AchievementsExpanded.NociosphereTracker">
+			<nociosphereActivations>1</nociosphereActivations>
+		</tracker>
+		<texPath>Achievements/IWillSurvive</texPath>
+		<points>5</points>
+	</AchievementsExpanded.AchievementDef>
+	<AchievementsExpanded.AchievementDef>
+		<defName>VAE_ActivateFiveNociospheres</defName>
+		<label>Activate Five Nociospheres</label>
+		<description>Activate Five Nociospheres</description>
+		<order>1</order>
+		<tracker Class="AchievementsExpanded.NociosphereTracker">
+			<nociosphereActivations>5</nociosphereActivations>
+		</tracker>
+		<texPath>Achievements/IWillSurvive</texPath>
+		<points>5</points>
+	</AchievementsExpanded.AchievementDef>
+	<AchievementsExpanded.AchievementDef>
 		<defName>VAE_FivePrisoners</defName>
 		<label>Five prisoners</label>
 		<description>Get five prisoners</description>
 		<order>1</order>
-		<tracker Class="AchievementsExpanded.RaceDefTracker">
-			<raceDefs>
-				<li>
-					<key>Human</key>
-					<value>5</value>
-				</li>
-			</raceDefs>
-			<countOnlyPrisoners>true</countOnlyPrisoners>
+		<tracker Class="AchievementsExpanded.PrisonerJoinedTracker">
+			<numberOfPrisoners>5</numberOfPrisoners>
+		</tracker>
+		<texPath>Achievements/IWillSurvive</texPath>
+		<points>5</points>
+	</AchievementsExpanded.AchievementDef>
+	<AchievementsExpanded.AchievementDef>
+		<defName>VAE_GetKnight</defName>
+		<label>Get a title of knight</label>
+		<description>Get a title of knight</description>
+		<order>1</order>
+		<tracker Class="AchievementsExpanded.RoyalTitleTracker">
+			<title>Knight</title>
+			<count>1</count>
+		</tracker>
+		<texPath>Achievements/IWillSurvive</texPath>
+		<points>5</points>
+	</AchievementsExpanded.AchievementDef>
+	<AchievementsExpanded.AchievementDef>
+		<defName>VAE_GetFiveAcolytes</defName>
+		<label>Get five acolytes</label>
+		<description>Get five acolytes</description>
+		<order>1</order>
+		<tracker Class="AchievementsExpanded.RoyalTitleTracker">
+			<title>Acolyte</title>
+			<count>5</count>
 		</tracker>
 		<texPath>Achievements/IWillSurvive</texPath>
 		<points>5</points>

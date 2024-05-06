@@ -11,7 +11,7 @@ namespace AchievementsExpanded
 	public class XenotypeDefTracker : PawnJoinedTracker
 	{
 		Dictionary<XenotypeDef, int> xenotypeDefs = new Dictionary<XenotypeDef, int>();
-		public bool countTemporary = true;
+		public bool countTemporary = false;
 
 		protected override string[] DebugText
 		{
@@ -46,7 +46,7 @@ namespace AchievementsExpanded
 		{
 			base.ExposeData();
 			Scribe_Collections.Look(ref xenotypeDefs, "xenotypeDefs", LookMode.Def, LookMode.Value);
-            Scribe_Values.Look(ref countTemporary, "countTemporary", true);
+            Scribe_Values.Look(ref countTemporary, "countTemporary", false);
         }
 
 		public override bool Trigger(Pawn param)
