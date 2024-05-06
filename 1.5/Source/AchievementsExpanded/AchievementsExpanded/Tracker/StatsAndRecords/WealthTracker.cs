@@ -9,9 +9,14 @@ namespace AchievementsExpanded
 {
 	public class WealthTracker : TrackerBase
 	{
-		public override string Key => "WealthTracker";
+	
+        public override string Key
+        {
+            get { return "WealthTracker"; }
+            set { }
+        }
 
-		public override Func<bool> AttachToLongTick => () => { return Trigger();  };
+        public override Func<bool> AttachToLongTick => () => { return Trigger();  };
 		protected override string[] DebugText => new string[] { $"Wealth: {count}" };
 		public WealthTracker()
 		{

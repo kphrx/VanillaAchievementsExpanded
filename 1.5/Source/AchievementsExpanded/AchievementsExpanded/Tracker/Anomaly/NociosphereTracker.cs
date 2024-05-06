@@ -11,7 +11,13 @@ namespace AchievementsExpanded
 {
     public class NociosphereTracker : TrackerBase
     {
-        public override string Key => "NociosphereTracker";
+       
+
+        public override string Key
+        {
+            get { return "NociosphereTracker"; }
+            set { }
+        }
 
         public int nociosphereActivations = 0;
         protected int triggeredCount;

@@ -14,9 +14,14 @@ namespace AchievementsExpanded
 		public TechLevel? tech;
 		public bool coreModsOnly;
 
-		public override string Key => "ResearchTracker";
+	
+        public override string Key
+        {
+            get { return "ResearchTracker"; }
+            set { }
+        }
 
-		public override MethodInfo MethodHook => AccessTools.Method(typeof(ResearchManager), nameof(ResearchManager.FinishProject));
+        public override MethodInfo MethodHook => AccessTools.Method(typeof(ResearchManager), nameof(ResearchManager.FinishProject));
 		public override MethodInfo PatchMethod => AccessTools.Method(typeof(AchievementHarmony), nameof(AchievementHarmony.ResearchProjectFinished));
 		protected override string[] DebugText => new string[] { $"Tech: {tech}", $"Project: {def?.defName ?? "None"}", $"CoreOnly: {coreModsOnly}" };
 		public ResearchTracker()

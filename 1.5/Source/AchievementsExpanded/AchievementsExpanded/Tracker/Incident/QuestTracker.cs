@@ -14,9 +14,13 @@ namespace AchievementsExpanded
 
 		protected int triggeredCount;
 
-		public override string Key => "QuestTracker";
+        public override string Key
+        {
+            get { return "QuestTracker"; }
+            set { }
+        }
 
-		public override MethodInfo MethodHook => AccessTools.Method(typeof(Quest), nameof(Quest.End));
+        public override MethodInfo MethodHook => AccessTools.Method(typeof(Quest), nameof(Quest.End));
 		public override MethodInfo PatchMethod => AccessTools.Method(typeof(AchievementHarmony), nameof(AchievementHarmony.QuestEnded));
 		protected override string[] DebugText => new string[] { $"Quest: {def?.defName}", $"Outcome: {outcome}", $"Count: {count}", $"Current: {triggeredCount}" };
 

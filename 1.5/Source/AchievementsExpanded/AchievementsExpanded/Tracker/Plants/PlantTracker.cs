@@ -17,7 +17,12 @@ namespace AchievementsExpanded
 
         protected HashSet<string> registeredPlants;
 
-        public override string Key => "PlantTracker";
+     
+        public override string Key
+        {
+            get { return "PlantTracker"; }
+            set { }
+        }
 
         public override MethodInfo MethodHook => AccessTools.Method(typeof(Plant), nameof(Plant.PlantCollected));
         public override MethodInfo PatchMethod => AccessTools.Method(typeof(AchievementHarmony), nameof(AchievementHarmony.CheckPlantHarvested));

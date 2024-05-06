@@ -14,9 +14,14 @@ namespace AchievementsExpanded
 
 		protected int triggeredCount;
 
-		public override string Key => "SettlementDefeatTracker";
+		
+        public override string Key
+        {
+            get { return "SettlementDefeatTracker"; }
+            set { }
+        }
 
-		public override MethodInfo MethodHook => AccessTools.Method(typeof(SettlementDefeatUtility), "IsDefeated");
+        public override MethodInfo MethodHook => AccessTools.Method(typeof(SettlementDefeatUtility), "IsDefeated");
 		public override MethodInfo PatchMethod => AccessTools.Method(typeof(AchievementHarmony), nameof(AchievementHarmony.SettlementDefeatedEvent));
 		protected override string[] DebugText => new string[] { $"Faction: {def?.defName ?? "[NullDef]"}", $"Count: {count}"};
 

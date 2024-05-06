@@ -13,9 +13,14 @@ namespace AchievementsExpanded
 		public int ticksPassed;
 		public bool gameTime = true;
 
-		public override string Key => "TimeTracker";
+		
+        public override string Key
+        {
+            get { return "TimeTracker"; }
+            set { }
+        }
 
-		public override Func<bool> AttachToLongTick => () => { return Trigger(); };
+        public override Func<bool> AttachToLongTick => () => { return Trigger(); };
 		protected override string[] DebugText => new string[] { $"Ticks: {ticksPassed}", $"Require unpaused to Tick: {gameTime}", $"Current Abs: {(int)Find.GameInfo.RealPlayTimeInteracting} Current Game: {Find.TickManager.TicksGame}"};
 		public TimeTracker()
 		{

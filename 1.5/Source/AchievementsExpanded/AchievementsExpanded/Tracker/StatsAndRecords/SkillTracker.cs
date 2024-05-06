@@ -14,9 +14,14 @@ namespace AchievementsExpanded
 
 		protected int triggeredCount;
 
-		public override string Key => "SkillTracker";
+		
+        public override string Key
+        {
+            get { return "SkillTracker"; }
+            set { }
+        }
 
-		public override MethodInfo MethodHook => AccessTools.Method(typeof(SkillRecord), nameof(SkillRecord.Learn));
+        public override MethodInfo MethodHook => AccessTools.Method(typeof(SkillRecord), nameof(SkillRecord.Learn));
 		public override MethodInfo PatchMethod => AccessTools.Method(typeof(AchievementHarmony), nameof(AchievementHarmony.LevelUpMoteHook));
 		public override PatchType PatchType => PatchType.Transpiler;
 		protected override string[] DebugText => new string[] { $"Skill: {def?.defName ?? "None"}", $"Level: {level}", $"Count: {count}", $"Current: {triggeredCount}" };

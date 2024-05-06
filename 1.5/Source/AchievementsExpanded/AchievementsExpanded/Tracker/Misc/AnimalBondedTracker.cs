@@ -15,9 +15,14 @@ namespace AchievementsExpanded
 
 		protected int triggeredCount;
 
-		public override string Key => "AnimalBondedTracker";
+		
+        public override string Key
+        {
+            get { return "AnimalBondedTracker"; }
+            set { }
+        }
 
-		public override MethodInfo MethodHook => AccessTools.Method(typeof(RelationsUtility), nameof(RelationsUtility.TryDevelopBondRelation));
+        public override MethodInfo MethodHook => AccessTools.Method(typeof(RelationsUtility), nameof(RelationsUtility.TryDevelopBondRelation));
 		public override MethodInfo PatchMethod => AccessTools.Method(typeof(AchievementHarmony), nameof(AchievementHarmony.AnimalBondedEvent));
 		protected override string[] DebugText => new string[] { $"KindDef: {kindDef?.defName ?? "None"}", $"Count: {count}", $"Current: {triggeredCount}" };
 

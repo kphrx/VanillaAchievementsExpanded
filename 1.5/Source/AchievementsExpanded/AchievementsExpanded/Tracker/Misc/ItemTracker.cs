@@ -20,9 +20,14 @@ namespace AchievementsExpanded
         [Unsaved]
 		protected int triggeredCount; //Only for display
 
-		public override string Key => "ItemTracker";
+		
+        public override string Key
+        {
+            get { return "ItemTracker"; }
+            set { }
+        }
 
-		public override Func<bool> AttachToLongTick => () => { return Trigger(); };
+        public override Func<bool> AttachToLongTick => () => { return Trigger(); };
 		protected override string[] DebugText => new string[] { $"Def: {def?.defName ?? "None"}", $"Count: {count}" };
 
 		public ItemTracker()

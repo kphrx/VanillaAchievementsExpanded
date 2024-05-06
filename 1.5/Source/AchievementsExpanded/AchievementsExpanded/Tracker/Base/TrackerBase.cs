@@ -33,7 +33,7 @@ namespace AchievementsExpanded
 		/// <summary>
 		/// Unique Key tracker used for HashSet retrieval from AchievementPointManager
 		/// </summary>
-		public abstract string Key { get; }
+		public abstract string Key { get; set; }
 
 		/* ---------- Harmony Patch methods ---------- */
 		/// Harmony patches are integrated as part of the Trackers for easier implementations

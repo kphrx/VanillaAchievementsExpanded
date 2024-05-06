@@ -28,7 +28,7 @@
     <OutputPath>..\..\..\Assemblies\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <WarningLevel>3</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AchievementsExpanded|AnyCPU'">
     <OutputPath>bin\AchievementsExpanded\</OutputPath>
@@ -101,11 +101,13 @@
     <Compile Include="Rewards\Reward_RandomEvent.cs" />
     <Compile Include="Rewards\Reward_RandomQuestItem.cs" />
     <Compile Include="Tracker\Anomaly\NociosphereTracker.cs" />
+    <Compile Include="Tracker\Base\GenericTracker.cs" />
     <Compile Include="Tracker\Building\MultipleBuildingTracker.cs" />
     <Compile Include="Tracker\Kill\BondedAnimalOnFireKillTracker.cs" />
     <Compile Include="Tracker\Kill\KillTrackerWithOr.cs" />
     <Compile Include="Tracker\Anomaly\EntitiesInHoldTracker.cs" />
     <Compile Include="Tracker\Biotech\GeneAddedTracker.cs" />
+    <Compile Include="Tracker\Misc\ModAmountTracker.cs" />
     <Compile Include="Tracker\PawnJoined\PrisonerJoinedTracker.cs" />
     <Compile Include="Tracker\Plants\PlantTracker.cs" />
     <Compile Include="Tracker\PawnJoined\PawnJoinedTracker.cs" />

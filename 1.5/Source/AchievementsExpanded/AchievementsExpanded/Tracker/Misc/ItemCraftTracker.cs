@@ -16,9 +16,14 @@ namespace AchievementsExpanded
 
         protected int triggeredCount;
 
-		public override string Key => "ItemCraftTracker";
+		
+        public override string Key
+        {
+            get { return "ItemCraftTracker"; }
+            set { }
+        }
 
-		public override MethodInfo MethodHook => AccessTools.Method(typeof(QuestManager), nameof(QuestManager.Notify_ThingsProduced));
+        public override MethodInfo MethodHook => AccessTools.Method(typeof(QuestManager), nameof(QuestManager.Notify_ThingsProduced));
 		public override MethodInfo PatchMethod => AccessTools.Method(typeof(AchievementHarmony), nameof(AchievementHarmony.ThingSpawned));
 		protected override string[] DebugText => new string[] { $"Def: {def?.defName ?? "None"}", 
 																$"MadeFrom: {madeFrom?.defName ?? "Any"}", 

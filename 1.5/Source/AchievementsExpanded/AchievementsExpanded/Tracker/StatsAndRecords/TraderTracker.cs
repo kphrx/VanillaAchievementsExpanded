@@ -17,9 +17,14 @@ namespace AchievementsExpanded
 		protected int triggeredCount;
 		protected float triggeredWorth;
 
-		public override string Key => "TraderTracker";
+	
+        public override string Key
+        {
+            get { return "TraderTracker"; }
+            set { }
+        }
 
-		public override MethodInfo MethodHook => AccessTools.Method(typeof(TradeDeal), nameof(TradeDeal.TryExecute));
+        public override MethodInfo MethodHook => AccessTools.Method(typeof(TradeDeal), nameof(TradeDeal.TryExecute));
 		public override MethodInfo PatchMethod => AccessTools.Method(typeof(AchievementHarmony), nameof(AchievementHarmony.TradeDealComplete));
 		protected override string[] DebugText => new string[] { $"Def: {def?.defName ?? "[NoDef]"}", $"Count: {count}", $"Worth: {worth}", $"Single Transaction: {singleTransaction}",
 																$"Current: [Count = {triggeredCount}] [Worth = {triggeredWorth}" };

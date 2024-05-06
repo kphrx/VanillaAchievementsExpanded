@@ -17,8 +17,11 @@ namespace AchievementsExpanded
 
 
 
-
-        public override string Key => "RoyalTitleTracker";
+        public override string Key
+        {
+            get { return "RoyalTitleTracker"; }
+            set { }
+        }
         public override MethodInfo MethodHook => AccessTools.Method(typeof(Pawn_RoyaltyTracker), nameof(Pawn_RoyaltyTracker.SetTitle)); 
         public override MethodInfo PatchMethod => AccessTools.Method(typeof(AchievementHarmony), nameof(AchievementHarmony.TitleSet));
         protected override string[] DebugText => new string[] { $"title: {title?.defName ?? "[NullDef]"}", $"Count: {count}"};

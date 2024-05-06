@@ -15,9 +15,14 @@ namespace AchievementsExpanded
 
 		protected int triggeredCount;
 
-		public override string Key => "MentalBreakTracker";
+		
+        public override string Key
+        {
+            get { return "MentalBreakTracker"; }
+            set { }
+        }
 
-		public override MethodInfo MethodHook => AccessTools.Method(typeof(MentalBreaker), nameof(MentalBreaker.TryDoRandomMoodCausedMentalBreak));
+        public override MethodInfo MethodHook => AccessTools.Method(typeof(MentalBreaker), nameof(MentalBreaker.TryDoRandomMoodCausedMentalBreak));
 		public override MethodInfo PatchMethod => AccessTools.Method(typeof(AchievementHarmony), nameof(AchievementHarmony.MentalBreakTriggered));
 		public override PatchType PatchType => PatchType.Transpiler;
 		protected override string[] DebugText => new string[] { $"Def: {def?.defName ?? "None"}", $"Count: {count}", $"Consecutive: {consecutive}", $"Current: {triggeredCount}" };

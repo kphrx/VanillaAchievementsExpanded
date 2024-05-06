@@ -13,9 +13,14 @@ namespace AchievementsExpanded
 	{
 		public int numberOfPrisoners;
 
-		public override string Key => "PrisonerJoinedTracker";
+	
+        public override string Key
+        {
+            get { return "PrisonerJoinedTracker"; }
+            set { }
+        }
 
-		public override MethodInfo MethodHook => AccessTools.Method(typeof(Pawn_GuestTracker), nameof(Pawn_GuestTracker.SetGuestStatus));
+        public override MethodInfo MethodHook => AccessTools.Method(typeof(Pawn_GuestTracker), nameof(Pawn_GuestTracker.SetGuestStatus));
 		public override MethodInfo PatchMethod => AccessTools.Method(typeof(AchievementHarmony), nameof(AchievementHarmony.PrisonerJoined));
         protected override string[] DebugText => new string[] { $"Number Of Prisoners:  {numberOfPrisoners}" };
 

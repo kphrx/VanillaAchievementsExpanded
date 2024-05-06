@@ -11,9 +11,14 @@ namespace AchievementsExpanded
 		public MoodRating mood;
 		public float average;
 
-		public override string Key => "MoodTracker";
+	
+        public override string Key
+        {
+            get { return "MoodTracker"; }
+            set { }
+        }
 
-		public override MethodInfo MethodHook => AccessTools.Method(typeof(HistoryAutoRecorderWorker_ColonistMood), nameof(HistoryAutoRecorderWorker_ColonistMood.PullRecord));
+        public override MethodInfo MethodHook => AccessTools.Method(typeof(HistoryAutoRecorderWorker_ColonistMood), nameof(HistoryAutoRecorderWorker_ColonistMood.PullRecord));
 		public override MethodInfo PatchMethod => AccessTools.Method(typeof(AchievementHarmony), nameof(AchievementHarmony.AverageMoodColony));
 		protected override string[] DebugText => new string[] { $"Requires mood to be: {mood}", $"Average: {average}" };
 

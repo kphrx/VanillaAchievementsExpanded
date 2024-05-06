@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<AchievementsExpanded.AchievementDef>
+		<defName>VAE_OnlyQOL</defName>
+		<label>It's only QoL!</label>
+		<description>Have 10 mods or more installed</description>
+		
+		<tracker Class="AchievementsExpanded.ModAmountTracker">
+			<amountOfMods>10</amountOfMods>
+		</tracker>
+		
+		<texPath>Achievements/InForAPenny</texPath>
+		<points>10</points>
+	</AchievementsExpanded.AchievementDef>
+	
+	
+</Defs>

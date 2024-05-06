@@ -627,12 +627,12 @@ namespace AchievementsExpanded
 
             if (Current.ProgramState == ProgramState.Playing)
             {
-                foreach (var card in AchievementPointManager.GetCards<NociosphereTracker>())
+                foreach (var card in AchievementPointManager.GetCards<GenericTracker>())
                 {
                     try
                     {
 
-                        if ((card.tracker as NociosphereTracker).Trigger())
+                        if ((card.tracker as GenericTracker).Trigger())
                         {
                             card.UnlockCard();
                         }

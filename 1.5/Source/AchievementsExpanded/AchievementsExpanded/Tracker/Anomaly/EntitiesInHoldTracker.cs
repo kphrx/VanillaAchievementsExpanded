@@ -10,7 +10,12 @@ namespace AchievementsExpanded
 {
     public class EntitiesInHoldTracker : Tracker<Map>
     {
-        public override string Key => "EntitiesInHoldTracker";
+     
+        public override string Key
+        {
+            get { return "EntitiesInHoldTracker"; }
+            set {  }
+        }
 
         public int totalEntities = 0;
         Dictionary<ThingDef, int> entitiesList = new Dictionary<ThingDef, int>();

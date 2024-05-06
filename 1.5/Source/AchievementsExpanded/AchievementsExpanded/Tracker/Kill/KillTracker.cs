@@ -19,9 +19,15 @@ namespace AchievementsExpanded
 		protected int triggeredCount;
 		protected List<string> killedThings;
 
-		public override string Key => "KillTracker";
+	
 
-		public override MethodInfo MethodHook => AccessTools.Method(typeof(Pawn), nameof(Pawn.Kill));
+        public override string Key
+        {
+            get { return "KillTracker"; }
+            set { }
+        }
+
+        public override MethodInfo MethodHook => AccessTools.Method(typeof(Pawn), nameof(Pawn.Kill));
 		public override MethodInfo PatchMethod => AccessTools.Method(typeof(AchievementHarmony), nameof(AchievementHarmony.KillPawn));
 		protected override string[] DebugText => new string[] { $"KindDef: {kindDef?.defName ?? "None"}", 
 																$"Race: {raceDef?.defName ?? "None"}", 

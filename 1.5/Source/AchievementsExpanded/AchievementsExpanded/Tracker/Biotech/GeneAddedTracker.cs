@@ -10,9 +10,13 @@ namespace AchievementsExpanded
 {
     public class GeneAddedTracker : TrackerBase
     {
-        public override string Key => "GeneAddedTracker";
+      
+        public override string Key
+        {
+            get { return "GeneAddedTracker"; }
+            set { }
+        }
 
-       
         Dictionary<GeneDef, int> genesList = new Dictionary<GeneDef, int>();
 
 

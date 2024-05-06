@@ -12,9 +12,14 @@ namespace AchievementsExpanded
 	{
 		public bool requireAll = true;
 
-		public override string Key => "PawnJoinedTracker";
+		
+        public override string Key
+        {
+            get { return "PawnJoinedTracker"; }
+            set { }
+        }
 
-		public override MethodInfo MethodHook => AccessTools.Method(typeof(StoryWatcher_PopAdaptation), nameof(StoryWatcher_PopAdaptation.Notify_PawnEvent));
+        public override MethodInfo MethodHook => AccessTools.Method(typeof(StoryWatcher_PopAdaptation), nameof(StoryWatcher_PopAdaptation.Notify_PawnEvent));
 		public override MethodInfo PatchMethod => AccessTools.Method(typeof(AchievementHarmony), nameof(AchievementHarmony.PawnJoinedFaction));
 
 		public PawnJoinedTracker()

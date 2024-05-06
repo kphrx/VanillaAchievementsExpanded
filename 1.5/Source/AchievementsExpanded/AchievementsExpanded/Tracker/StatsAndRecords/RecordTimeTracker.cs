@@ -12,8 +12,13 @@ namespace AchievementsExpanded
 		public float count = 1;
 		public bool total;
 
-		public override string Key => "RecordTimeTracker";
-		public override MethodInfo MethodHook => AccessTools.Method(typeof(Pawn_RecordsTracker), "RecordsTickUpdate");
+		
+        public override string Key
+        {
+            get { return "RecordTimeTracker"; }
+            set { }
+        }
+        public override MethodInfo MethodHook => AccessTools.Method(typeof(Pawn_RecordsTracker), "RecordsTickUpdate");
 		public override MethodInfo PatchMethod => AccessTools.Method(typeof(AchievementHarmony), nameof(AchievementHarmony.RecordTimeEvent));
 		public override PatchType PatchType => PatchType.Transpiler;
 		protected override string[] DebugText => new string[] { $"Def: {def.defName}", $"Count: {count}", $"Total: {total}" };

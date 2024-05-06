@@ -14,9 +14,14 @@ namespace AchievementsExpanded
 
 		protected int triggeredCount;
 
-		public override string Key => "HediffDeathTracker";
+		
+        public override string Key
+        {
+            get { return "HediffDeathTracker"; }
+            set { }
+        }
 
-		public override MethodInfo MethodHook => AccessTools.Method(typeof(Hediff), nameof(Hediff.CauseDeathNow));
+        public override MethodInfo MethodHook => AccessTools.Method(typeof(Hediff), nameof(Hediff.CauseDeathNow));
 		public override MethodInfo PatchMethod => AccessTools.Method(typeof(AchievementHarmony), nameof(AchievementHarmony.HediffDeathEvent));
 		protected override string[] DebugText => new string[] { $"Def: {def.defName}"};
 

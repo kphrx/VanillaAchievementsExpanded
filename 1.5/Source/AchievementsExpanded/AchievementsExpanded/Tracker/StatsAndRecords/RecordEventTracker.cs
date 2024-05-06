@@ -15,8 +15,12 @@ namespace AchievementsExpanded
 		[Unsaved]
 		protected float triggeredCount;
 
-		public override string Key => "RecordEventTracker";
-		public override MethodInfo MethodHook => AccessTools.Method(typeof(Pawn_RecordsTracker), nameof(Pawn_RecordsTracker.Increment)); //Patch on AddTo as well
+		public override string Key
+        {
+            get { return "RecordEventTracker"; }
+            set { }
+        }
+        public override MethodInfo MethodHook => AccessTools.Method(typeof(Pawn_RecordsTracker), nameof(Pawn_RecordsTracker.Increment)); //Patch on AddTo as well
 		public override MethodInfo PatchMethod => AccessTools.Method(typeof(AchievementHarmony), nameof(AchievementHarmony.RecordEvent));
 		protected override string[] DebugText => new string[] { $"Def: {def?.defName ?? "[NullDef]"}", $"Count: {count}" };
 

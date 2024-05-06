@@ -10,9 +10,14 @@ namespace AchievementsExpanded
 {
 	public class IncidentTracker : Tracker2<IncidentDef, Map>
 	{
-		public override string Key => "IncidentTracker";
+	
+        public override string Key
+        {
+            get { return "IncidentTracker"; }
+            set { }
+        }
 
-		public override MethodInfo MethodHook => AccessTools.Method(typeof(IncidentWorker), nameof(IncidentWorker.TryExecute));
+        public override MethodInfo MethodHook => AccessTools.Method(typeof(IncidentWorker), nameof(IncidentWorker.TryExecute));
 		public override MethodInfo PatchMethod => AccessTools.Method(typeof(AchievementHarmony), nameof(AchievementHarmony.IncidentTriggered));
 		protected override string[] DebugText => new string[] { $"Def: {def?.defName ?? "None"}", $"Count: {count}", $"Current: {triggeredCount}" };
 		public IncidentTracker()
