@@ -13,7 +13,7 @@ namespace AchievementsExpanded
 		Dictionary<PawnKindDef, int> kindDefs = new Dictionary<PawnKindDef, int>();
         public bool countTemporary = true;
         public bool countOnlySlaves = false;
-
+        public bool countClones = false;
 
         protected override string[] DebugText
 		{
@@ -41,6 +41,7 @@ namespace AchievementsExpanded
 				Log.Error($"kindDefs list for KindDefTracker cannot be Null or Empty");
             countTemporary = reference.countTemporary;
             countOnlySlaves = reference.countOnlySlaves;
+            countClones = reference.countClones;
         }
 
 		public override bool UnlockOnStartup => Trigger(null);
@@ -51,6 +52,7 @@ namespace AchievementsExpanded
 			Scribe_Collections.Look(ref kindDefs, "kindDefs", LookMode.Def, LookMode.Value);
             Scribe_Values.Look(ref countTemporary, "countTemporary", true);
             Scribe_Values.Look(ref countOnlySlaves, "countOnlySlaves", false);
+            Scribe_Values.Look(ref countClones, "countClones", false);
         }
 
 		public override bool Trigger(Pawn param)
@@ -73,6 +75,12 @@ namespace AchievementsExpanded
             {
                 factionPawns = PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_OfPlayerFaction;
             }
+
+            if (countClones)
+            {
+                factionPawns.RemoveWhere(x => !x.IsDuplicate);
+            }
+
             if (factionPawns is null)
 				return false;
 			foreach (KeyValuePair<PawnKindDef, int> set in kindDefs)

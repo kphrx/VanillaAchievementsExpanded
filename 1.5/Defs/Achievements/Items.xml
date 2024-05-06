@@ -99,4 +99,20 @@
 		<texPath>Achievements/FutureCaveman</texPath>
 		<points>10</points>
 	</AchievementsExpanded.AchievementDef>
+	
+	<AchievementsExpanded.AchievementDef>
+		<defName>VAE_MidasTouch</defName>
+		<label>Midas' Touch</label>
+		<description>Craft a gold item of excellent quality or higher</description>
+		
+		<tracker Class="AchievementsExpanded.ItemCraftTracker">
+			
+			<madeFrom>Gold</madeFrom>
+			<count>1</count>
+			<quality>Excellent</quality>
+		</tracker>
+		
+		<texPath>Achievements/VCEF_AlphaFish_a</texPath>
+		<points>25</points>
+	</AchievementsExpanded.AchievementDef>
 </Defs>

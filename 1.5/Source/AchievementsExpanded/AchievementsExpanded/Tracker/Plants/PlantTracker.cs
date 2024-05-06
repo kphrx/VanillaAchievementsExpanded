@@ -13,7 +13,7 @@ namespace AchievementsExpanded
 
         public ThingDef def;
         public int count;
-
+     
 
 
 
@@ -45,6 +45,8 @@ namespace AchievementsExpanded
             count = reference.count;
             if (count <= 0)
                 count = 1;
+          
+
             registeredPlants = new HashSet<string>();
             triggeredCount = 0;
 
@@ -56,6 +58,8 @@ namespace AchievementsExpanded
             base.ExposeData();
             Scribe_Defs.Look(ref def, "def");
             Scribe_Values.Look(ref count, "count", 1);
+          
+
             Scribe_Collections.Look(ref registeredPlants, "registeredPlants");
             Scribe_Values.Look(ref triggeredCount, "triggeredCount", 0);
 
@@ -66,11 +70,14 @@ namespace AchievementsExpanded
             base.Trigger();
             if (def is null || def == plant.def)
             {
-                if (!registeredPlants.Add(plant.GetUniqueLoadID()))
-                {
-                    return false;
-                }
-                triggeredCount++;
+                
+                    if (!registeredPlants.Add(plant.GetUniqueLoadID()))
+                    {
+                        return false;
+                    }
+                    triggeredCount++;
+               
+                
             }
             
             return triggeredCount >= count;

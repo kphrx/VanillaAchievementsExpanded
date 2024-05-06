@@ -34,10 +34,7 @@ namespace AchievementsExpanded
                 triggeredCount = value;
             }
         }
-
-
-        public override MethodInfo MethodHook => AccessTools.Method(typeof(CompNociosphere), nameof(CompNociosphere.OnActivityActivated));
-        public override MethodInfo PatchMethod => AccessTools.Method(typeof(AchievementHarmony), nameof(AchievementHarmony.NociosphereActivated));
+                       
         protected override string[] DebugText => new string[] { "Generic tracker" };
 
         public override Func<bool> AttachToLongTick => () => { return Trigger(); };

@@ -23,6 +23,8 @@ namespace AchievementsExpanded
 		private Texture2D achievementIcon;
 		private Texture2D achievementBGIcon;
 
+		public MonolithLevelDef blockedUntilMonolithLevel;
+
 		public AchievementCard()
 		{
 		}
@@ -39,9 +41,11 @@ namespace AchievementsExpanded
 			unlocked = preUnlocked;
 			tracker = (TrackerBase)Activator.CreateInstance(def.tracker.GetType(), new object[] { def.tracker });
 			tracker.cardAssigned = this.def.defName;
-		}
+			this.blockedUntilMonolithLevel = def.blockedUntilMonolithLevel;
 
-		public bool BadTex { get; set; }
+    }
+
+    public bool BadTex { get; set; }
 
 		public Texture2D AchievementIcon
 		{
@@ -106,7 +110,10 @@ namespace AchievementsExpanded
 
 		public virtual void DrawCard(Rect rect)
 		{
-			Rect iconRect = new Rect(rect.x, rect.y, rect.width, rect.width).ContractedBy(MainTabWindow_Achievements.SpaceBetweenCards);
+			bool hiddenCard = ModsConfig.AnomalyActive && blockedUntilMonolithLevel?.level > 0 && Find.Storyteller.difficulty.AnomalyPlaystyleDef == AnomalyPlaystyleDefOf.Standard && Find.Anomaly.Level < blockedUntilMonolithLevel?.level;
+
+
+            Rect iconRect = new Rect(rect.x, rect.y, rect.width, rect.width).ContractedBy(MainTabWindow_Achievements.SpaceBetweenCards);
 
 			Widgets.DrawMenuSection(rect);
 			GUI.DrawTexture(iconRect, AchievementBGIcon);
@@ -115,7 +122,15 @@ namespace AchievementsExpanded
 			var color = GUI.color;
 			if(!unlocked && !BadTex)
 				GUI.color = Color.black;
-			GUI.DrawTexture(innerIconRect, AchievementIcon);
+
+			if (hiddenCard)
+			{
+                GUI.DrawTexture(innerIconRect, AchievementTex.HiddenIcon);
+            }
+			else
+			{
+                GUI.DrawTexture(innerIconRect, AchievementIcon);
+            }           
 			GUI.color = color;
 
 			var anchor = Text.Anchor;
@@ -126,12 +141,19 @@ namespace AchievementsExpanded
 				float height = iconRect.height * (1 / 8f);
 				float width = iconRect.width * (3 / 4f);
 				Rect barRect = new Rect(iconRect.x + (iconRect.width / 2) - (width / 2), iconRect.y + iconRect.height - height - (MainTabWindow_Achievements.SpaceBetweenCards / 2f), width, height);
-				Widgets.FillableBar(barRect, tracker.PercentComplete.percent, AchievementTex.BarFullTexHor, AchievementTex.DefaultBarBgTex, true);
-				Widgets.Label(barRect, tracker.PercentComplete.text);
+				if (!hiddenCard) {
+                    Widgets.FillableBar(barRect, tracker.PercentComplete.percent, AchievementTex.BarFullTexHor, AchievementTex.DefaultBarBgTex, true);
+                    Widgets.Label(barRect, tracker.PercentComplete.text);
+                }
+
+				
 			}
 
 			Rect labelRect = new Rect(iconRect.x, iconRect.y + iconRect.height, iconRect.width, rect.height - MainTabWindow_Achievements.SpaceBetweenCards - iconRect.height);
-			Widgets.Label(labelRect, def.label);
+			if (!hiddenCard)
+			{
+				Widgets.Label(labelRect, def.label);
+			}
 
 			var font = Text.Font;
 			var textColor = GUI.color;
@@ -139,20 +161,34 @@ namespace AchievementsExpanded
 			GUI.color = MainTabWindow_Achievements.LightGray;
 
 			Rect descRect = new Rect(iconRect.x, labelRect.y + MainTabWindow_Achievements.SpaceBetweenCards * 6, iconRect.width, labelRect.height);
-			Widgets.Label(descRect, def.description);
+			if (!hiddenCard)
+			{
+				Widgets.Label(descRect, def.description);
+			}
 
 			var pointTextSize = Text.CalcSize(def.points.ToString());
 			Rect pointRect = new Rect(iconRect.x + pointTextSize.y, descRect.y - MainTabWindow_Achievements.SpaceBetweenCards * 2, iconRect.width - pointTextSize.y, labelRect.height);
 			Rect pointIconRect = new Rect(iconRect.x + iconRect.width / 2 - pointTextSize.y, descRect.y - MainTabWindow_Achievements.SpaceBetweenCards * 2, pointTextSize.y, pointTextSize.y);
-			Widgets.Label(pointRect, def.points.ToStringSafe());
-			GUI.DrawTexture(pointIconRect, AchievementTex.PointsIcon);
+			if (!hiddenCard)
+			{
+				Widgets.Label(pointRect, def.points.ToStringSafe());
+				GUI.DrawTexture(pointIconRect, AchievementTex.PointsIcon);
+			}
 
 			GUI.color = Color.gray;
 			var timeSize = Text.CalcSize(dateUnlocked);
 			Rect unlockTimeRect = new Rect(iconRect.x, iconRect.y + rect.height - (timeSize.y * 1.5f), iconRect.width, timeSize.y);
-			Widgets.Label(unlockTimeRect, dateUnlocked);
+			if(hiddenCard)
+			{
+                Widgets.Label(unlockTimeRect, "VAE_AchievementHidden".Translate(blockedUntilMonolithLevel.level));
 
-			Text.Font = font;
+            }
+            else
+            {
+                Widgets.Label(unlockTimeRect, dateUnlocked);
+            }
+
+            Text.Font = font;
 			GUI.color = textColor;
 			Text.Anchor = anchor;
 		}

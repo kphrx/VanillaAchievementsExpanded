@@ -102,7 +102,9 @@
     <Compile Include="Rewards\Reward_RandomQuestItem.cs" />
     <Compile Include="Tracker\Anomaly\NociosphereTracker.cs" />
     <Compile Include="Tracker\Base\GenericTracker.cs" />
+    <Compile Include="Tracker\Biotech\BirthsTracker.cs" />
     <Compile Include="Tracker\Building\MultipleBuildingTracker.cs" />
+    <Compile Include="Tracker\Ideology\IdeosTracker.cs" />
     <Compile Include="Tracker\Kill\BondedAnimalOnFireKillTracker.cs" />
     <Compile Include="Tracker\Kill\KillTrackerWithOr.cs" />
     <Compile Include="Tracker\Anomaly\EntitiesInHoldTracker.cs" />
@@ -113,6 +115,7 @@
     <Compile Include="Tracker\PawnJoined\PawnJoinedTracker.cs" />
     <Compile Include="Tracker\PawnJoined\KindDefTracker.cs" />
     <Compile Include="Tracker\Biotech\XenotypeDefTracker.cs" />
+    <Compile Include="Tracker\Royalty\MechClusterDefeatTracker.cs" />
     <Compile Include="Tracker\Royalty\RoyalTitleTracker.cs" />
     <Compile Include="Tracker\StatsAndRecords\RecordEventTracker.cs" />
     <Compile Include="Tracker\StatsAndRecords\RecordTimeTracker.cs" />

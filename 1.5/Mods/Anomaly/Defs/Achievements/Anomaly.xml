@@ -93,28 +93,6 @@
 		<texPath>Achievements/IWillSurvive</texPath>
 		<points>5</points>
 	</AchievementsExpanded.AchievementDef>
-	<AchievementsExpanded.AchievementDef>
-		<defName>VAE_GetKnight</defName>
-		<label>Get a title of knight</label>
-		<description>Get a title of knight</description>
-		<order>1</order>
-		<tracker Class="AchievementsExpanded.RoyalTitleTracker">
-			<title>Knight</title>
-			<count>1</count>
-		</tracker>
-		<texPath>Achievements/IWillSurvive</texPath>
-		<points>5</points>
-	</AchievementsExpanded.AchievementDef>
-	<AchievementsExpanded.AchievementDef>
-		<defName>VAE_GetFiveAcolytes</defName>
-		<label>Get five acolytes</label>
-		<description>Get five acolytes</description>
-		<order>1</order>
-		<tracker Class="AchievementsExpanded.RoyalTitleTracker">
-			<title>Acolyte</title>
-			<count>5</count>
-		</tracker>
-		<texPath>Achievements/IWillSurvive</texPath>
-		<points>5</points>
-	</AchievementsExpanded.AchievementDef>
+	
+
 </Defs>

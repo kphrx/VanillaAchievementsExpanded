@@ -8,5 +8,6 @@ namespace AchievementsExpanded
 {
 	public class AchievementTabDef : Def
 	{
+		public int order = 10;
 	}
 }

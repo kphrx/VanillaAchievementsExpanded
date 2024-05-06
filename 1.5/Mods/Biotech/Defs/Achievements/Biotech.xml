@@ -1,43 +1,143 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 	<AchievementsExpanded.AchievementDef>
-		<defName>VAE_GetAnImpid</defName>
-		<label>I Will Survive</label>
-		<description>Get an impid</description>
-		<order>1</order>
-		<tracker Class="AchievementsExpanded.XenotypeDefTracker">
-			<xenotypeDefs>
-				<li>
-					<key>Impid</key>
-					<value>1</value>
-				</li>
-			</xenotypeDefs>
-			<countTemporary>false</countTemporary>
-		
-		</tracker>
-		
-		<texPath>Achievements/IWillSurvive</texPath>
-		<points>5</points>
-	</AchievementsExpanded.AchievementDef>
-	
-	
-	<AchievementsExpanded.AchievementDef>
-		<defName>VAE_GetTwoHemogenicPawns</defName>
-		<label>I Will Survive</label>
-		<description>Get two hemogenic pawns</description>
-		<order>1</order>
+		<defName>VAE_Bloodsuckers</defName>
+		<label>Bloodsuckers</label>
+		<description>Get 3 colonists with Hemogenic gene</description>
+		<tab>VAE_DLCTab</tab>
 		<tracker Class="AchievementsExpanded.GeneAddedTracker">
 			<genesList>
 				<li>
 					<key>Hemogenic</key>
-					<value>2</value>
+					<value>3</value>
 				</li>
 			</genesList>
 			
 		</tracker>
 		
-		<texPath>Achievements/IWillSurvive</texPath>
-		<points>5</points>
+		<texPath>Achievements/VCEF_AlphaFish_a</texPath>
+		<points>10</points>
+	</AchievementsExpanded.AchievementDef>
+	
+	
+	<AchievementsExpanded.AchievementDef>
+		<defName>VAE_NeedMoreCatgirls</defName>
+		<label>Need More Catgirls</label>
+		<description>Get 3 Highmates in the same colony</description>
+		<tab>VAE_DLCTab</tab>
+		<tracker Class="AchievementsExpanded.XenotypeDefTracker">
+			<xenotypeDefs>
+				<li>
+					<key>Highmate</key>
+					<value>3</value>
+				</li>
+			</xenotypeDefs>
+			
+		</tracker>
+		
+		<texPath>Achievements/VCEF_AlphaFish_a</texPath>
+		<points>25</points>
+	</AchievementsExpanded.AchievementDef>
+	
+	<AchievementsExpanded.AchievementDef>
+		<defName>VAE_UngusAndBungus</defName>
+		<label>Ungus and Bungus</label>
+		<description>Have a colony with 10 Neanderthals</description>
+		<tab>VAE_DLCTab</tab>
+		<tracker Class="AchievementsExpanded.XenotypeDefTracker">
+			<xenotypeDefs>
+				<li>
+					<key>Neanderthal</key>
+					<value>10</value>
+				</li>
+			</xenotypeDefs>
+			
+		</tracker>
+		
+		<texPath>Achievements/VCEF_AlphaFish_a</texPath>
+		<points>25</points>
+	</AchievementsExpanded.AchievementDef>
+	
+	<AchievementsExpanded.AchievementDef>
+		<defName>VAE_AMachineForPigs</defName>
+		<label>A Machine for Pigs</label>
+		<description>Kill 100 Pigskins</description>
+		<tab>VAE_DLCTab</tab>
+		<tracker Class="AchievementsExpanded.KillTracker">
+			<raceDef>Human</raceDef>
+			<count>100</count>
+			<xenotypeDef>Pigskin</xenotypeDef>
+		</tracker>
+		
+		<texPath>Achievements/VCEF_AlphaFish_a</texPath>
+		<points>75</points>
+	</AchievementsExpanded.AchievementDef>
+	
+	<AchievementsExpanded.AchievementDef>
+		<defName>VAE_MeltingPot</defName>
+		<label>Melting Pot</label>
+		<description>Get a colonist from one of each of the vanilla xenotypes</description>
+		<tab>VAE_DLCTab</tab>
+		<tracker Class="AchievementsExpanded.XenotypeDefTracker">
+			<requireAll>true</requireAll>
+			<xenotypeDefs>
+				<li>
+					<key>Dirtmole</key>
+					<value>1</value>
+				</li>
+				<li>
+					<key>Genie</key>
+					<value>1</value>
+				</li>
+				<li>
+					<key>Hussar</key>
+					<value>1</value>
+				</li>
+				<li>
+					<key>Sanguophage</key>
+					<value>1</value>
+				</li>
+				<li>
+					<key>Pigskin</key>
+					<value>1</value>
+				</li>
+				<li>
+					<key>Impid</key>
+					<value>1</value>
+				</li>
+				<li>
+					<key>Waster</key>
+					<value>1</value>
+				</li>
+				<li>
+					<key>Yttakin</key>
+					<value>1</value>
+				</li>
+				<li>
+					<key>Highmate</key>
+					<value>1</value>
+				</li>
+			</xenotypeDefs>
+			
+		</tracker>
+		
+		<texPath>Achievements/VCEF_AlphaFish_a</texPath>
+		<points>100</points>
+	</AchievementsExpanded.AchievementDef>
+	
+	<AchievementsExpanded.AchievementDef>
+		<defName>VAE_NewGeneration</defName>
+		<label>New Generation</label>
+		<description>Have 10 natural births in the colony</description>
+		<tab>VAE_DLCTab</tab>
+		<tracker Class="AchievementsExpanded.BirthsTracker">
+			
+			<count>10</count>
+			
+		</tracker>
+		
+		<texPath>Achievements/VCEF_AlphaFish_a</texPath>
+		<points>25</points>
 	</AchievementsExpanded.AchievementDef>
 	
 </Defs>

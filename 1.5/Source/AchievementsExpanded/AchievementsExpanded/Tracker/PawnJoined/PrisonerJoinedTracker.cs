@@ -12,8 +12,9 @@ namespace AchievementsExpanded
 	public class PrisonerJoinedTracker : TrackerBase
 	{
 		public int numberOfPrisoners;
+        protected int triggeredCount;
 
-	
+
         public override string Key
         {
             get { return "PrisonerJoinedTracker"; }
@@ -25,6 +26,8 @@ namespace AchievementsExpanded
         protected override string[] DebugText => new string[] { $"Number Of Prisoners:  {numberOfPrisoners}" };
 
 
+        public override (float percent, string text) PercentComplete => numberOfPrisoners > 1 ? ((float)triggeredCount / numberOfPrisoners, $"{triggeredCount} / {numberOfPrisoners}") : base.PercentComplete;
+
         public PrisonerJoinedTracker()
 		{
 		}
@@ -34,6 +37,7 @@ namespace AchievementsExpanded
             numberOfPrisoners = reference.numberOfPrisoners;
             if (numberOfPrisoners <= 0)
                 numberOfPrisoners = 1;
+            triggeredCount = 0;
 
         }
 
@@ -43,7 +47,8 @@ namespace AchievementsExpanded
 		{
 			base.ExposeData();
 			Scribe_Values.Look(ref numberOfPrisoners, "numberOfPrisoners", 0);
-		}
+            Scribe_Values.Look(ref triggeredCount, "triggeredCount", 0);
+        }
 
         public override bool Trigger()
         {
@@ -55,7 +60,8 @@ namespace AchievementsExpanded
             if (factionPawns is null)
                 return false;
 
-            if (factionPawns.Count() >= numberOfPrisoners)
+            triggeredCount = factionPawns.Count();
+            if (triggeredCount >= numberOfPrisoners)
             {
                 return true;
             }

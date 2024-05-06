@@ -8,9 +8,23 @@
 		<tracker Class="AchievementsExpanded.ModAmountTracker">
 			<amountOfMods>10</amountOfMods>
 		</tracker>
-		
+		<blockedUntilMonolithLevel>Waking</blockedUntilMonolithLevel>
 		<texPath>Achievements/InForAPenny</texPath>
 		<points>10</points>
+	</AchievementsExpanded.AchievementDef>
+	
+	<AchievementsExpanded.AchievementDef>
+		<defName>VAE_UnstableCells</defName>
+		<label>Surely they won’t explode</label>
+		<description>Collect 1 unstable power cell </description>
+		
+		<tracker Class="AchievementsExpanded.BuildingTracker">
+			<def>UnstablePowerCell</def>
+			<count>1</count>
+		</tracker>
+		
+		<texPath>Achievements/ItAintRocketScience</texPath>
+		<points>50</points>
 	</AchievementsExpanded.AchievementDef>
 	
 	

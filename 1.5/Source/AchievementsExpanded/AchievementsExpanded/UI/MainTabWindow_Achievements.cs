@@ -93,7 +93,7 @@ namespace AchievementsExpanded
 		{
 			base.PostOpen();
 			tabs.Clear();
-			foreach (AchievementTabDef localTabDef2 in DefDatabase<AchievementTabDef>.AllDefs)
+			foreach (AchievementTabDef localTabDef2 in DefDatabase<AchievementTabDef>.AllDefs.OrderBy(x => x.order))
 			{
 				AchievementTabDef localTabDef = localTabDef2;
 				tabs.Add(new TabRecord(localTabDef.LabelCap, delegate()

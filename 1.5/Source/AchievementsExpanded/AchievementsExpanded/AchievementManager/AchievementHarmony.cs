@@ -627,12 +627,82 @@ namespace AchievementsExpanded
 
             if (Current.ProgramState == ProgramState.Playing)
             {
-                foreach (var card in AchievementPointManager.GetCards<GenericTracker>())
+                foreach (var card in AchievementPointManager.GetCards<NociosphereTracker>())
                 {
                     try
                     {
 
-                        if ((card.tracker as GenericTracker).Trigger())
+                        if ((card.tracker as NociosphereTracker).Trigger())
+                        {
+                            card.UnlockCard();
+                        }
+                    }
+
+                    catch (Exception ex)
+                    {
+                        Log.Error($"Unable to trigger event for card validation. To avoid further errors {card.def.LabelCap} has been automatically unlocked.\n\nException={ex.Message}");
+                        card.UnlockCard();
+                    }
+
+
+                }
+            }
+
+
+        }
+
+        /// <summary>
+        /// Mech cluster defeated Event
+        /// </summary>
+
+
+        public static void DefeatedMechCluster()
+        {
+
+            if (Current.ProgramState == ProgramState.Playing)
+            {
+                foreach (var card in AchievementPointManager.GetCards<MechClusterDefeatTracker>())
+                {
+                    try
+                    {
+
+                        if ((card.tracker as MechClusterDefeatTracker).Trigger())
+                        {
+                            card.UnlockCard();
+                        }
+                    }
+
+                    catch (Exception ex)
+                    {
+                        Log.Error($"Unable to trigger event for card validation. To avoid further errors {card.def.LabelCap} has been automatically unlocked.\n\nException={ex.Message}");
+                        card.UnlockCard();
+                    }
+
+
+                }
+            }
+
+
+        }
+
+        /// <summary>
+        /// Colonist birth Event
+        /// </summary>
+        /// <param name="progress"></param>
+		/// <param name="jobRitual"></param>
+
+
+        public static void ColonistBirth(float progress,  LordJob_Ritual jobRitual)
+        {
+            
+            if (Current.ProgramState == ProgramState.Playing)
+            {
+                foreach (var card in AchievementPointManager.GetCards<BirthsTracker>())
+                {
+                    try
+                    {
+
+                        if ((card.tracker as BirthsTracker).Trigger())
                         {
                             card.UnlockCard();
                         }
@@ -655,7 +725,7 @@ namespace AchievementsExpanded
         /// Prisoner Joined Event
         /// </summary>
         /// <param name="guestStatus"></param>
-       
+
         public static void PrisonerJoined(GuestStatus guestStatus)
         {
             if (Current.ProgramState == ProgramState.Playing && guestStatus == GuestStatus.Prisoner)

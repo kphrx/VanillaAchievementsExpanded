@@ -14,7 +14,7 @@ namespace AchievementsExpanded
         public RoyalTitleDef title;
         public int count;
         public bool countTemporary = false;
-
+        protected int triggeredCount;
 
 
         public override string Key
@@ -37,7 +37,7 @@ namespace AchievementsExpanded
             if (count <= 0)
                 count = 1;
             countTemporary = reference.countTemporary;
-
+            triggeredCount = 0;
 
         }
 
@@ -49,13 +49,16 @@ namespace AchievementsExpanded
             }
         }
 
+        public override (float percent, string text) PercentComplete => count > 1 ? ((float)triggeredCount / count, $"{triggeredCount} / {count}") : base.PercentComplete;
+
+
         public override void ExposeData()
         {
             base.ExposeData();
             Scribe_Defs.Look(ref title, "title");
             Scribe_Values.Look(ref count, "count", 1);
             Scribe_Values.Look(ref countTemporary, "countTemporary", false);
-
+            Scribe_Values.Look(ref triggeredCount, "triggeredCount", 0);
         }
 
         public override bool Trigger()
@@ -76,7 +79,9 @@ namespace AchievementsExpanded
             if (factionPawns is null)
                 return false;
 
-            if (factionPawns.Where(f => f.royalty?.MainTitle()?.seniority>=title?.seniority).Count() >= count)
+            triggeredCount = factionPawns.Where(f => f.royalty?.MainTitle()?.seniority >= title?.seniority).Count();
+
+            if (triggeredCount >= count)
             {
                 return true;
             }

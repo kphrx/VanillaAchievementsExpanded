@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<AchievementsExpanded.AchievementDef>
+		<defName>VAE_WarAgainstTheMachines</defName>
+		<label>War Against the Machines</label>
+		<description>Defeat a mech cluster</description>
+		<tab>VAE_DLCTab</tab>
+		<tracker Class="AchievementsExpanded.MechClusterDefeatTracker">
+			<count>1</count>
+		</tracker>
+		<texPath>Achievements/VCEF_AlphaFish_a</texPath>
+		<points>10</points>
+	</AchievementsExpanded.AchievementDef>
+	<AchievementsExpanded.AchievementDef>
+		<defName>VAE_MachinesFromTheFuture</defName>
+		<label>Machines From the Future</label>
+		<description>Defeat 5 mech clusters</description>
+		<tab>VAE_DLCTab</tab>
+		<tracker Class="AchievementsExpanded.MechClusterDefeatTracker">
+			<count>5</count>
+		</tracker>
+		<texPath>Achievements/VCEF_AlphaFish_a</texPath>
+		<points>50</points>
+	</AchievementsExpanded.AchievementDef>
+	<AchievementsExpanded.AchievementDef>
+		<defName>VAE_UnstableCells</defName>
+		<label>Surely they won’t explode</label>
+		<description>Collect 5 unstable power cells</description>
+		<tab>VAE_DLCTab</tab>
+		<tracker Class="AchievementsExpanded.BuildingTracker">
+			<def>UnstablePowerCell</def>
+			<count>5</count>
+		</tracker>
+		<texPath>Achievements/VCEF_AlphaFish_a</texPath>
+		<points>50</points>
+	</AchievementsExpanded.AchievementDef>
+	<AchievementsExpanded.AchievementDef>
+		<defName>VAE_NotInMyBackyard</defName>
+		<label>Not in my Backyard</label>
+		<description>Successfully complete a problem causer quest</description>
+		<tab>VAE_DLCTab</tab>
+		<tracker Class="AchievementsExpanded.QuestTracker">
+			<def>ProblemCauser</def>
+			<outcome>Success</outcome>
+			<count>1</count>
+		</tracker>
+		<texPath>Achievements/VCEF_AlphaFish_a</texPath>
+		<points>10</points>
+	</AchievementsExpanded.AchievementDef>
+	<AchievementsExpanded.AchievementDef>
+		<defName>VAE_BlueBlood</defName>
+		<label>Blue Blood</label>
+		<description>Have a colonist become a Freeholder of the Empire</description>
+		<tab>VAE_DLCTab</tab>
+		<tracker Class="AchievementsExpanded.RoyalTitleTracker">
+			<title>Freeholder</title>
+			<count>1</count>
+		</tracker>
+		<texPath>Achievements/VCEF_AlphaFish_a</texPath>
+		<points>5</points>
+	</AchievementsExpanded.AchievementDef>
+	<AchievementsExpanded.AchievementDef>
+		<defName>VAE_NobleDeeds</defName>
+		<label>Noble Deeds</label>
+		<description>Have 3 colonists become Acolytes of the Empire</description>
+		<tab>VAE_DLCTab</tab>
+		<tracker Class="AchievementsExpanded.RoyalTitleTracker">
+			<title>Acolyte</title>
+			<count>3</count>
+		</tracker>
+		<texPath>Achievements/VCEF_AlphaFish_a</texPath>
+		<points>25</points>
+	</AchievementsExpanded.AchievementDef>
+	<AchievementsExpanded.AchievementDef>
+		<defName>VAE_UpTheRanks</defName>
+		<label>Up the Ranks</label>
+		<description>Have a colonist become a Knight of the Empire</description>
+		<tab>VAE_DLCTab</tab>
+		<tracker Class="AchievementsExpanded.RoyalTitleTracker">
+			<title>Knight</title>
+			<count>1</count>
+		</tracker>
+		<texPath>Achievements/VCEF_AlphaFish_a</texPath>
+		<points>25</points>
+	</AchievementsExpanded.AchievementDef>
+	<AchievementsExpanded.AchievementDef>
+		<defName>VAE_EnlightenedAristocracy</defName>
+		<label>Enlightened Aristocracy</label>
+		<description>Have a colonist become a Count of the Empire</description>
+		<tab>VAE_DLCTab</tab>
+		<tracker Class="AchievementsExpanded.RoyalTitleTracker">
+			<title>Count</title>
+			<count>1</count>
+		</tracker>
+		<texPath>Achievements/VCEF_AlphaFish_a</texPath>
+		<points>50</points>
+	</AchievementsExpanded.AchievementDef>
+	<AchievementsExpanded.AchievementDef>
+		<defName>VAE_TheRoyalCourt</defName>
+		<label>The Royal Court</label>
+		<description>Have at least 5 colonist at the rank of Knight or more</description>
+		<tab>VAE_DLCTab</tab>
+		<tracker Class="AchievementsExpanded.RoyalTitleTracker">
+			<title>Knight</title>
+			<count>5</count>
+		</tracker>
+		<texPath>Achievements/VCEF_AlphaFish_a</texPath>
+		<points>100</points>
+	</AchievementsExpanded.AchievementDef>
+	<AchievementsExpanded.AchievementDef>
+		<defName>VAE_RoyalArms</defName>
+		<label>Royal Arms</label>
+		<description>Collect a (non-persona) monosword, zeushammer and plasma sword</description>
+		<tab>VAE_DLCTab</tab>
+		<tracker Class="AchievementsExpanded.ItemTracker">
+			<thingList>
+				<li>
+					<key>MeleeWeapon_MonoSword</key>
+					<value>1</value>
+				</li>
+				<li>
+					<key>MeleeWeapon_Zeushammer</key>
+					<value>1</value>
+				</li>
+				<li>
+					<key>MeleeWeapon_PlasmaSword</key>
+					<value>1</value>
+				</li>
+			</thingList>
+			<mustHaveAll>true</mustHaveAll>
+		</tracker>
+		<texPath>Achievements/VCEF_AlphaFish_a</texPath>
+		<points>25</points>
+	</AchievementsExpanded.AchievementDef>
+	<AchievementsExpanded.AchievementDef>
+		<defName>VAE_AnimaTorture</defName>
+		<label>Anima Torture</label>
+		<tab>VAE_DLCTab</tab>
+		<description>Cut down 5 anima trees, screams be damned</description>
+		
+			<tracker Class="AchievementsExpanded.PlantTracker">
+			<def>Plant_TreeAnima</def>
+			<count>5</count>
+		</tracker>
+		
+		<texPath>Achievements/VCEF_AlphaFish_a</texPath>
+		<points>25</points>
+	</AchievementsExpanded.AchievementDef>
+</Defs>

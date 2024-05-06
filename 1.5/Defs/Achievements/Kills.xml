@@ -103,4 +103,34 @@
 		<texPath>Achievements/AustralianRevenge</texPath>
 		<points>25</points>
 	</AchievementsExpanded.AchievementDef>
+	
+	<AchievementsExpanded.AchievementDef>
+		<defName>VAE_TacticalNukeInbound</defName>
+		<label>Tactical Nuke Inbound</label>
+		<description>Kill a human with a doomsday rocket launcher</description>
+		
+		<tracker Class="AchievementsExpanded.KillTracker">
+			<raceDef>Human</raceDef>
+			<count>1</count>
+			<weaponDef>Gun_DoomsdayRocket</weaponDef>
+		</tracker>
+		
+		<texPath>Achievements/VCEF_AlphaFish_a</texPath>
+		<points>25</points>
+	</AchievementsExpanded.AchievementDef>
+	
+	<AchievementsExpanded.AchievementDef>
+		<defName>VAE_TakeThatMickey</defName>
+		<label>Take That, Mickey</label>
+		<description>Have a rat die by a spike trap</description>
+		
+		<tracker Class="AchievementsExpanded.KillTracker">
+			<raceDef>Rat</raceDef>
+			<count>1</count>
+			<instigatorThingDef>TrapSpike</instigatorThingDef>
+		</tracker>
+		
+		<texPath>Achievements/VCEF_AlphaFish_a</texPath>
+		<points>10</points>
+	</AchievementsExpanded.AchievementDef>
 </Defs>

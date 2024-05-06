@@ -15,8 +15,11 @@ namespace AchievementsExpanded
 		public List<FactionDef> factionDefs;
 		public List<FactionDef> instigatorFactionDefs;
 		public int count = 1;
+		public XenotypeDef xenotypeDef;
+		public ThingDef instigatorThingDef;
+        public ThingDef weaponDef;
 
-		protected int triggeredCount;
+        protected int triggeredCount;
 		protected List<string> killedThings;
 
 	
@@ -47,7 +50,11 @@ namespace AchievementsExpanded
 			factionDefs = reference.factionDefs;
 			instigatorFactionDefs = reference.instigatorFactionDefs;
 			count = reference.count;
-			triggeredCount = 0;
+            xenotypeDef = reference.xenotypeDef;
+            instigatorThingDef = reference.instigatorThingDef;
+            weaponDef = reference.weaponDef;
+
+            triggeredCount = 0;
 
 			killedThings = new List<string>();
 		}
@@ -57,7 +64,10 @@ namespace AchievementsExpanded
 			base.ExposeData();
 			Scribe_Defs.Look(ref kindDef, "kindDef");
 			Scribe_Defs.Look(ref raceDef, "raceDef");
-			Scribe_Collections.Look(ref factionDefs, "factionDefs", LookMode.Def);
+            Scribe_Defs.Look(ref xenotypeDef, "xenotypeDef");
+            Scribe_Defs.Look(ref instigatorThingDef, "instigatorThingDef");
+            Scribe_Defs.Look(ref weaponDef, "weaponDef");
+            Scribe_Collections.Look(ref factionDefs, "factionDefs", LookMode.Def);
 			Scribe_Collections.Look(ref instigatorFactionDefs, "instigatorFactionDefs", LookMode.Def);
 			Scribe_Values.Look(ref count, "count", 1);
 
@@ -75,10 +85,13 @@ namespace AchievementsExpanded
 			else
 				killedThings.Add(pawn.GetUniqueLoadID());
 			bool instigator = instigatorFactionDefs.NullOrEmpty() || (dinfo?.Instigator?.Faction?.def != null && instigatorFactionDefs.Contains(dinfo.Value.Instigator.Faction.def));
-			bool kind = kindDef is null || pawn.kindDef == kindDef;
-			bool race = raceDef is null || pawn.def == raceDef;
+            bool kind = kindDef is null || pawn.kindDef == kindDef;
+            bool instigatorThing = instigatorThingDef is null || dinfo?.Instigator?.def == instigatorThingDef;
+			bool weapon = weaponDef is null || dinfo?.Weapon == weaponDef;
+            bool race = raceDef is null || pawn.def == raceDef;
+			bool xenotype = xenotypeDef is null || pawn.genes?.Xenotype == xenotypeDef;
 			bool faction = factionDefs.NullOrEmpty() || (pawn.Faction != null && factionDefs.Contains(pawn.Faction.def));
-			return kind && race && faction && instigator && (count <= 1 || ++triggeredCount >= count);
+			return kind && weapon && xenotype && instigatorThing && race && faction && instigator && (count <= 1 || ++triggeredCount >= count);
 		}
 	}
 }

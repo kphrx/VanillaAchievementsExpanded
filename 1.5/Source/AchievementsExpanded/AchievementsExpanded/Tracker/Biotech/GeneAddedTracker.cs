@@ -42,6 +42,8 @@ namespace AchievementsExpanded
         {
         }
 
+       
+
 
         public GeneAddedTracker(GeneAddedTracker reference) : base(reference)
         {

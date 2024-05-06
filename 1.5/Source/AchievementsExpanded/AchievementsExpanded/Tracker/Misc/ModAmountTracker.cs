@@ -27,7 +27,10 @@ namespace AchievementsExpanded
 		{
 		}
 
-		public ModAmountTracker(ModAmountTracker reference) : base(reference)
+        public override (float percent, string text) PercentComplete => amountOfMods > 1 ? ((float)ModsConfig.ActiveModsInLoadOrder.Count() / amountOfMods, $"{ModsConfig.ActiveModsInLoadOrder.Count()} / {amountOfMods}") : base.PercentComplete;
+
+
+        public ModAmountTracker(ModAmountTracker reference) : base(reference)
 		{
             amountOfMods = reference.amountOfMods;
             if (amountOfMods <= 0)
