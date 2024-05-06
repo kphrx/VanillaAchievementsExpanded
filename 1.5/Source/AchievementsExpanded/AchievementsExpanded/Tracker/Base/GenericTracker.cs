@@ -58,7 +58,7 @@ namespace AchievementsExpanded
         {
             base.ExposeData();
             Scribe_Values.Look(ref count, "count", 1);
-
+            Scribe_Values.Look(ref key, "key");
         }
 
         public override bool Trigger()
