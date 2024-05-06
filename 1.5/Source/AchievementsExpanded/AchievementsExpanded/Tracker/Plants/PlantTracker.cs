@@ -13,6 +13,10 @@ namespace AchievementsExpanded
 
         public ThingDef def;
         public int count;
+
+
+
+
         protected int triggeredCount;
 
         protected HashSet<string> registeredPlants;

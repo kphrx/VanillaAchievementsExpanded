@@ -10,8 +10,11 @@ namespace AchievementsExpanded
 	{
 		public HediffDef def;
 		public int count = 1;
+		public bool onlyCountSlaves = false;
+        public bool onlyCountGhouls = false;
 
-		protected int triggeredCount;
+
+        protected int triggeredCount;
 
 		
         public override string Key
@@ -33,21 +36,29 @@ namespace AchievementsExpanded
 			def = reference.def;
 			count = reference.count;
 			triggeredCount = reference.triggeredCount;
-		}
+            onlyCountSlaves = reference.onlyCountSlaves;
+            onlyCountGhouls = reference.onlyCountGhouls;
 
-		public override void ExposeData()
+
+        }
+
+        public override void ExposeData()
 		{
 			base.ExposeData();
 			Scribe_Defs.Look(ref def, "def");
 			Scribe_Values.Look(ref count, "count", 1);
-			Scribe_Values.Look(ref triggeredCount, "triggeredCount");
+            Scribe_Values.Look(ref onlyCountSlaves, "onlyCountSlaves", false);
+            Scribe_Values.Look(ref onlyCountGhouls, "onlyCountGhouls", false);
+            Scribe_Values.Look(ref triggeredCount, "triggeredCount");
 		}
 
 		public override (float percent, string text) PercentComplete => count > 1 ? ((float)triggeredCount / count, $"{triggeredCount} / {count}") : base.PercentComplete;
 
 		public override bool Trigger(Hediff hediff)
 		{
-			if (hediff?.pawn != null && hediff.pawn.Faction == Faction.OfPlayerSilentFail && (def is null || def == hediff.def))
+			if (hediff?.pawn != null && hediff.pawn.Faction == Faction.OfPlayerSilentFail && (!onlyCountSlaves ||(onlyCountSlaves && hediff.pawn.IsSlaveOfColony))
+                 && (!onlyCountGhouls || (onlyCountGhouls && hediff.pawn.IsGhoul))
+                && (def is null || def == hediff.def))
 			{
 				triggeredCount++;
 			}

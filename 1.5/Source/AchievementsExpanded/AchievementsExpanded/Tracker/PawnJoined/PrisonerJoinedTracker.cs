@@ -32,7 +32,10 @@ namespace AchievementsExpanded
 		public PrisonerJoinedTracker(PrisonerJoinedTracker reference) : base(reference)
 		{
             numberOfPrisoners = reference.numberOfPrisoners;
-		}
+            if (numberOfPrisoners <= 0)
+                numberOfPrisoners = 1;
+
+        }
 
 		public override bool UnlockOnStartup => Trigger();
 

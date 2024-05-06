@@ -19,7 +19,7 @@ namespace AchievementsExpanded
             set { }
         }
 
-        public int nociosphereActivations = 0;
+        public int nociosphereActivations = 1;
         protected int triggeredCount;
 
         public override MethodInfo MethodHook => AccessTools.Method(typeof(CompNociosphere), nameof(CompNociosphere.OnActivityActivated));
@@ -36,6 +36,8 @@ namespace AchievementsExpanded
         public NociosphereTracker(NociosphereTracker reference) : base(reference)
         {
             nociosphereActivations = reference.nociosphereActivations;
+            if (nociosphereActivations <= 0)
+                nociosphereActivations = 1;
             triggeredCount = 0;
 
         }

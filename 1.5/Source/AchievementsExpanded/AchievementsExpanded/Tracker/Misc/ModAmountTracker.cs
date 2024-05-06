@@ -30,8 +30,9 @@ namespace AchievementsExpanded
 		public ModAmountTracker(ModAmountTracker reference) : base(reference)
 		{
             amountOfMods = reference.amountOfMods;
-			
-		}
+            if (amountOfMods <= 0)
+                amountOfMods = 1;
+        }
 
         public override bool UnlockOnStartup => Trigger();
 

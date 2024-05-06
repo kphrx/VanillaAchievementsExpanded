@@ -47,6 +47,7 @@ namespace AchievementsExpanded
         public EntitiesInHoldTracker(EntitiesInHoldTracker reference) : base(reference)
         {
             totalEntities = reference.totalEntities;
+
             entitiesList = reference.entitiesList;
 
 

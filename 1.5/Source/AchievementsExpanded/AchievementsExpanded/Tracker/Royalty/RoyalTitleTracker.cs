@@ -34,6 +34,8 @@ namespace AchievementsExpanded
         {
             title = reference.title;
             count = reference.count;
+            if (count <= 0)
+                count = 1;
             countTemporary = reference.countTemporary;
 
 
