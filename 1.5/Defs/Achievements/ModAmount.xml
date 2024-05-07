@@ -9,7 +9,7 @@
 			<amountOfMods>10</amountOfMods>
 		</tracker>
 		
-		<texPath>Achievements/VCEF_AlphaFish_a</texPath>
+		<texPath>Achievements/VAE_BabysFirstMods</texPath>
 		<points>5</points>
 	</AchievementsExpanded.AchievementDef>
 	
@@ -22,7 +22,7 @@
 			<amountOfMods>100</amountOfMods>
 		</tracker>
 		
-		<texPath>Achievements/VCEF_AlphaFish_a</texPath>
+		<texPath>Achievements/VAE_NoRedErrors</texPath>
 		<points>25</points>
 	</AchievementsExpanded.AchievementDef>
 	
@@ -35,7 +35,7 @@
 			<amountOfMods>500</amountOfMods>
 		</tracker>
 		
-		<texPath>Achievements/VCEF_AlphaFish_a</texPath>
+		<texPath>Achievements/VAE_TheyAreAllQoL</texPath>
 		<points>75</points>
 	</AchievementsExpanded.AchievementDef>
 </Defs>

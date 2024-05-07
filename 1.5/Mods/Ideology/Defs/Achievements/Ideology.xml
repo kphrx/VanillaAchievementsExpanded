@@ -1,4 +1,61 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-
+	<AchievementsExpanded.AchievementDef>
+		<defName>VAE_Multiculture</defName>
+		<label>Multiculture</label>
+		<description>Have pawns of at least 4 different Ideoligions as members of your colony</description>
+		<tracker Class="AchievementsExpanded.IdeosTracker">
+			<count>4</count>
+		</tracker>
+		<texPath>Achievements/VAE_Multiculture</texPath>
+		<points>25</points>
+	</AchievementsExpanded.AchievementDef>
+	<AchievementsExpanded.AchievementDef>
+		<defName>VAE_SlaveOwner</defName>
+		<label>Slave Owner</label>
+		<description>Enslave a person</description>
+		<tracker Class="AchievementsExpanded.RaceDefTracker">
+			<raceDefs>
+				<li>
+					<key>Human</key>
+					<value>1</value>
+				</li>
+			</raceDefs>
+			<countOnlySlaves>true</countOnlySlaves>
+		</tracker>
+		<texPath>Achievements/VAE_SlaveOwner</texPath>
+		<points>5</points>
+	</AchievementsExpanded.AchievementDef>
+	<AchievementsExpanded.AchievementDef>
+		<defName>VAE_SlaveDriver</defName>
+		<label>Slave Driver</label>
+		<description>Enslave 7 slaves over time</description>
+		<tracker Class="AchievementsExpanded.RaceDefTracker">
+			<raceDefs>
+				<li>
+					<key>Human</key>
+					<value>5</value>
+				</li>
+			</raceDefs>
+			<countOnlySlaves>true</countOnlySlaves>
+		</tracker>
+		<texPath>Achievements/VAE_SlaveDriver</texPath>
+		<points>25</points>
+	</AchievementsExpanded.AchievementDef>
+	<AchievementsExpanded.AchievementDef>
+		<defName>VAE_HappyTreeCritters</defName>
+		<label>Happy Tree Critters</label>
+		<description>Get 15 barkskin dryads</description>
+		<tracker Class="AchievementsExpanded.RaceDefTracker">
+			<raceDefs>
+				<li>
+					<key>Dryad_Barkskin</key>
+					<value>15</value>
+				</li>
+			</raceDefs>
+		
+		</tracker>
+		<texPath>Achievements/VAE_HappyTreeCritters</texPath>
+		<points>25</points>
+	</AchievementsExpanded.AchievementDef>
 </Defs>

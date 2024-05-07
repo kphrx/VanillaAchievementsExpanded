@@ -10,7 +10,7 @@
 			<count>50</count>
 		</tracker>
 		
-		<texPath>Achievements/VCEF_AlphaFish_a</texPath>
+		<texPath>Achievements/VAE_FirstHarvest</texPath>
 		<points>5</points>
 	</AchievementsExpanded.AchievementDef>
 	
@@ -24,7 +24,7 @@
 			<count>100</count>
 		</tracker>
 		
-		<texPath>Achievements/VCEF_AlphaFish_a</texPath>
+		<texPath>Achievements/VAE_FinestCloth</texPath>
 		<points>25</points>
 	</AchievementsExpanded.AchievementDef>
 	

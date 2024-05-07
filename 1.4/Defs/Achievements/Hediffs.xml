@@ -48,19 +48,7 @@
 		<points>5</points>
 	</AchievementsExpanded.AchievementDef>
 	
-	<AchievementsExpanded.AchievementDef>
-		<defName>onEdge</defName>
-		<label>On Edge</label>
-		<description>Gain immunity when infection is on 99%</description>
-		
-		<tracker Class="AchievementsExpanded.ImmunityHediffTracker">
-			<def>WoundInfection</def>
-			<count>0.99</count>
-		</tracker>
-		
-		<texPath>Achievements/OnEdge</texPath>
-		<points>50</points>
-	</AchievementsExpanded.AchievementDef>
+	
 	
 	<AchievementsExpanded.AchievementDef>
 		<defName>thatllShowHim</defName>

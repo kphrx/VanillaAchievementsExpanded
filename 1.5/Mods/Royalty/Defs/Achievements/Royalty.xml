@@ -8,7 +8,7 @@
 		<tracker Class="AchievementsExpanded.MechClusterDefeatTracker">
 			<count>1</count>
 		</tracker>
-		<texPath>Achievements/VCEF_AlphaFish_a</texPath>
+		<texPath>Achievements/VAE_WarAgainstTheMachines</texPath>
 		<points>10</points>
 	</AchievementsExpanded.AchievementDef>
 	<AchievementsExpanded.AchievementDef>
@@ -19,7 +19,7 @@
 		<tracker Class="AchievementsExpanded.MechClusterDefeatTracker">
 			<count>5</count>
 		</tracker>
-		<texPath>Achievements/VCEF_AlphaFish_a</texPath>
+		<texPath>Achievements/VAE_MachinesFromTheFuture</texPath>
 		<points>50</points>
 	</AchievementsExpanded.AchievementDef>
 	<AchievementsExpanded.AchievementDef>
@@ -31,7 +31,7 @@
 			<def>UnstablePowerCell</def>
 			<count>5</count>
 		</tracker>
-		<texPath>Achievements/VCEF_AlphaFish_a</texPath>
+		<texPath>Achievements/VAE_UnstableCells</texPath>
 		<points>50</points>
 	</AchievementsExpanded.AchievementDef>
 	<AchievementsExpanded.AchievementDef>
@@ -44,7 +44,7 @@
 			<outcome>Success</outcome>
 			<count>1</count>
 		</tracker>
-		<texPath>Achievements/VCEF_AlphaFish_a</texPath>
+		<texPath>Achievements/VAE_NotInMyBackyard</texPath>
 		<points>10</points>
 	</AchievementsExpanded.AchievementDef>
 	<AchievementsExpanded.AchievementDef>
@@ -56,7 +56,7 @@
 			<title>Freeholder</title>
 			<count>1</count>
 		</tracker>
-		<texPath>Achievements/VCEF_AlphaFish_a</texPath>
+		<texPath>Achievements/VAE_BlueBlood</texPath>
 		<points>5</points>
 	</AchievementsExpanded.AchievementDef>
 	<AchievementsExpanded.AchievementDef>
@@ -68,7 +68,7 @@
 			<title>Acolyte</title>
 			<count>3</count>
 		</tracker>
-		<texPath>Achievements/VCEF_AlphaFish_a</texPath>
+		<texPath>Achievements/VAE_NobleDeeds</texPath>
 		<points>25</points>
 	</AchievementsExpanded.AchievementDef>
 	<AchievementsExpanded.AchievementDef>
@@ -80,7 +80,7 @@
 			<title>Knight</title>
 			<count>1</count>
 		</tracker>
-		<texPath>Achievements/VCEF_AlphaFish_a</texPath>
+		<texPath>Achievements/VAE_UpTheRanks</texPath>
 		<points>25</points>
 	</AchievementsExpanded.AchievementDef>
 	<AchievementsExpanded.AchievementDef>
@@ -92,7 +92,7 @@
 			<title>Count</title>
 			<count>1</count>
 		</tracker>
-		<texPath>Achievements/VCEF_AlphaFish_a</texPath>
+		<texPath>Achievements/VAE_EnlightenedAristocracy</texPath>
 		<points>50</points>
 	</AchievementsExpanded.AchievementDef>
 	<AchievementsExpanded.AchievementDef>
@@ -104,7 +104,7 @@
 			<title>Knight</title>
 			<count>5</count>
 		</tracker>
-		<texPath>Achievements/VCEF_AlphaFish_a</texPath>
+		<texPath>Achievements/VAE_TheRoyalCourt</texPath>
 		<points>100</points>
 	</AchievementsExpanded.AchievementDef>
 	<AchievementsExpanded.AchievementDef>
@@ -129,7 +129,7 @@
 			</thingList>
 			<mustHaveAll>true</mustHaveAll>
 		</tracker>
-		<texPath>Achievements/VCEF_AlphaFish_a</texPath>
+		<texPath>Achievements/VAE_RoyalArms</texPath>
 		<points>25</points>
 	</AchievementsExpanded.AchievementDef>
 	<AchievementsExpanded.AchievementDef>
@@ -143,7 +143,7 @@
 			<count>5</count>
 		</tracker>
 		
-		<texPath>Achievements/VCEF_AlphaFish_a</texPath>
+		<texPath>Achievements/VAE_AnimaTorture</texPath>
 		<points>25</points>
 	</AchievementsExpanded.AchievementDef>
 </Defs>

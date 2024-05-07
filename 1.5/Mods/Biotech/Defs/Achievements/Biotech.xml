@@ -15,7 +15,7 @@
 			
 		</tracker>
 		
-		<texPath>Achievements/VCEF_AlphaFish_a</texPath>
+		<texPath>Achievements/VAE_Bloodsuckers</texPath>
 		<points>10</points>
 	</AchievementsExpanded.AchievementDef>
 	
@@ -35,7 +35,7 @@
 			
 		</tracker>
 		
-		<texPath>Achievements/VCEF_AlphaFish_a</texPath>
+		<texPath>Achievements/VAE_NeedMoreCatgirls</texPath>
 		<points>25</points>
 	</AchievementsExpanded.AchievementDef>
 	
@@ -54,7 +54,7 @@
 			
 		</tracker>
 		
-		<texPath>Achievements/VCEF_AlphaFish_a</texPath>
+		<texPath>Achievements/VAE_UngusAndBungus</texPath>
 		<points>25</points>
 	</AchievementsExpanded.AchievementDef>
 	
@@ -69,7 +69,7 @@
 			<xenotypeDef>Pigskin</xenotypeDef>
 		</tracker>
 		
-		<texPath>Achievements/VCEF_AlphaFish_a</texPath>
+		<texPath>Achievements/VAE_AMachineForPigs</texPath>
 		<points>75</points>
 	</AchievementsExpanded.AchievementDef>
 	
@@ -121,7 +121,7 @@
 			
 		</tracker>
 		
-		<texPath>Achievements/VCEF_AlphaFish_a</texPath>
+		<texPath>Achievements/VAE_MeltingPot</texPath>
 		<points>100</points>
 	</AchievementsExpanded.AchievementDef>
 	
@@ -136,7 +136,7 @@
 			
 		</tracker>
 		
-		<texPath>Achievements/VCEF_AlphaFish_a</texPath>
+		<texPath>Achievements/VAE_NewGeneration</texPath>
 		<points>25</points>
 	</AchievementsExpanded.AchievementDef>
 	

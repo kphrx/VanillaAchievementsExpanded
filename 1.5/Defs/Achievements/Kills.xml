@@ -115,7 +115,7 @@
 			<weaponDef>Gun_DoomsdayRocket</weaponDef>
 		</tracker>
 		
-		<texPath>Achievements/VCEF_AlphaFish_a</texPath>
+		<texPath>Achievements/VAE_TacticalNukeInbound</texPath>
 		<points>25</points>
 	</AchievementsExpanded.AchievementDef>
 	
@@ -130,7 +130,7 @@
 			<instigatorThingDef>TrapSpike</instigatorThingDef>
 		</tracker>
 		
-		<texPath>Achievements/VCEF_AlphaFish_a</texPath>
+		<texPath>Achievements/VAE_TakeThatMickey</texPath>
 		<points>10</points>
 	</AchievementsExpanded.AchievementDef>
 </Defs>

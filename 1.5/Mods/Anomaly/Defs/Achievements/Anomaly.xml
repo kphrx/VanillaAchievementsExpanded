@@ -2,9 +2,10 @@
 <Defs>
 	<AchievementsExpanded.AchievementDef>
 		<defName>VAE_GetAGhoul</defName>
-		<label>I Will Survive</label>
+		<label>Don't Let it Get Hungry</label>
 		<description>Get a ghoul</description>
-		<order>1</order>
+		<tab>VAE_DLCTab</tab>
+		<blockedUntilMonolithLevel>Stirring</blockedUntilMonolithLevel>
 		<tracker Class="AchievementsExpanded.KindDefTracker">
 			<kindDefs>
 				<li>
@@ -13,14 +14,15 @@
 				</li>
 			</kindDefs>
 		</tracker>
-		<texPath>Achievements/IWillSurvive</texPath>
+		<texPath>Achievements/VAE_GetAGhoul</texPath>
 		<points>5</points>
 	</AchievementsExpanded.AchievementDef>
 	<AchievementsExpanded.AchievementDef>
 		<defName>VAE_ContainARevenant</defName>
-		<label>A revenant</label>
-		<description>Contain a revenant</description>
-		<order>1</order>
+		<label>Invisible Coward</label>
+		<blockedUntilMonolithLevel>Waking</blockedUntilMonolithLevel>
+		<description>Contain a Revenant</description>
+		<tab>VAE_DLCTab</tab>
 		<tracker Class="AchievementsExpanded.EntitiesInHoldTracker">
 			<entitiesList>
 				<li>
@@ -29,70 +31,172 @@
 				</li>
 			</entitiesList>
 		</tracker>
-		<texPath>Achievements/IWillSurvive</texPath>
-		<points>5</points>
+		<texPath>Achievements/VAE_ContainARevenant</texPath>
+		<points>10</points>
 	</AchievementsExpanded.AchievementDef>
 	<AchievementsExpanded.AchievementDef>
-		<defName>VAE_ContainTwoEntities</defName>
-		<label>Two entities</label>
-		<description>Contain two entities</description>
-		<order>1</order>
+		<defName>VAE_Nananana</defName>
+		<label>Na-na-na-na</label>
+		<blockedUntilMonolithLevel>Waking</blockedUntilMonolithLevel>
+		<description>Contain a Nociosphere</description>
+		<tab>VAE_DLCTab</tab>
 		<tracker Class="AchievementsExpanded.EntitiesInHoldTracker">
-			<totalEntities>2</totalEntities>
+			<entitiesList>
+				<li>
+					<key>Nociosphere</key>
+					<value>1</value>
+				</li>
+			</entitiesList>
 		</tracker>
-		<texPath>Achievements/IWillSurvive</texPath>
+		<texPath>Achievements/VAE_Nananana</texPath>
 		<points>5</points>
 	</AchievementsExpanded.AchievementDef>
 	<AchievementsExpanded.AchievementDef>
-		<defName>VAE_FiveSlaves</defName>
-		<label>Five slaves</label>
-		<description>Get five slaves</description>
-		<order>1</order>
+		<defName>VAE_PrinceOfAllCosmos</defName>
+		<label>Prince of all Cosmos</label>
+		<blockedUntilMonolithLevel>Waking</blockedUntilMonolithLevel>
+		<description>Activate Nociosphere</description>
+		<tab>VAE_DLCTab</tab>
+		<tracker Class="AchievementsExpanded.NociosphereTracker">
+			<nociosphereActivations>1</nociosphereActivations>
+		</tracker>
+		<texPath>Achievements/VAE_PrinceOfAllCosmos</texPath>
+		<points>10</points>
+	</AchievementsExpanded.AchievementDef>
+	<AchievementsExpanded.AchievementDef>
+		<defName>VAE_ItsDangerouslyDangerous</defName>
+		<label>It’s Dangerously Dangerous</label>
+		<blockedUntilMonolithLevel>Waking</blockedUntilMonolithLevel>
+		<description>Activate Five Nociospheres</description>
+		<tab>VAE_DLCTab</tab>
+		<tracker Class="AchievementsExpanded.NociosphereTracker">
+			<nociosphereActivations>5</nociosphereActivations>
+		</tracker>
+		<texPath>Achievements/VAE_ItsDangerouslyDangerous</texPath>
+		<points>50</points>
+	</AchievementsExpanded.AchievementDef>
+	<AchievementsExpanded.AchievementDef>
+		<defName>VAE_PurePerfection</defName>
+		<label>Pure Perfection</label>
+		<blockedUntilMonolithLevel>Waking</blockedUntilMonolithLevel>
+		<description>Contain a Golden Cube. Love the Cube</description>
+		<tab>VAE_DLCTab</tab>
+		<tracker Class="AchievementsExpanded.EntitiesInHoldTracker">
+			<entitiesList>
+				<li>
+					<key>GoldenCube</key>
+					<value>1</value>
+				</li>
+			</entitiesList>
+		</tracker>
+		<texPath>Achievements/VAE_PurePerfection</texPath>
+		<points>5</points>
+	</AchievementsExpanded.AchievementDef>
+	<AchievementsExpanded.AchievementDef>
+		<defName>VAE_PlatonicSolid</defName>
+		<label>Platonic Solid</label>
+		<blockedUntilMonolithLevel>Waking</blockedUntilMonolithLevel>
+		<description>Contain a Golden Cube. Love the Cube</description>
+		<tab>VAE_DLCTab</tab>
+		
+		<tracker Class="AchievementsExpanded.HediffTracker">
+			<def>CubeInterest</def>
+			<count>7</count>
+		</tracker>
+		
+		
+		<texPath>Achievements/VAE_PlatonicSolid</texPath>
+		<points>25</points>
+	</AchievementsExpanded.AchievementDef>
+	<AchievementsExpanded.AchievementDef>
+		<defName>VAE_TheNightParty</defName>
+		<label>The Night Party</label>
+		<blockedUntilMonolithLevel>Waking</blockedUntilMonolithLevel>
+		<description>Contain 2 Noctols and 2 Sightstealers</description>
+		<tab>VAE_DLCTab</tab>
+		<tracker Class="AchievementsExpanded.EntitiesInHoldTracker">
+			<entitiesList>
+				<li>
+					<key>Noctol</key>
+					<value>2</value>
+				</li>
+				<li>
+					<key>Sightstealer</key>
+					<value>2</value>
+				</li>
+			</entitiesList>
+		</tracker>
+		<texPath>Achievements/VAE_TheNightParty</texPath>
+		<points>25</points>
+	</AchievementsExpanded.AchievementDef>
+	<AchievementsExpanded.AchievementDef>
+		<defName>VAE_EmbraceTheVoid</defName>
+		<label>Embrace the Void</label>
+		<blockedUntilMonolithLevel>VoidAwakened</blockedUntilMonolithLevel>
+		<description>Have a colonist embrace the void</description>
+		<tab>VAE_DLCTab</tab>
+		<tracker Class="AchievementsExpanded.HediffTracker">
+			<def>VoidTouched</def>
+			<count>1</count>
+		</tracker>
+		<texPath>Achievements/VAE_EmbraceTheVoid</texPath>
+		<points>100</points>
+	</AchievementsExpanded.AchievementDef>
+	<AchievementsExpanded.AchievementDef>
+		<defName>VAE_BlindedByTheLight</defName>
+		<label>Blinded by the light</label>
+		<blockedUntilMonolithLevel>Waking</blockedUntilMonolithLevel>
+		<description>Stun an enemy with a flare</description>
+		<tab>VAE_DLCTab</tab>
+		<tracker Class="AchievementsExpanded.HediffTracker">
+			<def>DisruptorFlash</def>
+			<count>1</count>
+		</tracker>
+		<texPath>Achievements/VAE_BlindedByTheLight</texPath>
+		<points>5</points>
+	</AchievementsExpanded.AchievementDef>
+	<AchievementsExpanded.AchievementDef>
+		<defName>VAE_SecureContainProtect</defName>
+		<label>Secure, Contain, Protect</label>
+		<blockedUntilMonolithLevel>Stirring</blockedUntilMonolithLevel>
+		<description>Have a total of 30 contained entities</description>
+		<tab>VAE_DLCTab</tab>
+		<tracker Class="AchievementsExpanded.EntitiesInHoldTracker">
+			<totalEntities>30</totalEntities>
+		</tracker>
+		<texPath>Achievements/VAE_SecureContainProtect</texPath>
+		<points>100</points>
+	</AchievementsExpanded.AchievementDef>
+	<AchievementsExpanded.AchievementDef>
+		<defName>VAE_OriginalityIsDead</defName>
+		<label>Originality is Dead</label>
+		<blockedUntilMonolithLevel>Waking</blockedUntilMonolithLevel>
+		<description>Have at least 10 people being duplicates</description>
 		<tracker Class="AchievementsExpanded.RaceDefTracker">
 			<raceDefs>
 				<li>
 					<key>Human</key>
-					<value>5</value>
+					<value>10</value>
 				</li>
 			</raceDefs>
-			<countOnlySlaves>true</countOnlySlaves>
+			<countClones>true</countClones>
 		</tracker>
-		<texPath>Achievements/IWillSurvive</texPath>
-		<points>5</points>
+		<tab>VAE_DLCTab</tab>
+		<texPath>Achievements/VAE_OriginalityIsDead</texPath>
+		<points>75</points>
 	</AchievementsExpanded.AchievementDef>
 	<AchievementsExpanded.AchievementDef>
-		<defName>VAE_ActivateNociosphere</defName>
-		<label>Activate Nociosphere</label>
-		<description>Activate Nociosphere</description>
-		<order>1</order>
-		<tracker Class="AchievementsExpanded.NociosphereTracker">
-			<nociosphereActivations>1</nociosphereActivations>
+		<defName>VAE_Witcher</defName>
+		<label>Witcher</label>
+		<description>Kill a Revenant with a Longsword</description>
+		<blockedUntilMonolithLevel>Waking</blockedUntilMonolithLevel>
+		<tracker Class="AchievementsExpanded.KillTracker">
+			<raceDef>Revenant</raceDef>
+			<count>1</count>
+			<weaponDef>MeleeWeapon_LongSword</weaponDef>
 		</tracker>
-		<texPath>Achievements/IWillSurvive</texPath>
-		<points>5</points>
+		<tab>VAE_DLCTab</tab>
+		<texPath>Achievements/VAE_Witcher</texPath>
+		<points>100</points>
 	</AchievementsExpanded.AchievementDef>
-	<AchievementsExpanded.AchievementDef>
-		<defName>VAE_ActivateFiveNociospheres</defName>
-		<label>Activate Five Nociospheres</label>
-		<description>Activate Five Nociospheres</description>
-		<order>1</order>
-		<tracker Class="AchievementsExpanded.NociosphereTracker">
-			<nociosphereActivations>5</nociosphereActivations>
-		</tracker>
-		<texPath>Achievements/IWillSurvive</texPath>
-		<points>5</points>
-	</AchievementsExpanded.AchievementDef>
-	<AchievementsExpanded.AchievementDef>
-		<defName>VAE_FivePrisoners</defName>
-		<label>Five prisoners</label>
-		<description>Get five prisoners</description>
-		<order>1</order>
-		<tracker Class="AchievementsExpanded.PrisonerJoinedTracker">
-			<numberOfPrisoners>5</numberOfPrisoners>
-		</tracker>
-		<texPath>Achievements/IWillSurvive</texPath>
-		<points>5</points>
-	</AchievementsExpanded.AchievementDef>
-	
-
 </Defs>
