@@ -84,7 +84,7 @@
 	
 	<AchievementsExpanded.AchievementDef>
 		<defName>VAE_CaptainPlanetWouldGetAStroke</defName>
-		<label>Captain Planet Would a Stroke</label>
+		<label>Captain Planet Would Have a Stroke</label>
 		<description>Have your pet thrumbos consume 50 trees</description>
 		
 		<tracker Class="AchievementsExpanded.IngestionTracker">

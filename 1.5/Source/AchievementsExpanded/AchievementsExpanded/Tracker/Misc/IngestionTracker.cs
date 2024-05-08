@@ -92,7 +92,6 @@ namespace AchievementsExpanded
 
             bool ingestorRace = ingestorThingDef is null || ingester.def == ingestorThingDef;
             bool ingestorRaces = ingestorsThingDefs.NullOrEmpty() || ingestorsThingDefs.Contains(ingester.def);
-
             bool food = foodDef is null || thingIngested.def == foodDef;
             bool corpse = !checkIfCorpse || thingIngested as Corpse != null;
             bool tree = !checkIfTree || thingIngested.def?.plant?.IsTree == true;
