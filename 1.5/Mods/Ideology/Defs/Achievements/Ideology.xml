@@ -7,12 +7,14 @@
 		<tracker Class="AchievementsExpanded.IdeosTracker">
 			<count>4</count>
 		</tracker>
+		<tab>VAE_DLCTab</tab>
 		<texPath>Achievements/VAE_Multiculture</texPath>
 		<points>25</points>
 	</AchievementsExpanded.AchievementDef>
 	<AchievementsExpanded.AchievementDef>
 		<defName>VAE_SlaveOwner</defName>
 		<label>Slave Owner</label>
+		<tab>VAE_DLCTab</tab>
 		<description>Enslave a person</description>
 		<tracker Class="AchievementsExpanded.RaceDefTracker">
 			<raceDefs>
@@ -29,6 +31,7 @@
 	<AchievementsExpanded.AchievementDef>
 		<defName>VAE_SlaveDriver</defName>
 		<label>Slave Driver</label>
+		<tab>VAE_DLCTab</tab>
 		<description>Enslave 7 slaves over time</description>
 		<tracker Class="AchievementsExpanded.RaceDefTracker">
 			<raceDefs>
@@ -45,6 +48,7 @@
 	<AchievementsExpanded.AchievementDef>
 		<defName>VAE_HappyTreeCritters</defName>
 		<label>Happy Tree Critters</label>
+		<tab>VAE_DLCTab</tab>
 		<description>Get 15 barkskin dryads</description>
 		<tracker Class="AchievementsExpanded.RaceDefTracker">
 			<raceDefs>
