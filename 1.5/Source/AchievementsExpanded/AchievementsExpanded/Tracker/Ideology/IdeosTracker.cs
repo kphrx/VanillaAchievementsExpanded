@@ -57,8 +57,9 @@ namespace AchievementsExpanded
 			{
 				return false;
 			}
-
-            if(Faction.OfPlayer?.ideos.AllIdeos.Count()>= count)
+			if(Faction.OfPlayer != null) { triggeredCount = (Faction.OfPlayer.ideos.AllIdeos.Count()); }
+			
+            if (triggeredCount>= count)
 			{
 				return true;
 			}
