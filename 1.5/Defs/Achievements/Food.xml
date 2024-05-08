@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<AchievementsExpanded.AchievementDef>
+		<defName>VAE_Munchies</defName>
+		<label>The Munchies</label>
+		<description>Have your pawns eat 10 (non-veg or carnivore) lavish meals</description>
+		
+		<tracker Class="AchievementsExpanded.IngestionTracker">
+			<ingestorThingDef>Human</ingestorThingDef>
+			<count>10</count>
+			<foodDef>MealLavish</foodDef>
+		</tracker>
+		
+		<texPath>Achievements/OneStepCloser</texPath>
+		<points>25</points>
+	</AchievementsExpanded.AchievementDef>
+	
+
+</Defs>

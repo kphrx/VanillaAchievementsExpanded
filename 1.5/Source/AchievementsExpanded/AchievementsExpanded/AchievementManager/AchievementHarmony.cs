@@ -722,6 +722,42 @@ namespace AchievementsExpanded
         }
 
         /// <summary>
+        /// Thing Ingested Event
+        /// </summary>
+        /// <param name="__instance"></param>
+        /// <param name="ingester"></param>
+
+
+        public static void IngestedThing(Thing __instance, Pawn ingester)
+        {
+
+            if (Current.ProgramState == ProgramState.Playing)
+            {
+                foreach (var card in AchievementPointManager.GetCards<IngestionTracker>())
+                {
+                    try
+                    {
+
+                        if ((card.tracker as IngestionTracker).Trigger(__instance, ingester))
+                        {
+                            card.UnlockCard();
+                        }
+                    }
+
+                    catch (Exception ex)
+                    {
+                        Log.Error($"Unable to trigger event for card validation. To avoid further errors {card.def.LabelCap} has been automatically unlocked.\n\nException={ex.Message}");
+                        card.UnlockCard();
+                    }
+
+
+                }
+            }
+
+
+        }
+
+        /// <summary>
         /// Prisoner Joined Event
         /// </summary>
         /// <param name="guestStatus"></param>
