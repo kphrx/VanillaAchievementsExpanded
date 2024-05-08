@@ -35,7 +35,14 @@ namespace AchievementsExpanded
 		public static Color LightGray = new Color(0.85f, 0.85f, 0.85f, 1f);
 		public static Color MediumGray = new Color(0.75f, 0.75f, 0.75f, 1f);
 
-		public AchievementPointManager APM
+		public List<string> TabsInCollateMode = new List<string> { "Main","VAE_DLCTab", "VAE_ModsTab" };
+		public List<string> MainModTabs = new List<string> { "Main", "VAE_DLCTab" };
+        public List<string> collateModeModTab = new List<string> {"VAE_ModsTab" };
+
+
+
+
+        public AchievementPointManager APM
 		{
 			get
 			{
@@ -93,8 +100,10 @@ namespace AchievementsExpanded
 		{
 			base.PostOpen();
 			tabs.Clear();
-			foreach (AchievementTabDef localTabDef2 in DefDatabase<AchievementTabDef>.AllDefs.OrderBy(x => x.order))
+			foreach (AchievementTabDef localTabDef2 in DefDatabase<AchievementTabDef>.AllDefs.Where(x => (!VAEMod.settings.collateModTabs && !collateModeModTab.Contains(x.defName))
+			|| (VAEMod.settings.collateModTabs && TabsInCollateMode.Contains(x.defName))).OrderBy(x => x.order))
 			{
+				
 				AchievementTabDef localTabDef = localTabDef2;
 				tabs.Add(new TabRecord(localTabDef.LabelCap, delegate()
 				{
@@ -243,8 +252,8 @@ namespace AchievementsExpanded
 		{
 			float iconWidth = (rect.width / CardsPerRow) - SpaceBetweenCards - (SpaceBetweenCards * 2 / CardsPerRow);
 			float iconHeight = iconWidth + iconWidth * 0.55f;
-
-			var achievementList = APM.achievementList.Where(a => a.tab == CurTab && 
+            
+            var achievementList = APM.achievementList.Where(a => ((!VAEMod.settings.collateModTabs && a.tab == CurTab) || (VAEMod.settings.collateModTabs && ((MainModTabs.Contains(a.tab.defName) && a.tab == CurTab) || (!MainModTabs.Contains(a.tab.defName) && collateModeModTab.Contains(CurTab.defName))))) && 
 				(string.IsNullOrEmpty(searchText) || a.def.label.Contains(searchText, StringComparison.OrdinalIgnoreCase) || a.def.description.Contains(searchText, StringComparison.OrdinalIgnoreCase)))
 				.OrderBy(c => c.def.order).ToList();
 

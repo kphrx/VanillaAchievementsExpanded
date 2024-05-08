@@ -11,13 +11,14 @@ namespace AchievementsExpanded
     {
         public bool writeAllSettings;
         public bool usePointsSystem = true;
+        public bool collateModTabs = false;
 
         public override void ExposeData()
         {
             base.ExposeData();
 
             Scribe_Values.Look(ref usePointsSystem, "usePointsSystem", true, true);
-
+            Scribe_Values.Look(ref collateModTabs, "collateModTabs", false, true);
         }
     }
 
@@ -39,6 +40,9 @@ namespace AchievementsExpanded
             listing.Begin(inRect);
 
             listing.CheckboxLabeled("VAE_UsePointsSystem".Translate(), ref settings.usePointsSystem, "VAE_UsePointsSystemDesc".Translate());
+
+            listing.Gap(30f);
+            listing.CheckboxLabeled("VAE_CollateModTabs".Translate(), ref settings.collateModTabs, "VAE_CollateModTabsDesc".Translate());
 
             listing.Gap(30f);
             if (Prefs.DevMode) {
