@@ -785,6 +785,34 @@ namespace AchievementsExpanded
         }
 
         /// <summary>
+        /// Ability Activated Event
+        /// </summary>
+        /// <param name="guestStatus"></param>
+
+        public static void AbilityActivated(Ability __instance, LocalTargetInfo? target)
+        {
+            if (Current.ProgramState == ProgramState.Playing )
+            {
+                foreach (var card in AchievementPointManager.GetCards<AbilityUseTracker>())
+                {
+                    try
+                    {
+						LocalTargetInfo targetToPass = (target != null ? target.Value : null); 
+                        if ((card.tracker as AbilityUseTracker).Trigger(__instance.def,__instance.pawn,targetToPass))
+                        {
+                            card.UnlockCard();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Log.Error($"Unable to trigger event for card validation. To avoid further errors {card.def.LabelCap} has been automatically unlocked.\n\nException={ex.Message}");
+                        card.UnlockCard();
+                    }
+                }
+            }
+        }
+
+        /// <summary>
         /// Royalty Title Set Event
         /// </summary>
         /// <param name="__instance"></param>

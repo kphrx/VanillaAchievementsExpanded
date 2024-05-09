@@ -1,0 +1,105 @@
+﻿using System;
+using System.Reflection;
+using System.Collections.Generic;
+using HarmonyLib;
+using RimWorld;
+using Verse;
+
+namespace AchievementsExpanded
+{
+    public class AbilityUseTracker : Tracker3<AbilityDef, Pawn, LocalTargetInfo>
+    {
+
+        public int count;
+        public AbilityDef abilityDef;
+        public List<AbilityDef> abilityDefs;
+        public ThingDef casterThingDef;
+        public ThingDef targetThingDef;
+        public bool onlyPsycast = false;
+        public bool onlyPlayerFaction = true;
+        public float targetBelowHealthPercentage;
+        public bool targetOnFire = false;
+
+
+        [Unsaved]
+        protected float triggeredCount;
+
+        public override string Key
+        {
+            get { return "AbilityUseTracker"; }
+            set { }
+        }
+        public override MethodInfo MethodHook => AccessTools.Method(typeof(Ability), "PreActivate"); 
+        public override MethodInfo PatchMethod => AccessTools.Method(typeof(AchievementHarmony), nameof(AchievementHarmony.AbilityActivated));
+        protected override string[] DebugText => new string[] {  $"Count: {count}" };
+
+        public AbilityUseTracker()
+        {
+        }
+
+        public AbilityUseTracker(AbilityUseTracker reference) : base(reference)
+        {
+            
+            count = reference.count;
+            onlyPlayerFaction = reference.onlyPlayerFaction;
+            abilityDef = reference.abilityDef;
+            abilityDefs = reference.abilityDefs;
+            casterThingDef = reference.casterThingDef;
+            targetThingDef = reference.targetThingDef;
+            onlyPsycast = reference.onlyPsycast;
+            targetOnFire = reference.targetOnFire;
+            targetBelowHealthPercentage = reference.targetBelowHealthPercentage;
+
+            if (count <= 0)
+                count = 1;
+
+            triggeredCount = 0;
+        }
+
+       
+
+        public override void ExposeData()
+        {
+            base.ExposeData();
+         
+            Scribe_Values.Look(ref count, "count", 1);
+            Scribe_Values.Look(ref onlyPlayerFaction, "onlyPlayerFaction", true);
+            Scribe_Defs.Look(ref abilityDef, "abilityDef");
+            Scribe_Collections.Look(ref abilityDefs, "abilityDefs", LookMode.Def);
+            Scribe_Values.Look(ref triggeredCount, "triggeredCount", 0);
+            Scribe_Defs.Look(ref casterThingDef, "casterThingDef");
+            Scribe_Defs.Look(ref targetThingDef, "targetThingDef");
+            Scribe_Values.Look(ref onlyPsycast, "onlyPsycast", false);
+            Scribe_Values.Look(ref targetBelowHealthPercentage, "targetBelowHealthPercentage", 0);
+            Scribe_Values.Look(ref targetOnFire, "targetOnFire", false);
+
+        }
+
+        public override (float percent, string text) PercentComplete =>  count > 1 ? (triggeredCount / count, $"{triggeredCount} / {count}") : base.PercentComplete;
+
+        public override bool Trigger(AbilityDef ability, Pawn caster, LocalTargetInfo target)
+        {
+            if (onlyPlayerFaction && caster.Faction != Faction.OfPlayerSilentFail)
+            {
+                return false;
+            }
+
+            if(onlyPsycast && !ability.IsPsycast) {
+
+                return false;
+            }
+           
+
+            bool abilityDetected = abilityDef is null || abilityDef == ability;
+            bool abilitiesDetected = abilityDefs.NullOrEmpty() || abilityDefs.Contains(ability);
+            bool belowHealth = targetBelowHealthPercentage != 0 || target.Pawn?.health.summaryHealth.SummaryHealthPercent< targetBelowHealthPercentage;
+            bool casterDef = casterThingDef is null || casterThingDef == caster.def;
+            bool targetDef = targetThingDef is null || targetThingDef == target.Pawn?.def;
+            bool onFire = !targetOnFire || target.Pawn?.IsBurning()==true;
+            
+            return abilitiesDetected && abilityDetected && casterDef && targetDef && belowHealth && onFire &&(count <= 1 || ++triggeredCount >= count);
+
+
+        }
+    }
+}
