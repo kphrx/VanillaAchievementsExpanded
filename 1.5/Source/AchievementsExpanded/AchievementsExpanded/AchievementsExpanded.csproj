@@ -100,6 +100,7 @@
     <Compile Include="Rewards\Reward_RandomQuest.cs" />
     <Compile Include="Rewards\Reward_RandomEvent.cs" />
     <Compile Include="Rewards\Reward_RandomQuestItem.cs" />
+    <Compile Include="Tracker\Abilities\AbilityCountTracker.cs" />
     <Compile Include="Tracker\Anomaly\NociosphereTracker.cs" />
     <Compile Include="Tracker\Base\GenericTracker.cs" />
     <Compile Include="Tracker\Biotech\BirthsTracker.cs" />
@@ -109,7 +110,7 @@
     <Compile Include="Tracker\Kill\KillTrackerWithOr.cs" />
     <Compile Include="Tracker\Anomaly\EntitiesInHoldTracker.cs" />
     <Compile Include="Tracker\Biotech\GeneAddedTracker.cs" />
-    <Compile Include="Tracker\Misc\AbilityUseTracker.cs" />
+    <Compile Include="Tracker\Abilities\AbilityUseTracker.cs" />
     <Compile Include="Tracker\Misc\IngestionTracker.cs" />
     <Compile Include="Tracker\Misc\ModAmountTracker.cs" />
     <Compile Include="Tracker\PawnJoined\PrisonerJoinedTracker.cs" />

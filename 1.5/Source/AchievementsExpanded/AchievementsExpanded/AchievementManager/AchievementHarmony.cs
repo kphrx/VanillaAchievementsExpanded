@@ -787,7 +787,8 @@ namespace AchievementsExpanded
         /// <summary>
         /// Ability Activated Event
         /// </summary>
-        /// <param name="guestStatus"></param>
+        /// <param name="__instance"></param>
+		/// <param name="target"></param>
 
         public static void AbilityActivated(Ability __instance, LocalTargetInfo? target)
         {
@@ -799,6 +800,35 @@ namespace AchievementsExpanded
                     {
 						LocalTargetInfo targetToPass = (target != null ? target.Value : null); 
                         if ((card.tracker as AbilityUseTracker).Trigger(__instance.def,__instance.pawn,targetToPass))
+                        {
+                            card.UnlockCard();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Log.Error($"Unable to trigger event for card validation. To avoid further errors {card.def.LabelCap} has been automatically unlocked.\n\nException={ex.Message}");
+                        card.UnlockCard();
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Ability Gained Event
+        /// </summary>
+        /// <param name="__instance"></param>
+		/// <param name="def"></param>
+
+        public static void AbilityGained(Pawn_AbilityTracker __instance, AbilityDef def)
+        {
+            if (Current.ProgramState == ProgramState.Playing)
+            {
+                foreach (var card in AchievementPointManager.GetCards<AbilityCountTracker>())
+                {
+                    try
+                    {
+                       
+                        if ((card.tracker as AbilityCountTracker).Trigger(def,__instance.pawn))
                         {
                             card.UnlockCard();
                         }

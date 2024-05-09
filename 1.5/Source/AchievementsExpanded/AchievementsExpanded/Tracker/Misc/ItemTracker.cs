@@ -13,8 +13,10 @@ namespace AchievementsExpanded
 		public ThingDef def;
 		public int count = 1;
         Dictionary<ThingDef, int> thingList = new Dictionary<ThingDef, int>();
-		public bool mustHaveAll = false;
-		public bool considerQuality = false;
+		public ThingCategoryDef category;
+        public bool mustHaveAll = false;
+        public bool checkRelics = false;
+        public bool considerQuality = false;
 		public QualityCategory quality = QualityCategory.Normal;
 
         [Unsaved]
@@ -42,9 +44,12 @@ namespace AchievementsExpanded
 			mustHaveAll = reference.mustHaveAll;
 			considerQuality = reference.considerQuality;
             quality =reference.quality;
+            category = reference.category;
+            checkRelics = reference.checkRelics;
+
         }
 
-		public override bool UnlockOnStartup => Trigger();
+        public override bool UnlockOnStartup => Trigger();
 
 		public override void ExposeData()
 		{
@@ -55,9 +60,12 @@ namespace AchievementsExpanded
             Scribe_Values.Look(ref considerQuality, "considerQuality", false);
             Scribe_Values.Look(ref quality, "quality", QualityCategory.Normal);
             Scribe_Collections.Look(ref thingList, "thingList", LookMode.Def, LookMode.Value);
+            Scribe_Defs.Look(ref category, "category");
+            Scribe_Values.Look(ref checkRelics, "checkRelics", false);
+
         }
 
-		public override (float percent, string text) PercentComplete => count > 1 ? ((float)triggeredCount / count, $"{triggeredCount} / {count}") : base.PercentComplete;
+        public override (float percent, string text) PercentComplete => count > 1 ? ((float)triggeredCount / count, $"{triggeredCount} / {count}") : base.PercentComplete;
 
 		public override bool Trigger()
 		{
@@ -67,7 +75,7 @@ namespace AchievementsExpanded
                 foreach (KeyValuePair<ThingDef, int> set in thingList)
                 {
 					
-                    playerHasIt = UtilityMethods.PlayerHas(set.Key, considerQuality, quality, out int total, count);
+                    playerHasIt = UtilityMethods.PlayerHas(set.Key,category, considerQuality, quality, checkRelics, out int total, count);
                                      
 					if (mustHaveAll)
 					{
@@ -79,7 +87,7 @@ namespace AchievementsExpanded
                 return playerHasIt;
 
             } else { 
-				return UtilityMethods.PlayerHas(def, considerQuality, quality, out triggeredCount, count);
+				return UtilityMethods.PlayerHas(def, category, considerQuality, quality, checkRelics, out triggeredCount, count);
 			}
 
 			

@@ -199,4 +199,21 @@
 		<texPath>Achievements/VAE_Witcher</texPath>
 		<points>100</points>
 	</AchievementsExpanded.AchievementDef>
+	<AchievementsExpanded.AchievementDef>
+		<defName>VAE_MeatForTheGrinder</defName>
+		<label>Meat for the Grinder</label>
+		<description>Use the psychic slaughter ability to turn a tribal into a pile of twisted meat</description>
+		<tab>VAE_DLCTab</tab>
+		<blockedUntilMonolithLevel>Stirring</blockedUntilMonolithLevel>
+		<tracker Class="AchievementsExpanded.AbilityUseTracker">
+			
+			<count>1</count>
+			<abilityDef>PsychicSlaughter</abilityDef>
+			<targetThingDef>Human</targetThingDef>
+			<targetFactionTechLevel>Neolithic</targetFactionTechLevel>
+		</tracker>
+		
+		<texPath>Achievements/VAE_MeatForTheGrinder</texPath>
+		<points>10</points>
+	</AchievementsExpanded.AchievementDef>
 </Defs>

@@ -154,7 +154,7 @@ namespace AchievementsExpanded
 		/// <param name="thingDef"></param>
 		/// <param name="count"></param>
 		/// <returns></returns>
-		public static bool PlayerHas(ThingDef thingDef, bool withQuality,QualityCategory quality,out int total, int count = 1)
+		public static bool PlayerHas(ThingDef thingDef, ThingCategoryDef category, bool withQuality, QualityCategory quality, bool checkRelics, out int total, int count = 1)
 		{
 			if (count <= 0)
 			{
@@ -167,7 +167,27 @@ namespace AchievementsExpanded
 			{
 				if (withQuality)
 				{
-                    List<Thing> thingsList = maps[i].listerThings.ThingsOfDef(thingDef);
+					List<Thing> thingsList = new List<Thing>();
+
+                    if (category != null)
+					{
+						ThingFilter categoriesFilter = new ThingFilter(category);
+                        thingsList = maps[i].listerThings.ThingsMatchingFilter(categoriesFilter);
+                    }
+					else
+					{
+						if (thingDef != null) { thingsList = maps[i].listerThings.ThingsOfDef(thingDef); } else
+						{
+							thingsList = maps[i].listerThings.AllThings;
+                        }
+                        
+                    }
+
+					if (checkRelics)
+					{
+						thingsList.RemoveWhere(x => !(x.StyleSourcePrecept is Precept_Relic));
+                    }
+                    
                     foreach (Thing thing in thingsList)
                     {                      
                         if (thing.TryGetComp<CompQuality>() is CompQuality qualityComp &&
@@ -179,7 +199,27 @@ namespace AchievementsExpanded
                 }
 				else
 				{
-                    num += maps[i].listerThings.ThingsOfDef(thingDef).Sum(t => t.stackCount);
+                    List<Thing> thingsList = new List<Thing>();
+
+                    if (category != null)
+                    {
+                        ThingFilter categoriesFilter = new ThingFilter(category);
+                        thingsList = maps[i].listerThings.GetAllThings(x => x.def?.thingCategories?.Contains(category)==true).ToList();
+						
+                    }
+                    else
+                    {
+                        if (thingDef != null) { thingsList = maps[i].listerThings.ThingsOfDef(thingDef); }
+                        else
+                        {
+                            thingsList = maps[i].listerThings.AllThings;
+                        }
+                    }
+                    if (checkRelics)
+                    {
+                        thingsList.RemoveWhere(x => !(x.StyleSourcePrecept is Precept_Relic));
+                    }
+                    num += thingsList.Sum(t => t.stackCount);
                 }
 				
 				if (num >= count)
@@ -195,9 +235,24 @@ namespace AchievementsExpanded
 				if (caravans[j].IsPlayerControlled)
 				{
 					List<Thing> list = CaravanInventoryUtility.AllInventoryItems(caravans[j]);
-					for (int k = 0; k < list.Count; k++)
+                    if (checkRelics)
+                    {
+                        list.RemoveWhere(x => !(x.StyleSourcePrecept is Precept_Relic));
+                    }
+                    for (int k = 0; k < list.Count; k++)
 					{
-						if (list[k].def == thingDef)
+						bool flag = false;
+                        if (category != null)
+                        {
+							flag = list[k].def.thingCategories.Contains(category);
+                        }
+                        else
+                        {
+                            flag = list[k].def == thingDef;
+                        }
+
+
+                        if (flag)
 						{
 
 							if (!withQuality || (withQuality && list[k].TryGetComp<CompQuality>() is CompQuality qualityComp &&

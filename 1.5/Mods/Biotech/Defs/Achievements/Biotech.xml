@@ -140,4 +140,80 @@
 		<points>25</points>
 	</AchievementsExpanded.AchievementDef>
 	
+	<AchievementsExpanded.AchievementDef>
+		<defName>VAE_UpsyDaisyVampireyHealyPower</defName>
+		<label>Upsy Daisy Vampirey Healy Power</label>
+		<description>Use the Coagulate ability at least 20 times</description>
+		<tab>VAE_DLCTab</tab>
+		<tracker Class="AchievementsExpanded.AbilityUseTracker">
+			
+			<count>20</count>
+			<abilityDef>Coagulate</abilityDef>
+			
+		</tracker>
+		
+		<texPath>Achievements/VAE_UpsyDaisyVampireyHealyPower</texPath>
+		<points>25</points>
+	</AchievementsExpanded.AchievementDef>
+	<AchievementsExpanded.AchievementDef>
+		<defName>VAE_StokingTheFire</defName>
+		<label>Stoking the Fire</label>
+		<description>Use the Fire Spew ability on a pawn that is already on fire</description>
+		<tab>VAE_DLCTab</tab>
+		<tracker Class="AchievementsExpanded.AbilityUseTracker">
+			
+			<count>1</count>
+			<abilityDef>FireSpew</abilityDef>
+			<targetOnFire>true</targetOnFire>
+		</tracker>
+		
+		<texPath>UI/Abilities/FireSpew</texPath>
+		<points>10</points>
+	</AchievementsExpanded.AchievementDef>
+	<AchievementsExpanded.AchievementDef>
+		<defName>VAE_SpineOverkill</defName>
+		<label>Spine Overkill</label>
+		<description>Use the Piercing Spine ability on a target below 5% health</description>
+		<tab>VAE_DLCTab</tab>
+		<tracker Class="AchievementsExpanded.AbilityUseTracker">
+			
+			<count>1</count>
+			<abilityDef>PiercingSpine</abilityDef>
+			<targetBelowHealthPercentage>0.05</targetBelowHealthPercentage>
+		</tracker>
+		
+		<texPath>UI/Abilities/PiercingSpine</texPath>
+		<points>10</points>
+	</AchievementsExpanded.AchievementDef>
+	<AchievementsExpanded.AchievementDef>
+		<defName>VAE_YouAndWhoseArmy</defName>
+		<label>You and Whose Army?</label>
+		<description>Use Animal Warcall ability 10 times to summon creatures of the wild</description>
+		<tab>VAE_DLCTab</tab>
+		<tracker Class="AchievementsExpanded.AbilityUseTracker">
+			
+			<count>10</count>
+			<abilityDef>AnimalWarcall</abilityDef>
+			
+		</tracker>
+		
+		<texPath>UI/Abilities/AnimalWarcall</texPath>
+		<points>25</points>
+	</AchievementsExpanded.AchievementDef>
+	<AchievementsExpanded.AchievementDef>
+		<defName>VAE_JustASippy</defName>
+		<label>Just a Sippy</label>
+		<description>Use the Bloodfeed ability on a friendly pawn</description>
+		<tab>VAE_DLCTab</tab>
+		<tracker Class="AchievementsExpanded.AbilityUseTracker">
+			
+			<count>1</count>
+			<abilityDef>Bloodfeed</abilityDef>
+			<checkTargetOnlyOfPlayerFaction>true</checkTargetOnlyOfPlayerFaction>
+		</tracker>
+		
+		<texPath>UI/Icons/Genes/Gene_Bloodfeeder</texPath>
+		<points>5</points>
+	</AchievementsExpanded.AchievementDef>
+	
 </Defs>

@@ -62,4 +62,17 @@
 		<texPath>Achievements/VAE_HappyTreeCritters</texPath>
 		<points>25</points>
 	</AchievementsExpanded.AchievementDef>
+	<AchievementsExpanded.AchievementDef>
+		<defName>VAE_ItBelongsInAMuseum</defName>
+		<label>It Belongs in a Museum</label>
+		<description>Obtain three relics</description>
+		<tab>VAE_DLCTab</tab>
+		<tracker Class="AchievementsExpanded.ItemTracker">
+			<checkRelics>true</checkRelics>
+			<count>3</count>
+		</tracker>
+		
+		<texPath>Achievements/VAE_ItBelongsInAMuseum</texPath>
+		<points>50</points>
+	</AchievementsExpanded.AchievementDef>
 </Defs>

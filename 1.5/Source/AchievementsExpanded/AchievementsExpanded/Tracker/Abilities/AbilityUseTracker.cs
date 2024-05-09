@@ -15,6 +15,9 @@ namespace AchievementsExpanded
         public List<AbilityDef> abilityDefs;
         public ThingDef casterThingDef;
         public ThingDef targetThingDef;
+        public List<ThingDef> targetThingDefs;
+        public bool checkTargetOnlyOfPlayerFaction = false;
+        public TechLevel? targetFactionTechLevel;
         public bool onlyPsycast = false;
         public bool onlyPlayerFaction = true;
         public float targetBelowHealthPercentage;
@@ -46,9 +49,12 @@ namespace AchievementsExpanded
             abilityDefs = reference.abilityDefs;
             casterThingDef = reference.casterThingDef;
             targetThingDef = reference.targetThingDef;
+            targetThingDefs = reference.targetThingDefs;
+            targetFactionTechLevel = reference.targetFactionTechLevel;
             onlyPsycast = reference.onlyPsycast;
             targetOnFire = reference.targetOnFire;
             targetBelowHealthPercentage = reference.targetBelowHealthPercentage;
+            checkTargetOnlyOfPlayerFaction = reference.checkTargetOnlyOfPlayerFaction;
 
             if (count <= 0)
                 count = 1;
@@ -69,10 +75,12 @@ namespace AchievementsExpanded
             Scribe_Values.Look(ref triggeredCount, "triggeredCount", 0);
             Scribe_Defs.Look(ref casterThingDef, "casterThingDef");
             Scribe_Defs.Look(ref targetThingDef, "targetThingDef");
+            Scribe_Collections.Look(ref targetThingDefs, "targetThingDefs", LookMode.Def);
             Scribe_Values.Look(ref onlyPsycast, "onlyPsycast", false);
             Scribe_Values.Look(ref targetBelowHealthPercentage, "targetBelowHealthPercentage", 0);
             Scribe_Values.Look(ref targetOnFire, "targetOnFire", false);
-
+            Scribe_Values.Look(ref targetFactionTechLevel, "targetFactionTechLevel");
+            Scribe_Values.Look(ref checkTargetOnlyOfPlayerFaction, "checkTargetOnlyOfPlayerFaction", false);
         }
 
         public override (float percent, string text) PercentComplete =>  count > 1 ? (triggeredCount / count, $"{triggeredCount} / {count}") : base.PercentComplete;
@@ -89,15 +97,17 @@ namespace AchievementsExpanded
                 return false;
             }
            
-
             bool abilityDetected = abilityDef is null || abilityDef == ability;
             bool abilitiesDetected = abilityDefs.NullOrEmpty() || abilityDefs.Contains(ability);
             bool belowHealth = targetBelowHealthPercentage != 0 || target.Pawn?.health.summaryHealth.SummaryHealthPercent< targetBelowHealthPercentage;
             bool casterDef = casterThingDef is null || casterThingDef == caster.def;
             bool targetDef = targetThingDef is null || targetThingDef == target.Pawn?.def;
+            bool targetDefs = targetThingDefs.NullOrEmpty() || targetThingDefs.Contains(target.Pawn?.def);
             bool onFire = !targetOnFire || target.Pawn?.IsBurning()==true;
-            
-            return abilitiesDetected && abilityDetected && casterDef && targetDef && belowHealth && onFire &&(count <= 1 || ++triggeredCount >= count);
+            bool techlevel = targetFactionTechLevel is null || target.Pawn?.Faction?.def?.techLevel == targetFactionTechLevel;
+            bool targetFaction = !checkTargetOnlyOfPlayerFaction || target.Pawn?.Faction == Faction.OfPlayerSilentFail;
+
+            return abilitiesDetected && abilityDetected && casterDef && targetFaction && targetDef && targetDefs && techlevel && belowHealth && onFire &&(count <= 1 || ++triggeredCount >= count);
 
 
         }
