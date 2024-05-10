@@ -33,8 +33,11 @@ namespace AchievementsExpanded
         public override MethodInfo MethodHook => AccessTools.Method(typeof(Pawn), nameof(Pawn.Kill));
 		public override MethodInfo PatchMethod => AccessTools.Method(typeof(AchievementHarmony), nameof(AchievementHarmony.KillPawn));
 		protected override string[] DebugText => new string[] { $"KindDef: {kindDef?.defName ?? "None"}", 
-																$"Race: {raceDef?.defName ?? "None"}", 
-																$"Factions: {factionDefs?.Count.ToString() ?? "None"}",
+																$"Race: {raceDef?.defName ?? "None"}",
+                                                                $"xenotypeDef: {xenotypeDef?.defName ?? "None"}",
+                                                                $"instigatorThingDef: {instigatorThingDef?.defName ?? "None"}",
+                                                                $"weaponDef: {weaponDef?.defName ?? "None"}",
+                                                                $"Factions: {factionDefs?.Count.ToString() ?? "None"}",
 																$"Instigators: {instigatorFactionDefs?.Count.ToString() ?? "None"}",
 																$"Count: {count}", $"Current: {triggeredCount}" };
 		public override PatchType PatchType => PatchType.Prefix;

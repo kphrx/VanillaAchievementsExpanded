@@ -22,7 +22,7 @@ namespace AchievementsExpanded
         }
         public override MethodInfo MethodHook => AccessTools.Method(typeof(Lord), nameof(Lord.Notify_MechClusterDefeated)); 
         public override MethodInfo PatchMethod => AccessTools.Method(typeof(AchievementHarmony), nameof(AchievementHarmony.DefeatedMechCluster));
-        protected override string[] DebugText => new string[] { $"Count: {count}"};
+        protected override string[] DebugText => new string[] { $"Count: {count}", $"Current: {triggeredCount}" };
 
         public MechClusterDefeatTracker()
         {

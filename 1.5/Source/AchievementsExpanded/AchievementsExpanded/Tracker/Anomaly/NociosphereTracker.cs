@@ -24,7 +24,8 @@ namespace AchievementsExpanded
 
         public override MethodInfo MethodHook => AccessTools.Method(typeof(CompNociosphere), nameof(CompNociosphere.OnActivityActivated));
         public override MethodInfo PatchMethod => AccessTools.Method(typeof(AchievementHarmony), nameof(AchievementHarmony.NociosphereActivated));
-        protected override string[] DebugText => new string[] { $"Nociosphere activations:  {nociosphereActivations}" };
+        protected override string[] DebugText => new string[] { $"Nociosphere activations:  {nociosphereActivations}" , $"Current: {triggeredCount}" };
+    
 
         public override (float percent, string text) PercentComplete => nociosphereActivations > 1 ? ((float)triggeredCount / nociosphereActivations, $"{triggeredCount} / {nociosphereActivations}") : base.PercentComplete;
 

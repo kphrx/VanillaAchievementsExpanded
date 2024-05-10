@@ -23,7 +23,7 @@ namespace AchievementsExpanded
 
         public override MethodInfo MethodHook => AccessTools.Method(typeof(Pawn_GuestTracker), nameof(Pawn_GuestTracker.SetGuestStatus));
 		public override MethodInfo PatchMethod => AccessTools.Method(typeof(AchievementHarmony), nameof(AchievementHarmony.PrisonerJoined));
-        protected override string[] DebugText => new string[] { $"Number Of Prisoners:  {numberOfPrisoners}" };
+        protected override string[] DebugText => new string[] { $"Number Of Prisoners:  {numberOfPrisoners}", $"Current: {triggeredCount}" };
 
 
         public override (float percent, string text) PercentComplete => numberOfPrisoners > 1 ? ((float)triggeredCount / numberOfPrisoners, $"{triggeredCount} / {numberOfPrisoners}") : base.PercentComplete;

@@ -31,7 +31,17 @@ namespace AchievementsExpanded
         }
         public override MethodInfo MethodHook => AccessTools.Method(typeof(Thing), nameof(Thing.Ingested)); 
         public override MethodInfo PatchMethod => AccessTools.Method(typeof(AchievementHarmony), nameof(AchievementHarmony.IngestedThing));
-        protected override string[] DebugText => new string[] {  $"Count: {count}" };
+      
+        protected override string[] DebugText => new string[] { $"ingestorThingDef: {ingestorThingDef?.defName ?? "None"}",
+                                                                $"ingestorsThingDefs: {ingestorsThingDefs?.ToStringSafeEnumerable() ?? "None"}",
+                                                                $"foodDef: {foodDef?.defName ?? "None"}",
+                                                                 $"includeIngredientDef: {includeIngredientDef?.defName ?? "None"}",
+                                                                $"checkIfCorpse: {checkIfCorpse}",
+                                                                 $"checkIfTree: {checkIfTree}",
+                                                                  $"onlyCountAnimals: {onlyCountAnimals}",
+                                                                   $"onlyPlayerFaction: {onlyPlayerFaction}",
+                                                                $"Count: {count}", $"Current: {triggeredCount}" };
+
 
         public IngestionTracker()
         {

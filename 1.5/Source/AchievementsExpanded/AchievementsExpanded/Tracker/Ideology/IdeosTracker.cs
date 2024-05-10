@@ -23,9 +23,9 @@ namespace AchievementsExpanded
         }
 
         public override Func<bool> AttachToLongTick => () => { return Trigger(); };
-		protected override string[] DebugText => new string[] { $"Count: {count}" };
+		protected override string[] DebugText => new string[] { $"Count: {count}", $"Current: {triggeredCount}" };
 
-		public IdeosTracker()
+        public IdeosTracker()
 		{
 		}
 

@@ -26,8 +26,9 @@ namespace AchievementsExpanded
         public override MethodInfo MethodHook => AccessTools.Method(typeof(QuestManager), nameof(QuestManager.Notify_ThingsProduced));
 		public override MethodInfo PatchMethod => AccessTools.Method(typeof(AchievementHarmony), nameof(AchievementHarmony.ThingSpawned));
 		protected override string[] DebugText => new string[] { $"Def: {def?.defName ?? "None"}", 
-																$"MadeFrom: {madeFrom?.defName ?? "Any"}", 
-																$"Quality: {quality}", 
+																$"MadeFrom: {madeFrom?.defName ?? "Any"}",
+                                                                $"includeingredient: {includeingredient?.defName ?? "Any"}",
+                                                                $"Quality: {quality}", 
 																$"Count: {count}", 
 																$"Current: {triggeredCount}" };
 		public ItemCraftTracker()

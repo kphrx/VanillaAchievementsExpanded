@@ -25,7 +25,10 @@ namespace AchievementsExpanded
 
         public override MethodInfo MethodHook => AccessTools.Method(typeof(Pawn_HealthTracker), nameof(Pawn_HealthTracker.AddHediff), new Type[] { typeof(Hediff), typeof(BodyPartRecord), typeof(DamageInfo), typeof(DamageWorker.DamageResult) });
 		public override MethodInfo PatchMethod => AccessTools.Method(typeof(AchievementHarmony), nameof(AchievementHarmony.HediffAdded));
-		protected override string[] DebugText => new string[] { $"Def: {def.defName}", $"Count: {count}", $"Current: {triggeredCount}"};
+		protected override string[] DebugText => new string[] { $"Def: {def.defName}", $"Count: {count}", $"Current: {triggeredCount}",
+        $"onlyCountSlaves: {onlyCountSlaves}", $"onlyCountGhouls: {onlyCountGhouls}", $"countAllMapPawns: {countAllMapPawns}"
+
+        };
 
 		public HediffTracker()
 		{

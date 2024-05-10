@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using HarmonyLib;
 using RimWorld;
 using Verse;
+using Verse.AI;
 
 namespace AchievementsExpanded
 {
@@ -35,7 +36,18 @@ namespace AchievementsExpanded
         }
         public override MethodInfo MethodHook => AccessTools.Method(typeof(Ability), "PreActivate"); 
         public override MethodInfo PatchMethod => AccessTools.Method(typeof(AchievementHarmony), nameof(AchievementHarmony.AbilityActivated));
-        protected override string[] DebugText => new string[] {  $"Count: {count}" };
+      
+        protected override string[] DebugText => new string[] { $"AbilityDef: {abilityDef?.defName ?? "None"}",
+                                                                $"AbilityDefs: {abilityDefs?.ToStringSafeEnumerable() ?? "None"}",
+                                                                $"casterThingDef: {casterThingDef?.defName ?? "None"}",
+                                                                $"casterThingDef: {targetThingDef?.defName ?? "None"}",
+                                                                $"onlyPsycast: {onlyPsycast}",
+                                                                $"checkTargetOnlyOfPlayerFaction: {checkTargetOnlyOfPlayerFaction}",
+                                                                $"targetBelowHealthPercentage: {targetBelowHealthPercentage}",
+                                                                $"targetOnFire: {targetOnFire}",
+                                                                $"targetManhunter: {targetManhunter}",
+                                                                $"onlyPlayerFaction: {onlyPlayerFaction}",
+                                                                $"Count: {count}", $"Current: {triggeredCount}" };
 
         public AbilityUseTracker()
         {

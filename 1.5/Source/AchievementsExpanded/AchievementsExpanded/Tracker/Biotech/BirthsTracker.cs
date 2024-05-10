@@ -23,7 +23,7 @@ namespace AchievementsExpanded
 
         public override MethodInfo MethodHook => AccessTools.Method(typeof(RitualOutcomeEffectWorker_ChildBirth), nameof(RitualOutcomeEffectWorker_ChildBirth.Apply));
         public override MethodInfo PatchMethod => AccessTools.Method(typeof(AchievementHarmony), nameof(AchievementHarmony.ColonistBirth));
-        protected override string[] DebugText => new string[] {  $"Count: {count}" };
+        protected override string[] DebugText => new string[] {  $"Count: {count}", $"Current: {triggeredCount}" };
 
         public override (float percent, string text) PercentComplete => ((float)triggeredCount / count, $"{triggeredCount} / {count}");
 

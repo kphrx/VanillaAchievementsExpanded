@@ -16,7 +16,6 @@ namespace AchievementsExpanded
         public AbilityDef abilityDef;
         public List<AbilityDef> abilityDefs;
         public bool onlyPsycast = false;
-        public bool onlyPlayerFaction = true;
         public bool total = false;
         public bool countTemporary=false;
 
@@ -30,7 +29,13 @@ namespace AchievementsExpanded
         }
         public override MethodInfo MethodHook => AccessTools.Method(typeof(Pawn_AbilityTracker), "GainAbility");
         public override MethodInfo PatchMethod => AccessTools.Method(typeof(AchievementHarmony), nameof(AchievementHarmony.AbilityGained));
-        protected override string[] DebugText => new string[] { $"Count: {count}" };
+
+        protected override string[] DebugText => new string[] { $"AbilityDef: {abilityDef?.defName ?? "None"}",
+                                                                $"AbilityDefs: {abilityDefs?.ToStringSafeEnumerable() ?? "None"}",
+                                                                $"total: {total}",
+                                                                $"onlyPsycast: {onlyPsycast}",
+                                                                $"countTemporary: {countTemporary}",
+                                                                $"Count: {count}", $"Current: {triggeredCount}" };
 
         public AbilityCountTracker()
         {
@@ -40,7 +45,7 @@ namespace AchievementsExpanded
         {
 
             count = reference.count;
-            onlyPlayerFaction = reference.onlyPlayerFaction;
+
             abilityDef = reference.abilityDef;
             abilityDefs = reference.abilityDefs;
             onlyPsycast = reference.onlyPsycast;
@@ -60,7 +65,6 @@ namespace AchievementsExpanded
             base.ExposeData();
 
             Scribe_Values.Look(ref count, "count", 1);
-            Scribe_Values.Look(ref onlyPlayerFaction, "onlyPlayerFaction", true);
             Scribe_Defs.Look(ref abilityDef, "abilityDef");
             Scribe_Collections.Look(ref abilityDefs, "abilityDefs", LookMode.Def);
             Scribe_Values.Look(ref triggeredCount, "triggeredCount", 0);
@@ -75,7 +79,7 @@ namespace AchievementsExpanded
         {
             if (!total)
             {
-                if (pawn is null || onlyPlayerFaction && pawn.Faction != Faction.OfPlayerSilentFail)
+                if (pawn is null || pawn.Faction != Faction.OfPlayerSilentFail)
                 {
                     return false;
                 }                

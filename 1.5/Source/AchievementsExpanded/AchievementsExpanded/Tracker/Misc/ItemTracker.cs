@@ -30,9 +30,18 @@ namespace AchievementsExpanded
         }
 
         public override Func<bool> AttachToLongTick => () => { return Trigger(); };
-		protected override string[] DebugText => new string[] { $"Def: {def?.defName ?? "None"}", $"Count: {count}" };
+		
 
-		public ItemTracker()
+        protected override string[] DebugText => new string[] { $"Def: {def?.defName ?? "None"}",
+                                                                $"thingList: {thingList?.ToStringSafeEnumerable() ?? "None"}",
+                                                                $"category: {category?.defName ?? "Any"}",
+                                                                $"mustHaveAll: {mustHaveAll}",
+                                                                $"checkRelics: {checkRelics}",
+                                                                $"Quality: {quality}",
+                                                                $"Count: {count}",
+                                                                $"Current: {triggeredCount}" };
+
+        public ItemTracker()
 		{
 		}
 
