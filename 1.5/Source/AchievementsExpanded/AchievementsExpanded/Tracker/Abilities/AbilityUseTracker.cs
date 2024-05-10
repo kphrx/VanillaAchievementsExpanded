@@ -22,6 +22,7 @@ namespace AchievementsExpanded
         public bool onlyPlayerFaction = true;
         public float targetBelowHealthPercentage;
         public bool targetOnFire = false;
+        public bool targetManhunter = false;
 
 
         [Unsaved]
@@ -54,6 +55,7 @@ namespace AchievementsExpanded
             onlyPsycast = reference.onlyPsycast;
             targetOnFire = reference.targetOnFire;
             targetBelowHealthPercentage = reference.targetBelowHealthPercentage;
+            targetManhunter = reference.targetManhunter;
             checkTargetOnlyOfPlayerFaction = reference.checkTargetOnlyOfPlayerFaction;
 
             if (count <= 0)
@@ -81,6 +83,7 @@ namespace AchievementsExpanded
             Scribe_Values.Look(ref targetOnFire, "targetOnFire", false);
             Scribe_Values.Look(ref targetFactionTechLevel, "targetFactionTechLevel");
             Scribe_Values.Look(ref checkTargetOnlyOfPlayerFaction, "checkTargetOnlyOfPlayerFaction", false);
+            Scribe_Values.Look(ref targetManhunter, "targetManhunter", false);
         }
 
         public override (float percent, string text) PercentComplete =>  count > 1 ? (triggeredCount / count, $"{triggeredCount} / {count}") : base.PercentComplete;
@@ -106,8 +109,9 @@ namespace AchievementsExpanded
             bool onFire = !targetOnFire || target.Pawn?.IsBurning()==true;
             bool techlevel = targetFactionTechLevel is null || target.Pawn?.Faction?.def?.techLevel == targetFactionTechLevel;
             bool targetFaction = !checkTargetOnlyOfPlayerFaction || target.Pawn?.Faction == Faction.OfPlayerSilentFail;
+            bool manhunter = !targetManhunter || target.Pawn?.InAggroMentalState == true;
 
-            return abilitiesDetected && abilityDetected && casterDef && targetFaction && targetDef && targetDefs && techlevel && belowHealth && onFire &&(count <= 1 || ++triggeredCount >= count);
+            return abilitiesDetected && abilityDetected && casterDef && targetFaction && targetDef && targetDefs && techlevel && belowHealth && onFire && manhunter && (count <= 1 || ++triggeredCount >= count);
 
 
         }

@@ -75,4 +75,20 @@
 		<texPath>Achievements/VAE_ItBelongsInAMuseum</texPath>
 		<points>50</points>
 	</AchievementsExpanded.AchievementDef>
+	<AchievementsExpanded.AchievementDef>
+		<defName>VAE_Wololo</defName>
+		<label>Wololo</label>
+		<description>Have a moralist use the Convert ability 10 times</description>
+		<tab>VAE_DLCTab</tab>
+		
+		<tracker Class="AchievementsExpanded.AbilityUseTracker">
+			
+			<count>10</count>
+			<abilityDef>Convert</abilityDef>
+			
+		</tracker>
+		
+		<texPath>Achievements/VAE_Wololo</texPath>
+		<points>25</points>
+	</AchievementsExpanded.AchievementDef>
 </Defs>
