@@ -154,7 +154,7 @@ namespace AchievementsExpanded
 		/// <param name="thingDef"></param>
 		/// <param name="count"></param>
 		/// <returns></returns>
-		public static bool PlayerHas(ThingDef thingDef, ThingCategoryDef category, bool withQuality, QualityCategory quality, bool checkRelics, out int total, int count = 1)
+		public static bool PlayerHas(ThingDef thingDef, ThingCategoryDef category, bool withQuality, QualityCategory quality, out int total, int count = 1)
 		{
 			if (count <= 0)
 			{
@@ -183,10 +183,6 @@ namespace AchievementsExpanded
                         
                     }
 
-					if (checkRelics)
-					{
-						thingsList.RemoveWhere(x => !(x.StyleSourcePrecept is Precept_Relic));
-                    }
                     
                     foreach (Thing thing in thingsList)
                     {                      
@@ -215,10 +211,7 @@ namespace AchievementsExpanded
                             thingsList = maps[i].listerThings.AllThings;
                         }
                     }
-                    if (checkRelics)
-                    {
-                        thingsList.RemoveWhere(x => !(x.StyleSourcePrecept is Precept_Relic));
-                    }
+                   
                     num += thingsList.Sum(t => t.stackCount);
                 }
 				
@@ -235,10 +228,7 @@ namespace AchievementsExpanded
 				if (caravans[j].IsPlayerControlled)
 				{
 					List<Thing> list = CaravanInventoryUtility.AllInventoryItems(caravans[j]);
-                    if (checkRelics)
-                    {
-                        list.RemoveWhere(x => !(x.StyleSourcePrecept is Precept_Relic));
-                    }
+                   
                     for (int k = 0; k < list.Count; k++)
 					{
 						bool flag = false;

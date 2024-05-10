@@ -15,7 +15,7 @@ namespace AchievementsExpanded
         Dictionary<ThingDef, int> thingList = new Dictionary<ThingDef, int>();
 		public ThingCategoryDef category;
         public bool mustHaveAll = false;
-        public bool checkRelics = false;
+     
         public bool considerQuality = false;
 		public QualityCategory quality = QualityCategory.Normal;
 
@@ -36,7 +36,7 @@ namespace AchievementsExpanded
                                                                 $"thingList: {thingList?.ToStringSafeEnumerable() ?? "None"}",
                                                                 $"category: {category?.defName ?? "Any"}",
                                                                 $"mustHaveAll: {mustHaveAll}",
-                                                                $"checkRelics: {checkRelics}",
+                                                              
                                                                 $"Quality: {quality}",
                                                                 $"Count: {count}",
                                                                 $"Current: {triggeredCount}" };
@@ -54,7 +54,7 @@ namespace AchievementsExpanded
 			considerQuality = reference.considerQuality;
             quality =reference.quality;
             category = reference.category;
-            checkRelics = reference.checkRelics;
+         
 
         }
 
@@ -70,7 +70,7 @@ namespace AchievementsExpanded
             Scribe_Values.Look(ref quality, "quality", QualityCategory.Normal);
             Scribe_Collections.Look(ref thingList, "thingList", LookMode.Def, LookMode.Value);
             Scribe_Defs.Look(ref category, "category");
-            Scribe_Values.Look(ref checkRelics, "checkRelics", false);
+        
 
         }
 
@@ -84,7 +84,7 @@ namespace AchievementsExpanded
                 foreach (KeyValuePair<ThingDef, int> set in thingList)
                 {
 					
-                    playerHasIt = UtilityMethods.PlayerHas(set.Key,category, considerQuality, quality, checkRelics, out int total, count);
+                    playerHasIt = UtilityMethods.PlayerHas(set.Key,category, considerQuality, quality,  out int total, count);
                                      
 					if (mustHaveAll)
 					{
@@ -96,7 +96,7 @@ namespace AchievementsExpanded
                 return playerHasIt;
 
             } else { 
-				return UtilityMethods.PlayerHas(def, category, considerQuality, quality, checkRelics, out triggeredCount, count);
+				return UtilityMethods.PlayerHas(def, category, considerQuality, quality,  out triggeredCount, count);
 			}
 
 			

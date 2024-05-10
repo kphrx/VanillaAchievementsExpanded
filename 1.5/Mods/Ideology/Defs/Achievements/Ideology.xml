@@ -65,15 +65,15 @@
 	<AchievementsExpanded.AchievementDef>
 		<defName>VAE_ItBelongsInAMuseum</defName>
 		<label>It Belongs in a Museum</label>
-		<description>Obtain three relics</description>
+		<description>Build three reliquaries</description>
 		<tab>VAE_DLCTab</tab>
-		<tracker Class="AchievementsExpanded.ItemTracker">
-			<checkRelics>true</checkRelics>
+		<tracker Class="AchievementsExpanded.BuildingTracker">
+			<def>Reliquary</def>
 			<count>3</count>
 		</tracker>
 		
 		<texPath>Achievements/VAE_ItBelongsInAMuseum</texPath>
-		<points>50</points>
+		<points>10</points>
 	</AchievementsExpanded.AchievementDef>
 	<AchievementsExpanded.AchievementDef>
 		<defName>VAE_Wololo</defName>
