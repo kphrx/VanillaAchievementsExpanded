@@ -785,6 +785,33 @@ namespace AchievementsExpanded
         }
 
         /// <summary>
+        /// Slave Joined Event
+        /// </summary>
+        /// <param name="guestStatus"></param>
+
+        public static void SlaveJoined(GuestStatus guestStatus)
+        {
+            if (Current.ProgramState == ProgramState.Playing && guestStatus == GuestStatus.Slave)
+            {
+                foreach (var card in AchievementPointManager.GetCards<SlaveJoinedTracker>())
+                {
+                    try
+                    {
+                        if ((card.tracker as SlaveJoinedTracker).Trigger())
+                        {
+                            card.UnlockCard();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Log.Error($"Unable to trigger event for card validation. To avoid further errors {card.def.LabelCap} has been automatically unlocked.\n\nException={ex.Message}");
+                        card.UnlockCard();
+                    }
+                }
+            }
+        }
+
+        /// <summary>
         /// Ability Activated Event
         /// </summary>
         /// <param name="__instance"></param>

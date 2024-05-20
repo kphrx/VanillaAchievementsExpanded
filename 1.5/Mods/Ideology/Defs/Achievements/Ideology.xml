@@ -16,14 +16,8 @@
 		<label>Slave Owner</label>
 		<tab>VAE_DLCTab</tab>
 		<description>Enslave a person</description>
-		<tracker Class="AchievementsExpanded.RaceDefTracker">
-			<raceDefs>
-				<li>
-					<key>Human</key>
-					<value>1</value>
-				</li>
-			</raceDefs>
-			<countOnlySlaves>true</countOnlySlaves>
+		<tracker Class="AchievementsExpanded.SlaveJoinedTracker">
+			<numberOfSlaves>1</numberOfSlaves>
 		</tracker>
 		<texPath>Achievements/VAE_SlaveOwner</texPath>
 		<points>5</points>
@@ -32,15 +26,10 @@
 		<defName>VAE_SlaveDriver</defName>
 		<label>Slave Driver</label>
 		<tab>VAE_DLCTab</tab>
-		<description>Enslave 7 slaves over time</description>
-		<tracker Class="AchievementsExpanded.RaceDefTracker">
-			<raceDefs>
-				<li>
-					<key>Human</key>
-					<value>5</value>
-				</li>
-			</raceDefs>
-			<countOnlySlaves>true</countOnlySlaves>
+		<description>Enslave seven people at the same time</description>
+		<tracker Class="AchievementsExpanded.SlaveJoinedTracker">
+			
+			<numberOfSlaves>7</numberOfSlaves>
 		</tracker>
 		<texPath>Achievements/VAE_SlaveDriver</texPath>
 		<points>25</points>
