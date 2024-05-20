@@ -40,7 +40,6 @@ namespace AchievementsExpanded
 			if (raceDefs.EnumerableNullOrEmpty())
 				Log.Error($"raceDefs list for RaceDefTracker cannot be Null or Empty");
             countTemporary = reference.countTemporary;
-            countOnlySlaves = reference.countOnlySlaves;
             countClones = reference.countClones;
         }
 
@@ -51,7 +50,6 @@ namespace AchievementsExpanded
 			base.ExposeData();
 			Scribe_Collections.Look(ref raceDefs, "raceDefs", LookMode.Def, LookMode.Value);
             Scribe_Values.Look(ref countTemporary, "countTemporary", true);
-            Scribe_Values.Look(ref countOnlySlaves, "countOnlySlaves", false);
             Scribe_Values.Look(ref countClones, "countClones", false);
         }
 
@@ -61,12 +59,7 @@ namespace AchievementsExpanded
 			bool trigger = true;
 			ThingDef raceDef = param?.def;
 			List<Pawn> factionPawns;
-			if (countOnlySlaves)
-			{
-                factionPawns = PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_SlavesOfColony;
-            }
 			
-            else
             if (!countTemporary)
 			{
                  factionPawns = PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_FreeColonists_NoLodgers;

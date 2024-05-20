@@ -39,8 +39,7 @@ namespace AchievementsExpanded
 			kindDefs = reference.kindDefs;
 			if (kindDefs.EnumerableNullOrEmpty())
 				Log.Error($"kindDefs list for KindDefTracker cannot be Null or Empty");
-            countTemporary = reference.countTemporary;
-            countOnlySlaves = reference.countOnlySlaves;
+            countTemporary = reference.countTemporary;         
             countClones = reference.countClones;
         }
 
@@ -50,8 +49,7 @@ namespace AchievementsExpanded
 		{
 			base.ExposeData();
 			Scribe_Collections.Look(ref kindDefs, "kindDefs", LookMode.Def, LookMode.Value);
-            Scribe_Values.Look(ref countTemporary, "countTemporary", true);
-            Scribe_Values.Look(ref countOnlySlaves, "countOnlySlaves", false);
+            Scribe_Values.Look(ref countTemporary, "countTemporary", true);         
             Scribe_Values.Look(ref countClones, "countClones", false);
         }
 
@@ -61,12 +59,7 @@ namespace AchievementsExpanded
 			bool trigger = true;
 			PawnKindDef kindDef = param?.kindDef;
             List<Pawn> factionPawns;
-            if (countOnlySlaves)
-            {
-                factionPawns = PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_SlavesOfColony;
-            }
-
-            else
+           
             if (!countTemporary)
             {
                 factionPawns = PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_FreeColonists_NoLodgers;
