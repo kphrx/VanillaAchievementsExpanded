@@ -18,7 +18,7 @@ namespace AchievementsExpanded
 		internal static string RootDir;
 		internal static bool writerDisabled = false;
 
-		internal static string FullPath => $"{RootDir}\\{FileName}";
+		internal static string FullPath => Path.Combine(RootDir, FileName);
 
 		public static bool Log(string text)
 		{
